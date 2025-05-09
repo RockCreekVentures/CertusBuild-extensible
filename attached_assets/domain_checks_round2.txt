@@ -1,0 +1,1169 @@
+   Domain Name: VISIOBUILD.COM
+   Registry Domain ID: 2518270332_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.gandi.net
+   Registrar URL: http://www.gandi.net
+   Updated Date: 2025-04-25T12:31:14Z
+   Creation Date: 2020-04-24T16:53:50Z
+   Registry Expiry Date: 2026-04-24T16:53:50Z
+   Registrar: Gandi SAS
+   Registrar IANA ID: 81
+   Registrar Abuse Contact Email: abuse@support.gandi.net
+   Registrar Abuse Contact Phone: +33.170377661
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: NS-145-C.GANDI.NET
+   Name Server: NS-177-A.GANDI.NET
+   Name Server: NS-216-B.GANDI.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:06Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: visiobuild.com
+Registry Domain ID: 2518270332_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.gandi.net
+Registrar URL: http://www.gandi.net
+Updated Date: 2025-04-25T12:31:14Z
+Creation Date: 2020-04-24T14:53:50Z
+Registrar Registration Expiration Date: 2026-04-24T16:53:50Z
+Registrar: GANDI SAS
+Registrar IANA ID: 81
+Registrar Abuse Contact Email: abuse@support.gandi.net
+Registrar Abuse Contact Phone: +33.170377661
+Reseller: 
+Domain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited
+Domain Status: 
+Domain Status: 
+Domain Status: 
+Domain Status: 
+Registry Registrant ID: REDACTED FOR PRIVACY
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: 
+Registrant Street: REDACTED FOR PRIVACY
+Registrant City: REDACTED FOR PRIVACY
+Registrant State/Province: 
+Registrant Postal Code: REDACTED FOR PRIVACY
+Registrant Country: FR
+Registrant Phone: REDACTED FOR PRIVACY
+Registrant Phone Ext:
+Registrant Fax: REDACTED FOR PRIVACY
+Registrant Fax Ext:
+Registrant Email: 62525780f39cde2e6407bd8326cabf6f-18731087@contact.gandi.net
+Registry Admin ID: REDACTED FOR PRIVACY
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: REDACTED FOR PRIVACY
+Admin Street: REDACTED FOR PRIVACY
+Admin City: REDACTED FOR PRIVACY
+Admin State/Province: REDACTED FOR PRIVACY
+Admin Postal Code: REDACTED FOR PRIVACY
+Admin Country: REDACTED FOR PRIVACY
+Admin Phone: REDACTED FOR PRIVACY
+Admin Phone Ext:
+Admin Fax: REDACTED FOR PRIVACY
+Admin Fax Ext:
+Admin Email: 62525780f39cde2e6407bd8326cabf6f-18731087@contact.gandi.net
+Registry Tech ID: REDACTED FOR PRIVACY
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: REDACTED FOR PRIVACY
+Tech Street: REDACTED FOR PRIVACY
+Tech City: REDACTED FOR PRIVACY
+Tech State/Province: REDACTED FOR PRIVACY
+Tech Postal Code: REDACTED FOR PRIVACY
+Tech Country: REDACTED FOR PRIVACY
+Tech Phone: REDACTED FOR PRIVACY
+Tech Phone Ext:
+Tech Fax: REDACTED FOR PRIVACY
+Tech Fax Ext:
+Tech Email: 5927229bc1d3ff485312bd0f043e4aaa-18772463@contact.gandi.net
+Name Server: NS-177-A.GANDI.NET
+Name Server: NS-216-B.GANDI.NET
+Name Server: NS-145-C.GANDI.NET
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+DNSSEC: Unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-05-04T16:36:13Z <<<
+
+For more information on Whois status codes, please visit
+https://www.icann.org/epp
+
+Reseller Email: 
+Reseller URL: 
+
+Personal data access and use are governed by French law, any use for the purpose of unsolicited mass commercial advertising as well as any mass or automated inquiries (for any intent other than the registration or modification of a domain name) are strictly forbidden. Copy of whole or part of our database without Gandi's endorsement is strictly forbidden.
+A dispute over the ownership of a domain name may be subject to the alternate procedure established by the Registry in question or brought before the courts.
+For additional information, please contact us via the following form:
+ https://www.gandi.net/support/contacter/mail/
+--- Checked visiobuild.com ---
+   Domain Name: BUILDSIGHT.COM
+   Registry Domain ID: 84237467_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.metaregistrar.com
+   Registrar URL: http://www.metaregistrar.com
+   Updated Date: 2025-03-07T08:19:20Z
+   Creation Date: 2002-03-06T13:20:56Z
+   Registry Expiry Date: 2026-03-06T13:20:56Z
+   Registrar: Metaregistrar BV
+   Registrar IANA ID: 2288
+   Registrar Abuse Contact Email: abuse@metaregistrar.com
+   Registrar Abuse Contact Phone: +31.858885692
+   Domain Status: ok https://icann.org/epp#ok
+   Name Server: NS1.YOURDOMAINPROVIDER.NET
+   Name Server: NS2.YOURDOMAINPROVIDER.NET
+   Name Server: NS3.YOURDOMAINPROVIDER.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:06Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: buildsight.com
+Registry Domain ID: 84237467_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.metaregistrar.com
+Registrar URL: https://www.metaregistrar.com/
+Updated Date: 2025-03-08T00:14:26Z
+Creation Date: 2002-03-06T13:20:56Z
+Registrar Registration Expiration Date: 2026-03-06T13:20:56Z
+Registrar: Metaregistrar BV
+Registrar IANA ID: 2288
+Reseller: Buildsight
+Domain Status: ok http://www.icann.org/epp#ok
+Registry Registrant ID: REDACTED FOR PRIVACY
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: REDACTED FOR PRIVACY
+Registrant Street: REDACTED FOR PRIVACY
+Registrant City: REDACTED FOR PRIVACY
+Registrant State/Province: 
+Registrant Postal Code: REDACTED FOR PRIVACY
+Registrant Country: NL
+Registrant Phone: REDACTED FOR PRIVACY
+Registrant Phone Ext: REDACTED FOR PRIVACY
+Registrant Fax: REDACTED FOR PRIVACY
+Registrant Fax Ext: REDACTED FOR PRIVACY
+Registrant Email: https://privacydomain.net/contact_domain/
+Registry Admin ID: REDACTED FOR PRIVACY
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: REDACTED FOR PRIVACY
+Admin Street: REDACTED FOR PRIVACY
+Admin City: REDACTED FOR PRIVACY
+Admin State/Province: REDACTED FOR PRIVACY
+Admin Postal Code: REDACTED FOR PRIVACY
+Admin Country: REDACTED FOR PRIVACY
+Admin Phone: REDACTED FOR PRIVACY
+Admin Phone Ext: REDACTED FOR PRIVACY
+Admin Fax: REDACTED FOR PRIVACY
+Admin Fax Ext: REDACTED FOR PRIVACY
+Admin Email: https://privacydomain.net/contact_domain/
+Registry Tech ID: REDACTED FOR PRIVACY
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: REDACTED FOR PRIVACY
+Tech Street: REDACTED FOR PRIVACY
+Tech City: REDACTED FOR PRIVACY
+Tech State/Province: REDACTED FOR PRIVACY
+Tech Postal Code: REDACTED FOR PRIVACY
+Tech Country: REDACTED FOR PRIVACY
+Tech Phone: REDACTED FOR PRIVACY
+Tech Phone Ext: REDACTED FOR PRIVACY
+Tech Fax: REDACTED FOR PRIVACY
+Tech Fax Ext: REDACTED FOR PRIVACY
+Tech Email: https://privacydomain.net/contact_domain/
+Name Server: ns3.yourdomainprovider.net
+Name Server: ns1.yourdomainprovider.net
+Name Server: ns2.yourdomainprovider.net
+DNSSEC: not signed
+Registrar Abuse Contact Email: abuse@metaregistrar.com
+Registrar Abuse Contact Phone: +31.858885692
+URL of the ICANN WHOIS Data Problem Reporting System:
+http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-05-04T16:36:14Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+Please email the listed admin email address if you wish to raise a legal issue.
+
+The data in this whois database is provided to you for information purposes only, that is,
+to assist you in obtaining information about or related to a domain name registration record.
+We make this information available "as is," and do not guarantee its accuracy.
+By submitting a whois query, you agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to:
+(1) enable high volume, automated, electronic processes that stress or load this whois database system providing you this information; or
+(2) allow, enable, or otherwise support the transmission of mass unsolicited, commercial advertising or solicitations via direct mail,
+electronic mail, or by telephone. The compilation, repackaging, dissemination or other use of this data is expressly prohibited without
+prior written consent from Metaregistrar BV
+
+
+--- Checked buildsight.com ---
+   Domain Name: FORMAAI.COM
+   Registry Domain ID: 2113402297_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.gandi.net
+   Registrar URL: http://www.gandi.net
+   Updated Date: 2024-07-11T18:09:38Z
+   Creation Date: 2017-04-12T02:46:56Z
+   Registry Expiry Date: 2030-04-12T02:46:56Z
+   Registrar: Gandi SAS
+   Registrar IANA ID: 81
+   Registrar Abuse Contact Email: abuse@support.gandi.net
+   Registrar Abuse Contact Phone: +33.170377661
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: NS-1141.AWSDNS-14.ORG
+   Name Server: NS-1680.AWSDNS-18.CO.UK
+   Name Server: NS-41.AWSDNS-05.COM
+   Name Server: NS-577.AWSDNS-08.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:06Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: formaai.com
+Registry Domain ID: 2113402297_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.gandi.net
+Registrar URL: http://www.gandi.net
+Updated Date: 2024-07-11T18:09:38Z
+Creation Date: 2017-04-12T00:46:56Z
+Registrar Registration Expiration Date: 2030-04-12T02:46:56Z
+Registrar: GANDI SAS
+Registrar IANA ID: 81
+Registrar Abuse Contact Email: abuse@support.gandi.net
+Registrar Abuse Contact Phone: +33.170377661
+Reseller: 
+Domain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited
+Domain Status: 
+Domain Status: 
+Domain Status: 
+Domain Status: 
+Registry Registrant ID: REDACTED FOR PRIVACY
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: Forma AI
+Registrant Street: 63-65 boulevard Massena
+Registrant City: Paris
+Registrant State/Province: Paris
+Registrant Postal Code: 75013
+Registrant Country: FR
+Registrant Phone: +33.170377666
+Registrant Phone Ext:
+Registrant Fax: +33.143730576
+Registrant Fax Ext:
+Registrant Email: 627c40ef66561a9d6fc5684d7ddaf8a4-5697342@contact.gandi.net
+Registry Admin ID: REDACTED FOR PRIVACY
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: Forma AI
+Admin Street: 63-65 boulevard Massena
+Admin City: Paris
+Admin State/Province: Paris
+Admin Postal Code: 75013
+Admin Country: FR
+Admin Phone: +33.170377666
+Admin Phone Ext:
+Admin Fax: +33.143730576
+Admin Fax Ext:
+Admin Email: 627c40ef66561a9d6fc5684d7ddaf8a4-5697342@contact.gandi.net
+Registry Tech ID: REDACTED FOR PRIVACY
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: Forma AI
+Tech Street: 63-65 boulevard Massena
+Tech City: Paris
+Tech State/Province: Paris
+Tech Postal Code: 75013
+Tech Country: FR
+Tech Phone: +33.170377666
+Tech Phone Ext:
+Tech Fax: +33.143730576
+Tech Fax Ext:
+Tech Email: 627c40ef66561a9d6fc5684d7ddaf8a4-5697342@contact.gandi.net
+Name Server: NS-577.AWSDNS-08.NET
+Name Server: NS-41.AWSDNS-05.COM
+Name Server: NS-1680.AWSDNS-18.CO.UK
+Name Server: NS-1141.AWSDNS-14.ORG
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+Name Server: 
+DNSSEC: Unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-05-04T16:36:14Z <<<
+
+For more information on Whois status codes, please visit
+https://www.icann.org/epp
+
+Reseller Email: 
+Reseller URL: 
+
+Personal data access and use are governed by French law, any use for the purpose of unsolicited mass commercial advertising as well as any mass or automated inquiries (for any intent other than the registration or modification of a domain name) are strictly forbidden. Copy of whole or part of our database without Gandi's endorsement is strictly forbidden.
+A dispute over the ownership of a domain name may be subject to the alternate procedure established by the Registry in question or brought before the courts.
+For additional information, please contact us via the following form:
+ https://www.gandi.net/support/contacter/mail/
+--- Checked formaai.com ---
+No match for domain "OPTICBUILD.COM".
+>>> Last update of whois database: 2025-05-04T16:36:06Z <<<
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+   Domain Name: INTELBUILD.COM
+   Registry Domain ID: 116385073_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2025-02-24T21:05:20Z
+   Creation Date: 2004-04-07T09:41:05Z
+   Registry Expiry Date: 2026-04-07T09:41:05Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS1.AFTERNIC.COM
+   Name Server: NS2.AFTERNIC.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:21Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+This WHOIS server is being retired. Please use our RDAP service instead. Rate limit exceeded. Try again after: 2562047h47m16.854775807s.
+--- Checked intelbuild.com ---
+   Domain Name: ACUBUILD.COM
+   Registry Domain ID: 102141088_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.namebright.com
+   Registrar URL: http://www.NameBright.com
+   Updated Date: 2024-07-26T11:01:31Z
+   Creation Date: 2003-08-15T19:17:09Z
+   Registry Expiry Date: 2025-08-15T19:17:09Z
+   Registrar: TurnCommerce, Inc. DBA NameBright.com
+   Registrar IANA ID: 1441
+   Registrar Abuse Contact Email: support@namebright.com
+   Registrar Abuse Contact Phone: 17204960020
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: NS1.NAMEBRIGHTDNS.COM
+   Name Server: NS2.NAMEBRIGHTDNS.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:21Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: ACUBUILD.COM
+Registry Domain ID: 102141088_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.NameBright.com
+Registrar URL: https://www.NameBright.com
+Updated Date: 2020-01-28T18:40:56.000Z
+Creation Date: 2003-08-15T19:17:09.000Z
+Registrar Registration Expiration Date: 2025-08-15T19:17:09.000Z
+Registrar: TurnCommerce, Inc. DBA NameBright.com
+Registrar IANA ID: 1441
+Registrar Abuse Contact Email: abuse@NameBright.com
+Registrar Abuse Contact Phone: +1.7204960020
+Domain Status: clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited
+Registry Registrant ID: Not Available From Registry
+Registrant Name: Redacted for Privacy
+Registrant Organization: NameBrightPrivacy.com
+Registrant Street: 2635 Walnut Street
+Registrant City: Denver
+Registrant State/Province: CO
+Registrant Postal Code: 80205
+Registrant Country: US
+Registrant Phone: +1.7204960020
+Registrant Phone Ext: 
+Registrant Fax: 
+Registrant Fax Ext: 
+Registrant Email: ACUBUILD.COM@NameBrightPrivacy.com
+Registry Admin ID: Not Available From Registry
+Admin Name: Redacted for Privacy
+Admin Organization: NameBrightPrivacy.com
+Admin Street: 2635 Walnut Street
+Admin City: Denver
+Admin State/Province: CO
+Admin Postal Code: 80205
+Admin Country: US
+Admin Phone: +1.7204960020
+Admin Phone Ext: 
+Admin Fax: 
+Admin Fax Ext: 
+Admin Email: ACUBUILD.COM@NameBrightPrivacy.com
+Registry Tech ID: Not Available From Registry
+Tech Name: Redacted for Privacy
+Tech Organization: NameBrightPrivacy.com
+Tech Street: 2635 Walnut Street
+Tech City: Denver
+Tech State/Province: CO
+Tech Postal Code: 80205
+Tech Country: US
+Tech Phone: +1.7204960020
+Tech Phone Ext: 
+Tech Fax: 
+Tech Fax Ext: 
+Tech Email: ACUBUILD.COM@NameBrightPrivacy.com
+Name Server: NS1.NAMEBRIGHTDNS.COM
+Name Server: NS2.NAMEBRIGHTDNS.COM
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2020-01-28T18:40:56.000Z <<<
+--- Checked acubuild.com ---
+   Domain Name: SIGHTPLAN.COM
+   Registry Domain ID: 165213450_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.name.com
+   Registrar URL: http://www.name.com
+   Updated Date: 2024-05-12T16:11:36Z
+   Creation Date: 2005-06-03T18:20:01Z
+   Registry Expiry Date: 2025-06-03T18:20:01Z
+   Registrar: Name.com, Inc.
+   Registrar IANA ID: 625
+   Registrar Abuse Contact Email: abuse@name.com
+   Registrar Abuse Contact Phone: 7202492374
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: NS-1319.AWSDNS-36.ORG
+   Name Server: NS-1678.AWSDNS-17.CO.UK
+   Name Server: NS-22.AWSDNS-02.COM
+   Name Server: NS-936.AWSDNS-53.NET
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:21Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: SIGHTPLAN.COM 
+Registry Domain ID: 165213450_DOMAIN_COM-VRSN 
+Registrar WHOIS Server: whois.name.com 
+Registrar URL: http://www.name.com 
+Updated Date: 2024-05-12T16:11:36Z 
+Creation Date: 2005-06-03T18:20:01Z 
+Registrar Registration Expiration Date: 2025-06-03T18:20:01Z 
+Registrar: Name.com, Inc. 
+Registrar IANA ID: 625 
+Reseller:  
+Domain Status: clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited 
+Registry Registrant ID: Not Available From Registry 
+Registrant Name: Redacted For Privacy 
+Registrant Organization: Domain Protection Services, Inc. 
+Registrant Street: PO Box 1769  
+Registrant City: Denver 
+Registrant State/Province: CO 
+Registrant Postal Code: 80201 
+Registrant Country: US 
+Registrant Phone: +1.7208009072 
+Registrant Fax: +1.7209758725 
+Registrant Email: https://www.name.com/contact-domain-whois/sightplan.com 
+Registry Admin ID: Not Available From Registry 
+Admin Name: Redacted For Privacy 
+Admin Organization: Domain Protection Services, Inc. 
+Admin Street: PO Box 1769  
+Admin City: Denver 
+Admin State/Province: CO 
+Admin Postal Code: 80201 
+Admin Country: US 
+Admin Phone: +1.7208009072 
+Admin Fax: +1.7209758725 
+Admin Email: https://www.name.com/contact-domain-whois/sightplan.com 
+Registry Tech ID: Not Available From Registry 
+Tech Name: Redacted For Privacy 
+Tech Organization: Domain Protection Services, Inc. 
+Tech Street: PO Box 1769  
+Tech City: Denver 
+Tech State/Province: CO 
+Tech Postal Code: 80201 
+Tech Country: US 
+Tech Phone: +1.7208009072 
+Tech Fax: +1.7209758725 
+Tech Email: https://www.name.com/contact-domain-whois/sightplan.com 
+Name Server: ns-936.awsdns-53.net 
+Name Server: ns-1678.awsdns-17.co.uk 
+Name Server: ns-1319.awsdns-36.org 
+Name Server: ns-22.awsdns-02.com 
+DNSSEC: unSigned 
+Registrar Abuse Contact Email: abuse@name.com 
+Registrar Abuse Contact Phone: +1.7203101849 
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-05-04T16:36:31Z <<< 
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+The data in the Name.com, Inc. WHOIS database is provided by Name.com, Inc. for information purposes, and to assist persons in obtaining information about or related to a domain name registration record. Name.com, Inc. does not guarantee its accuracy.  Users accessing the Name.com, Inc. WHOIS service agree to use the data only for lawful purposes, and under no circumstances may this data be used to: a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the registrar's own existing customers and b) enable high volume, automated, electronic processes that send queries or data to the systems of Name.com, Inc., except as reasonably necessary to register domain names or modify existing registrations. When using the Name.com, Inc. WHOIS service, please consider the following: the WHOIS service is not a replacement for standard EPP commands to the SRS service. WHOIS is not considered authoritative for registered domain objects. The WHOIS service may be scheduled for downtime during production or OT&E maintenance periods. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements.  Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a proper legal basis, for accessing the withheld data. Access to this data can be requested by submitting a request via the form found at https://www.name.com/layered-access-request . Name.com, Inc. reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.
+
+
+
+--- Checked sightplan.com ---
+   Domain Name: VISIOCORE.COM
+   Registry Domain ID: 912919363_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.ovh.com
+   Registrar URL: http://www.ovh.com
+   Updated Date: 2024-08-22T12:04:09Z
+   Creation Date: 2007-04-06T21:05:12Z
+   Registry Expiry Date: 2026-04-06T21:05:12Z
+   Registrar: OVH sas
+   Registrar IANA ID: 433
+   Registrar Abuse Contact Email: abuse@ovh.net
+   Registrar Abuse Contact Phone: +33.972101007
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Name Server: DNS10.OVH.NET
+   Name Server: NS10.OVH.NET
+   DNSSEC: signedDelegation
+   DNSSEC DS Data: 1351 8 2 6A351D6D3EC1E1CD92264EB3020A8A5281F4073FC11B735B04C443044934828B
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:21Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: visiocore.com
+Registry Domain ID: REDACTED FOR PRIVACY
+Registrar WHOIS Server: whois.ovh.com
+Registrar URL: https://ovh.com
+Updated Date: 2024-08-22T12:04:09Z
+Creation Date: 2007-04-06T21:05:12Z
+Registrar Registration Expiration Date: 2026-04-06T23:05:12+02:00
+Registrar: OVH, SAS
+Registrar IANA ID: 433
+Registrar Abuse Contact Email: abuse@ovh.net
+Registrar Abuse Contact Phone: +33.972101007
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registry Registrant ID: 
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: 
+Registrant Street: REDACTED FOR PRIVACY
+Registrant City: REDACTED FOR PRIVACY
+Registrant State/Province: 
+Registrant Postal Code: REDACTED FOR PRIVACY
+Registrant Country: FR
+Registrant Phone: REDACTED FOR PRIVACY
+Registrant Phone Ext: REDACTED FOR PRIVACY
+Registrant Fax: REDACTED FOR PRIVACY
+Registrant Fax Ext: REDACTED FOR PRIVACY
+Registrant Email: REDACTED FOR PRIVACY - Send message to contact by visiting https://www.ovhcloud.com/en/lp/request-ovhcloud-registered-domain/
+Registry Admin ID: 
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: REDACTED FOR PRIVACY
+Admin Street: REDACTED FOR PRIVACY
+Admin City: REDACTED FOR PRIVACY
+Admin State/Province: REDACTED FOR PRIVACY
+Admin Postal Code: REDACTED FOR PRIVACY
+Admin Country: REDACTED FOR PRIVACY
+Admin Phone: REDACTED FOR PRIVACY
+Admin Phone Ext: REDACTED FOR PRIVACY
+Admin Fax: REDACTED FOR PRIVACY
+Admin Fax Ext: REDACTED FOR PRIVACY
+Admin Email: REDACTED FOR PRIVACY - Send message to contact by visiting https://www.ovhcloud.com/en/lp/request-ovhcloud-registered-domain/
+Registry Tech ID: 
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: REDACTED FOR PRIVACY
+Tech Street: REDACTED FOR PRIVACY
+Tech City: REDACTED FOR PRIVACY
+Tech State/Province: REDACTED FOR PRIVACY
+Tech Postal Code: REDACTED FOR PRIVACY
+Tech Country: REDACTED FOR PRIVACY
+Tech Phone: REDACTED FOR PRIVACY
+Tech Phone Ext: REDACTED FOR PRIVACY
+Tech Fax: REDACTED FOR PRIVACY
+Tech Fax Ext: REDACTED FOR PRIVACY
+Tech Email: REDACTED FOR PRIVACY - Send message to contact by visiting https://www.ovhcloud.com/en/lp/request-ovhcloud-registered-domain/
+Name Server: ns10.ovh.net
+Name Server: dns10.ovh.net
+DNSSEC: signedDelegation
+URL of the ICANN WHOIS Data Problem Reporting System:
+http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2024-12-03T01:34:10Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp 
+
+###############################################################################
+#
+# Welcome to the OVH WHOIS Server.
+#
+# whois server  : whois.ovh.com       check server  : check.ovh.com
+#
+# The data in this Whois is at your disposal  with the aim of supplying you the
+# information only,  that is helping you  in the obtaining  of  the information
+# about  or  related to a domain name registration record.   OVH Sas  make this
+# information available "as is", and  do not  guarantee its accuracy.  By using
+# Whois,  you agree that you will use these data  only for  legal  purposes and
+# that,  under no circumstances will you use this data to:  (1) Allow,  enable,
+# or  otherwise  support  the  transmission  of  mass  unsolicited,  commercial
+# advertisement  or  roughly  or  requests  via the  individual mail (courier),
+# the E-mail (SPAM), by telephone or by fax. (2) Enable high volume, automated,
+# electronic  processes  that  apply  to  OVH  Sas   (or its computer systems).
+# The copy,   the compilation,   the re-packaging,   the dissemination   or the
+# other  use  of  the Whois base  is  expressly  forbidden  without  the  prior
+# written consent of  OVH.  Domain  ownership  disputes should be settled using
+# ICANN's Uniform Dispute Resolution Policy: http://www.icann.org/udrp/udrp.htm
+# We reserve the right  to  modify  these  terms  at  any  time.  By submitting
+# this query,  you agree to  abide by these terms.  OVH Sas  reserves the right
+# to  terminate  your  access  to  the  OVH Sas  Whois  database  in  its  sole
+# discretion,   including   without   limitation,   for  excessive  querying of
+# the Whois database  or  for  failure  to  otherwise  abide  by  this  policy.
+#
+# L'outil du Whois  est  à  votre  disposition  dans  le  but  de  vous fournir
+# l'information  seulement,  c'est-à-dire  vous   aider   dans  l'obtention  de
+# l'information  sur ou lié à un  rapport  d'enregistrement  de nom de domaine.
+# OVH Sas rend  cette information disponible  "comme est,"  et  ne garanti pas
+# son exactitude. En utilisant  notre outil  Whois, vous  reconnaissez que vous
+# emploierez ces données seulement pour  des buts légaux et ne pas utiliser cet
+# outil dans les buts suivant: (1) la transmission de publicité non sollicitée,
+# commerciale massive ou en gros ou des sollicitations via courrier individuel,
+# le courrier électronique (c'est-à-dire SPAM),  par  téléphone ou par fax. (2)
+# l'utilisation d'un grand volume,  automatisé  des processus électroniques qui
+# soulignent ou chargent ce système de base de données  Whois  vous fournissant
+# cette  information.   La  copie   de  tout  ou  partie,   la compilation,  le
+# re-emballage,  la dissémination ou d'autre utilisation de la base Whois  sont
+# expressément interdits sans consentement écrit antérieur de OVH. Un désaccord
+# sur la possession d'un nom de domaine peut être résolu en suivant la  Uniform
+# Dispute  Resolution  Policy  de  l'ICANN:  http://www.icann.org/udrp/udrp.htm
+# Nous nous  réservons  le  droit  de  modifier  ces  termes  à tout moment. En
+# soumettant une requête au Whois vous consentez à vous soumettre à ces termes.
+
+# local time : 2025-05-04T16:36:31Z
+# gmt time : 2025-05-04T16:36:31Z
+# last modify : 2024-12-03T01:34:10Z
+
+--- Checked visiocore.com ---
+   Domain Name: DRAFTPLAN.COM
+   Registry Domain ID: 2543341724_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2024-10-29T00:49:12Z
+   Creation Date: 2020-07-02T18:19:18Z
+   Registry Expiry Date: 2025-07-02T18:19:18Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS1.AFTERNIC.COM
+   Name Server: NS2.AFTERNIC.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:21Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+This WHOIS server is being retired. Please use our RDAP service instead. Rate limit exceeded. Try again after: 2562047h47m16.854775807s.
+--- Checked draftplan.com ---
+   Domain Name: MEASUREAI.COM
+   Registry Domain ID: 2235766304_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2025-03-04T17:34:28Z
+   Creation Date: 2018-03-05T19:45:22Z
+   Registry Expiry Date: 2026-03-05T19:45:22Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS3.AFTERNIC.COM
+   Name Server: NS4.AFTERNIC.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:37Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+This WHOIS server is being retired. Please use our RDAP service instead. Rate limit exceeded. Try again after: 2562047h47m16.854775807s.
+--- Checked measureai.com ---
+No match for domain "ACIESBUILD.COM".
+>>> Last update of whois database: 2025-05-04T16:36:37Z <<<
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+   Domain Name: CERTUSPLAN.COM
+   Registry Domain ID: 1685192520_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2022-09-10T09:18:19Z
+   Creation Date: 2011-11-01T21:26:16Z
+   Registry Expiry Date: 2026-11-01T21:26:16Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS41.DOMAINCONTROL.COM
+   Name Server: NS42.DOMAINCONTROL.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2025-05-04T16:36:53Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+This WHOIS server is being retired. Please use our RDAP service instead. Rate limit exceeded. Try again after: 2562047h47m16.854775807s.
+--- Checked certusplan.com ---
+No match for domain "METRONPLAN.COM".
+>>> Last update of whois database: 2025-05-04T16:36:53Z <<<
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+No match for domain "BLICKBUILD.COM".
+>>> Last update of whois database: 2025-05-04T16:37:08Z <<<
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.

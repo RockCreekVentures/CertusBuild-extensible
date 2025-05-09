@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UX Research & Design - CertusBuild</title>
+    <title>UX Design & Analysis - CertusBuild</title>
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/main_style.css">
+    <link rel="stylesheet" href="../css/markdown-styles.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -32,100 +33,381 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Research Archive</a></li>
-                <li class="breadcrumb-item active" aria-current="page">UX Research & Design</li>
+                <li class="breadcrumb-item active" aria-current="page">UX Design & Analysis</li>
             </ol>
         </nav>
         
-        <h1>UX Research & Design</h1>
-        <p>This section contains user experience research, comparative analyses, wireframes, and interface design concepts for the CertusBuild platform, focusing on creating an intuitive and efficient user experience.</p>
+        <h1>UX Design & Analysis</h1>
+        <p class="lead">An in-depth analysis of user experience approaches in construction management software, with a focus on estimation and scheduling workflows.</p>
         
-        <div class="category-section mt-4">
-            <h2>UX Research Documents</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-alt me-2 text-success"></i> comparative_ux_analysis.md</h4>
-                        <p>Analysis of user experience across competitor platforms, identifying strengths and weaknesses.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View Document</a>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-alt me-2 text-success"></i> workspace_design_synthesis.md</h4>
-                        <p>Synthesis of workspace design principles for construction management software.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View Document</a>
-                    </div>
-                </div>
-            </div>
+        <div class="alert alert-info mt-4">
+            <i class="fas fa-info-circle me-2"></i> This research compares UX patterns across major construction software platforms and provides recommendations for CertusBuild's MVP design.
         </div>
         
-        <div class="category-section mt-5">
-            <h2>Wireframes & UI Concepts</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-alt me-2 text-success"></i> wireframe_annotations.md</h4>
-                        <p>Annotations and explanations for the initial wireframe concepts.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View Document</a>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="list-group sticky-top" style="top: 20px;">
+                    <div class="list-group-item list-group-item-dark">
+                        <strong><i class="fas fa-list me-2"></i> Contents</strong>
                     </div>
+                    <a href="#comparative-analysis" class="list-group-item list-group-item-action">Comparative UX Analysis</a>
+                    <a href="#workflow-diagrams" class="list-group-item list-group-item-action">Workflow Diagrams</a>
+                    <a href="#interface-examples" class="list-group-item list-group-item-action">Interface Examples</a>
+                    <a href="#mvp-recommendations" class="list-group-item list-group-item-action">MVP UX Recommendations</a>
+                    <a href="#wireframes" class="list-group-item list-group-item-action">Wireframes & Prototypes</a>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-alt me-2 text-success"></i> certusbuild_wireframe_annotations.md</h4>
-                        <p>Detailed annotations for themed wireframes incorporating CertusBuild brand identity.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View Document</a>
+            </div>
+            
+            <div class="col-md-8">
+                <!-- Comparative Analysis Section -->
+                <section id="comparative-analysis" class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle bg-primary text-white me-3">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h2 class="mb-0">Comparative UX Analysis</h2>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-code me-2 text-success"></i> wireframe.html</h4>
-                        <p>HTML prototype for dark mode wireframe example.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View Wireframe</a>
+                    
+                    <p>Our comprehensive analysis of user experience across major construction management platforms reveals key differences in design approaches, workflows, and target markets.</p>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0">Comparative UX Summary</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="markdown-content">
+                                <div id="comparative-summary-content">
+                                    <!-- Content will be loaded via JavaScript -->
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end mt-3">
+                                <a href="../attached_assets/comparative_ux_analysis.md" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Full Analysis
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="document-card">
-                        <h4><i class="fas fa-file-code me-2 text-success"></i> style.css</h4>
-                        <p>CSS stylesheet for the dark mode wireframe example.</p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">View CSS</a>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0">Workspace Design Synthesis</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="markdown-content">
+                                <div id="workspace-design-content">
+                                    <!-- Content will be loaded via JavaScript -->
+                                    <div class="text-center">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end mt-3">
+                                <a href="../attached_assets/workspace_design_synthesis.md" target="_blank" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i> View Full Document
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+                
+                <!-- Workflow Diagrams Section -->
+                <section id="workflow-diagrams" class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle bg-success text-white me-3">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h2 class="mb-0">Workflow Diagrams</h2>
+                    </div>
+                    
+                    <p>Comparative workflow diagrams illustrating how major platforms handle estimation and scheduling processes, revealing opportunities for CertusBuild to improve user experience.</p>
+                    
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h4 class="mb-3">Estimation Workflows</h4>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Procore</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/procore_estimation_workflow.png" alt="Procore Estimation Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/procore_estimation_workflow.png" data-title="Procore Estimation Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Buildertrend</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/buildertrend_estimation_workflow.png" alt="Buildertrend Estimation Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/buildertrend_estimation_workflow.png" data-title="Buildertrend Estimation Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Autodesk CC</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/acc_estimation_workflow.png" alt="ACC Estimation Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/acc_estimation_workflow.png" data-title="Autodesk Construction Cloud Estimation Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h4 class="mb-3">Scheduling Workflows</h4>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Procore</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/procore_scheduling_workflow.png" alt="Procore Scheduling Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/procore_scheduling_workflow.png" data-title="Procore Scheduling Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Buildertrend</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/buildertrend_scheduling_workflow.png" alt="Buildertrend Scheduling Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/buildertrend_scheduling_workflow.png" data-title="Buildertrend Scheduling Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light text-center">
+                                    <h5 class="mb-0">Autodesk CC</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/acc_scheduling_workflow.png" alt="ACC Scheduling Workflow" class="img-fluid workflow-diagram">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/acc_scheduling_workflow.png" data-title="Autodesk Construction Cloud Scheduling Workflow">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Interface Examples Section -->
+                <section id="interface-examples" class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle bg-info text-white me-3">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h2 class="mb-0">Interface Examples</h2>
+                    </div>
+                    
+                    <p>Screenshots from leading construction management platforms, providing visual reference for interface design patterns, layouts, and feature presentation.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Procore: Estimating</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/procore_estimating_demo_main_screen.png" alt="Procore Estimating Interface" class="img-fluid interface-screenshot">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/procore_estimating_demo_main_screen.png" data-title="Procore Estimating Interface">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Procore: Project Management</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/procore_pm_demo_linking_items.png" alt="Procore Project Management Interface" class="img-fluid interface-screenshot">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/procore_pm_demo_linking_items.png" data-title="Procore Project Management Interface">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Buildertrend: Scheduling</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/buildertrend_scheduling_tutorial_gantt.png" alt="Buildertrend Scheduling Interface" class="img-fluid interface-screenshot">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/buildertrend_scheduling_tutorial_gantt.png" data-title="Buildertrend Scheduling Interface">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Autodesk CC: Product Demo</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <img src="../attached_assets/acc_live_demo_interface.webp" alt="Autodesk Construction Cloud Interface" class="img-fluid interface-screenshot">
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#workflowModal" data-img-src="../attached_assets/acc_live_demo_interface.webp" data-title="Autodesk Construction Cloud Interface">
+                                        <i class="fas fa-search-plus me-1"></i> View Full Size
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- MVP Recommendations Section -->
+                <section id="mvp-recommendations" class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle bg-warning text-white me-3">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h2 class="mb-0">MVP UX Recommendations</h2>
+                    </div>
+                    
+                    <p>Based on our competitive analysis, we've developed a set of user experience recommendations for CertusBuild's MVP, focusing on estimation and scheduling.</p>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-light">
+                            <h4 class="mb-0">Key UX Recommendations</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="markdown-content">
+                                <div id="mvp-recommendations-content">
+                                    <!-- Content will be loaded via JavaScript -->
+                                    <div class="text-center">
+                                        <div class="spinner-border text-warning" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Wireframes Section -->
+                <section id="wireframes" class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="icon-circle bg-danger text-white me-3">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h2 class="mb-0">Wireframes & Prototypes</h2>
+                    </div>
+                    
+                    <p>Early wireframes and prototype designs for the CertusBuild platform, applying our UX research findings and recommendations.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Initial Wireframe</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <a href="../attached_assets/wireframe.html" target="_blank">
+                                        <img src="../attached_assets/wireframe_concept_1_modular.png" alt="Initial Wireframe Concept" class="img-fluid wireframe-image">
+                                    </a>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="../attached_assets/wireframe.html" target="_blank" class="btn btn-sm btn-outline-primary w-100">
+                                        <i class="fas fa-external-link-alt me-1"></i> View Interactive Wireframe
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Wireframe Annotations</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="markdown-content">
+                                        <div id="wireframe-annotations-content">
+                                            <!-- Content will be loaded via JavaScript -->
+                                            <div class="text-center">
+                                                <div class="spinner-border text-danger" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="../attached_assets/wireframe_annotations.md" target="_blank" class="btn btn-sm btn-outline-primary w-100">
+                                        <i class="fas fa-external-link-alt me-1"></i> View Full Annotations
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
-        
-        <div class="card mt-5">
-            <div class="card-header bg-light">
-                <h3 class="mb-0">Interface Design Principles</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-layer-group fa-3x text-success mb-3"></i>
-                                <h5>Modular Interface</h5>
-                                <p class="card-text">Customizable workspace with drag-and-drop components to fit different user workflows.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users-cog fa-3x text-success mb-3"></i>
-                                <h5>Role-Based Views</h5>
-                                <p class="card-text">Tailored interfaces for different user roles (estimators, project managers, executives).</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div class="card h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
-                                <h5>Data Visualization</h5>
-                                <p class="card-text">Interactive charts and graphs for intuitive understanding of complex project data.</p>
-                            </div>
-                        </div>
-                    </div>
+    </div>
+    
+    <!-- Workflow/Screenshot Modal -->
+    <div class="modal fade" id="workflowModal" tabindex="-1" aria-labelledby="workflowModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="workflowModalLabel">Workflow Diagram</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="workflowModalImage" src="" alt="Workflow Diagram" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -133,11 +415,147 @@
 
     <footer>
         <div class="container">
-            <p>CertusBuild &copy; 2025</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>CertusBuild &copy; 2025</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Revolutionizing Construction Management with Intelligent Automation</p>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Showdown.js for Markdown conversion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <!-- Bootstrap Bundle with Popper -->
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Showdown converter
+            const converter = new showdown.Converter({
+                tables: true,
+                strikethrough: true,
+                tasklists: true,
+                ghCodeBlocks: true,
+                emoji: true
+            });
+            converter.setFlavor('github');
+            
+            // Handle modal image display
+            const workflowModal = document.getElementById('workflowModal');
+            const modalImage = document.getElementById('workflowModalImage');
+            const modalTitle = document.getElementById('workflowModalLabel');
+            
+            workflowModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const imgSrc = button.getAttribute('data-img-src');
+                const title = button.getAttribute('data-title');
+                
+                modalImage.src = imgSrc;
+                modalTitle.textContent = title || 'Workflow Diagram';
+            });
+            
+            // Load markdown content for the comparative summary
+            fetch('../attached_assets/comparative_ux_analysis.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load markdown file');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Extract the table section
+                    const tableSection = markdown.match(/\| Feature\/Aspect.*?\n\n/s);
+                    if (tableSection) {
+                        const tableHtml = converter.makeHtml(tableSection[0]);
+                        document.getElementById('comparative-summary-content').innerHTML = tableHtml;
+                        
+                        // Add Bootstrap classes to the table
+                        const table = document.querySelector('#comparative-summary-content table');
+                        if (table) {
+                            table.classList.add('table', 'table-striped', 'table-bordered', 'table-responsive');
+                        }
+                    } else {
+                        document.getElementById('comparative-summary-content').innerHTML = '<div class="alert alert-warning">Table content not found in the markdown file.</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading comparative summary markdown:', error);
+                    document.getElementById('comparative-summary-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
+                });
+                
+            // Load markdown content for the MVP recommendations
+            fetch('../attached_assets/comparative_ux_analysis.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load markdown file');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Extract the recommendations section
+                    const recommendationsSection = markdown.match(/## 5\. Recommendations for MVP UX[\s\S]*?(?=##|$)/);
+                    if (recommendationsSection) {
+                        const recommendationsHtml = converter.makeHtml(recommendationsSection[0]);
+                        document.getElementById('mvp-recommendations-content').innerHTML = recommendationsHtml;
+                        
+                        // Add styling to elements
+                        document.querySelectorAll('#mvp-recommendations-content h2, #mvp-recommendations-content h3').forEach(heading => {
+                            heading.classList.add('markdown-heading');
+                        });
+                        
+                        document.querySelectorAll('#mvp-recommendations-content ul, #mvp-recommendations-content ol').forEach(list => {
+                            list.classList.add('markdown-list');
+                        });
+                    } else {
+                        document.getElementById('mvp-recommendations-content').innerHTML = '<div class="alert alert-warning">Recommendations content not found in the markdown file.</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading MVP recommendations markdown:', error);
+                    document.getElementById('mvp-recommendations-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
+                });
+                
+            // Load markdown content for workspace design synthesis
+            fetch('../attached_assets/workspace_design_synthesis.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load markdown file');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Extract a section (first 500 characters or so for preview)
+                    const previewSection = markdown.substring(0, 500) + '...';
+                    const previewHtml = converter.makeHtml(previewSection);
+                    document.getElementById('workspace-design-content').innerHTML = previewHtml;
+                })
+                .catch(error => {
+                    console.error('Error loading workspace design synthesis markdown:', error);
+                    document.getElementById('workspace-design-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
+                });
+                
+            // Load markdown content for wireframe annotations
+            fetch('../attached_assets/wireframe_annotations.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load markdown file');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Extract a section (first 300 characters or so for preview)
+                    const previewSection = markdown.substring(0, 300) + '...';
+                    const previewHtml = converter.makeHtml(previewSection);
+                    document.getElementById('wireframe-annotations-content').innerHTML = previewHtml;
+                })
+                .catch(error => {
+                    console.error('Error loading wireframe annotations markdown:', error);
+                    document.getElementById('wireframe-annotations-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
+                });
+        });
+    </script>
 </body>
 </html>

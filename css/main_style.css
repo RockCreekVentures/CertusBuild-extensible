@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4; /* Light gray background for overall page */
+    background-color: #f8f9fa; /* Light gray background for overall page */
     color: #333;
 }
 
@@ -74,26 +74,83 @@ header a:hover {
 .hero {
     background: #0A2342; /* Navy Blue */
     color: #ffffff;
-    padding: 40px 0;
+    padding: 80px 0;
     text-align: center;
+    background-image: linear-gradient(rgba(10, 35, 66, 0.95), rgba(10, 35, 66, 0.95)), url('../assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
-.hero p {
+.hero p.lead {
     font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Icon Circle */
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.feature-list li {
+    margin-bottom: 8px;
+}
+
+/* Vision Section */
+.vision-item {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.vision-item:hover {
+    transform: translateY(-5px);
+}
+
+.vision-item h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0A2342;
+}
+
+.vision-item p {
+    color: #666;
 }
 
 /* Main Content Area */
 .main-content {
-    padding: 20px;
+    padding: 40px 20px;
     background: #fff;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
 }
 
 .main-content h1,
@@ -113,17 +170,21 @@ header a:hover {
 
 .card {
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #eee;
+    border-radius: 8px;
     padding: 20px;
-    width: calc(45% - 20px); /* Two cards per row, considering gap */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .card h3 {
     color: #0A2342;
     margin-top: 0;
+    font-weight: 600;
 }
 
 .card p {
@@ -144,6 +205,7 @@ header a:hover {
 
 .card a.button:hover {
     background: #4a7549;
+    transform: translateY(-2px);
 }
 
 /* Research Archive & Pitch Materials Pages */
@@ -178,15 +240,28 @@ header a:hover {
 
 /* Footer */
 footer {
-    padding: 20px;
-    margin-top: 20px;
+    padding: 30px 0;
+    margin-top: 40px;
     color: #ffffff;
     background-color: #0A2342; /* Navy Blue */
-    text-align: center;
     border-top: #5B8C5A 3px solid;
 }
 
+footer p {
+    margin-bottom: 0;
+}
+
 /* Bootstrap Overrides */
+.btn-primary {
+    background-color: #0A2342 !important;
+    border-color: #0A2342 !important;
+}
+
+.btn-primary:hover {
+    background-color: #16355f !important;
+    border-color: #16355f !important;
+}
+
 .btn-success {
     background-color: #5B8C5A !important;
     border-color: #5B8C5A !important;
@@ -210,11 +285,12 @@ footer {
 /* Document Card Styling */
 .document-card {
     border: 1px solid #eee;
-    border-radius: 5px;
-    padding: 15px;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 15px;
     background-color: #f9f9f9;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .document-card:hover {
@@ -265,11 +341,21 @@ footer {
         margin-bottom: 20px;
     }
 
+    .hero {
+        padding: 60px 0;
+    }
+    
     .hero h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
-    .hero p {
+    .hero p.lead {
+        font-size: 18px;
+    }
+    
+    .icon-circle {
+        width: 40px;
+        height: 40px;
         font-size: 18px;
     }
 }

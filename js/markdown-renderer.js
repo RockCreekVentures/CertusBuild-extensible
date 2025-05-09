@@ -1,6 +1,10 @@
-// Markdown renderer using Showdown.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the converter
+/**
+ * CertusBuild Markdown Renderer
+ * This script handles rendering markdown files into HTML content
+ */
+
+// Initialize Showdown converter
+const initializeConverter = () => {
     const converter = new showdown.Converter({
         tables: true,
         strikethrough: true,
@@ -8,66 +12,98 @@ document.addEventListener('DOMContentLoaded', function() {
         ghCodeBlocks: true,
         emoji: true
     });
-    
-    // Set some defaults
     converter.setFlavor('github');
+    return converter;
+};
+
+// Fetch markdown file and render it
+const renderMarkdownFile = (container, markdownFile) => {
+    // Show loading spinner
+    container.innerHTML = `
+        <div class="d-flex justify-content-center align-items-center py-5">
+            <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `;
     
-    // Find all markdown containers
-    const markdownContainers = document.querySelectorAll('.markdown-content');
+    // Fetch the markdown file
+    fetch(markdownFile)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load markdown file: ${response.status} ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(markdown => {
+            // Initialize converter
+            const converter = initializeConverter();
+            
+            // Convert markdown to HTML
+            const html = converter.makeHtml(markdown);
+            
+            // Insert the HTML content
+            container.innerHTML = html;
+            
+            // Apply styling classes to elements
+            enhanceMarkdownStyling(container);
+        })
+        .catch(error => {
+            container.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Error loading markdown: ${error.message}
+                </div>
+            `;
+            console.error('Error loading markdown:', error);
+        });
+};
+
+// Enhance the styling of markdown content
+const enhanceMarkdownStyling = (container) => {
+    // Add classes to headings
+    container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(heading => {
+        heading.classList.add('markdown-heading');
+    });
     
-    // Process each markdown container
+    // Add classes to tables
+    container.querySelectorAll('table').forEach(table => {
+        table.classList.add('table', 'table-striped', 'table-bordered', 'markdown-table');
+    });
+    
+    // Add classes to code blocks
+    container.querySelectorAll('pre').forEach(pre => {
+        pre.classList.add('markdown-pre');
+        pre.querySelectorAll('code').forEach(code => {
+            code.classList.add('markdown-code');
+        });
+    });
+    
+    // Add classes to blockquotes
+    container.querySelectorAll('blockquote').forEach(blockquote => {
+        blockquote.classList.add('markdown-blockquote');
+    });
+    
+    // Add classes to images
+    container.querySelectorAll('img').forEach(img => {
+        img.classList.add('img-fluid', 'markdown-img');
+    });
+    
+    // Add classes to lists
+    container.querySelectorAll('ul, ol').forEach(list => {
+        list.classList.add('markdown-list');
+    });
+};
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Look for elements with data-markdown-file attribute
+    const markdownContainers = document.querySelectorAll('[data-markdown-file]');
+    
     markdownContainers.forEach(container => {
-        // Get the file path from data attribute
-        const filePath = container.getAttribute('data-markdown-file');
-        if (filePath) {
-            // Fetch the markdown file
-            fetch(filePath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to load markdown file: ${response.status} ${response.statusText}`);
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Convert markdown to HTML
-                    const html = converter.makeHtml(markdown);
-                    
-                    // Insert the HTML content
-                    container.innerHTML = html;
-                    
-                    // Add classes to elements for better styling
-                    container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(heading => {
-                        heading.classList.add('markdown-heading');
-                    });
-                    
-                    container.querySelectorAll('table').forEach(table => {
-                        table.classList.add('table', 'table-striped', 'table-bordered', 'markdown-table');
-                    });
-                    
-                    container.querySelectorAll('pre').forEach(pre => {
-                        pre.classList.add('markdown-pre');
-                        pre.querySelectorAll('code').forEach(code => {
-                            code.classList.add('markdown-code');
-                        });
-                    });
-                    
-                    container.querySelectorAll('blockquote').forEach(blockquote => {
-                        blockquote.classList.add('markdown-blockquote');
-                    });
-                    
-                    container.querySelectorAll('img').forEach(img => {
-                        img.classList.add('img-fluid', 'markdown-img');
-                    });
-                    
-                    // Emit an event when content is loaded
-                    container.dispatchEvent(new Event('markdown-rendered'));
-                })
-                .catch(error => {
-                    container.innerHTML = `<div class="alert alert-danger">Error loading markdown: ${error.message}</div>`;
-                    console.error('Error loading markdown:', error);
-                });
-        } else {
-            container.innerHTML = '<div class="alert alert-warning">No markdown file specified</div>';
+        const markdownFile = container.getAttribute('data-markdown-file');
+        if (markdownFile) {
+            renderMarkdownFile(container, markdownFile);
         }
     });
 });
