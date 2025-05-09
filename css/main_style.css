@@ -191,6 +191,11 @@ header a:hover {
     border-radius: 8px;
     padding: 20px;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .card:hover {
@@ -202,11 +207,16 @@ header a:hover {
     color: #0A2342;
     margin-top: 0;
     font-weight: 600;
+    word-break: break-word;
 }
 
 .card p {
     font-size: 1em;
     color: #555;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    flex-grow: 1;
 }
 
 .card a.button {
@@ -218,6 +228,7 @@ header a:hover {
     border-radius: 5px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
+    align-self: flex-start;
 }
 
 .card a.button:hover {
@@ -308,6 +319,11 @@ footer p {
     background-color: #f9f9f9;
     transition: all 0.3s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .document-card:hover {
@@ -319,12 +335,21 @@ footer p {
     color: #0A2342;
     margin-top: 0;
     margin-bottom: 10px;
+    word-break: break-word;
 }
 
 .document-card p {
     color: #666;
     font-size: 0.9em;
     margin-bottom: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    flex-grow: 1;
+}
+
+.document-card .btn {
+    align-self: flex-start;
 }
 
 .category-section {

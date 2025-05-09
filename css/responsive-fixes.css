@@ -1,0 +1,114 @@
+/* Responsive Fixes for Better Layout */
+
+/* Fix for workflow diagram cards */
+.workflow-diagram-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.workflow-diagram-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure interface examples display properly */
+.interface-screenshot {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Make modals more mobile-friendly */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 10px;
+        max-width: 95%;
+    }
+    
+    #workflowModal .modal-body {
+        padding: 10px;
+    }
+    
+    #workflowModal img {
+        max-height: 70vh;
+    }
+    
+    /* Improve card spacing on mobile */
+    .card {
+        margin-bottom: 15px;
+    }
+    
+    /* Fix for document cards in mobile view */
+    .document-card {
+        margin-bottom: 20px;
+        height: auto;
+    }
+    
+    /* Better layout for workflow diagrams on small screens */
+    .workflow-diagram {
+        max-height: 150px;
+    }
+}
+
+/* Adjust column layout on very small screens */
+@media (max-width: 576px) {
+    .col-md-4, .col-md-6, .col-md-8 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Stack cards properly */
+    .card-deck {
+        display: block;
+    }
+    
+    /* Ensure buttons don't overflow */
+    .btn {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    /* Make sidebar collapsible on mobile */
+    .sticky-top {
+        position: relative;
+        margin-bottom: 20px;
+    }
+}
+
+/* Fix for grid system in workflow diagrams section */
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/* Fix for overflow in markdown content */
+.markdown-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.markdown-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.markdown-content table {
+    max-width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
+/* Improve table presentation */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Ensure proper spacing in document cards */
+.document-card .btn-group, 
+.document-card .d-flex {
+    margin-top: auto;
+    flex-wrap: wrap;
+}
