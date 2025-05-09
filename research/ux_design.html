@@ -432,19 +432,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Toggle Script for Markdown Content -->
+    <script src="../js/markdown-toggle.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Showdown converter
-            const converter = new showdown.Converter({
-                tables: true,
-                strikethrough: true,
-                tasklists: true,
-                ghCodeBlocks: true,
-                emoji: true
-            });
-            converter.setFlavor('github');
-            
             // Handle modal image display
             const workflowModal = document.getElementById('workflowModal');
             const modalImage = document.getElementById('workflowModalImage');
@@ -459,134 +451,10 @@
                 modalTitle.textContent = title || 'Workflow Diagram';
             });
             
-            // Load markdown content for the comparative summary
-            fetch('../attached_assets/comparative_ux_analysis.md')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load markdown file');
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Extract the table section
-                    const tableSection = markdown.match(/\| Feature\/Aspect.*?\n\n/s);
-                    if (tableSection) {
-                        const tableHtml = converter.makeHtml(tableSection[0]);
-                        
-                        // Use a container div with fixed height and overflow control
-                        const container = document.createElement('div');
-                        container.className = 'markdown-preview-container table-container';
-                        container.style.maxHeight = '300px'; // Allow more room for tables
-                        container.innerHTML = tableHtml;
-                        
-                        document.getElementById('comparative-summary-content').innerHTML = '';
-                        document.getElementById('comparative-summary-content').appendChild(container);
-                        
-                        // Add Bootstrap classes to the table
-                        const table = document.querySelector('#comparative-summary-content table');
-                        if (table) {
-                            table.classList.add('table', 'table-striped', 'table-bordered', 'table-responsive');
-                        }
-                    } else {
-                        document.getElementById('comparative-summary-content').innerHTML = '<div class="alert alert-warning">Table content not found in the markdown file.</div>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading comparative summary markdown:', error);
-                    document.getElementById('comparative-summary-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
-                });
-                
-            // Load markdown content for the MVP recommendations
-            fetch('../attached_assets/comparative_ux_analysis.md')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load markdown file');
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Extract the recommendations section
-                    const recommendationsSection = markdown.match(/## 5\. Recommendations for MVP UX[\s\S]*?(?=##|$)/);
-                    if (recommendationsSection) {
-                        const recommendationsHtml = converter.makeHtml(recommendationsSection[0]);
-                        
-                        // Use a container div with fixed height and overflow control
-                        const container = document.createElement('div');
-                        container.className = 'markdown-preview-container';
-                        container.style.maxHeight = '300px'; // Show a bit more for recommendations
-                        container.innerHTML = recommendationsHtml;
-                        
-                        document.getElementById('mvp-recommendations-content').innerHTML = '';
-                        document.getElementById('mvp-recommendations-content').appendChild(container);
-                        
-                        // Add styling to elements
-                        document.querySelectorAll('#mvp-recommendations-content h2, #mvp-recommendations-content h3').forEach(heading => {
-                            heading.classList.add('markdown-heading');
-                        });
-                        
-                        document.querySelectorAll('#mvp-recommendations-content ul, #mvp-recommendations-content ol').forEach(list => {
-                            list.classList.add('markdown-list');
-                        });
-                    } else {
-                        document.getElementById('mvp-recommendations-content').innerHTML = '<div class="alert alert-warning">Recommendations content not found in the markdown file.</div>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading MVP recommendations markdown:', error);
-                    document.getElementById('mvp-recommendations-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
-                });
-                
-            // Load markdown content for workspace design synthesis
-            fetch('../attached_assets/workspace_design_synthesis.md')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load markdown file');
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Extract a section (first 200 characters or so for preview)
-                    const previewSection = markdown.substring(0, 200) + '...';
-                    const previewHtml = converter.makeHtml(previewSection);
-                    
-                    // Use a container div with fixed height and overflow control
-                    const container = document.createElement('div');
-                    container.className = 'markdown-preview-container';
-                    container.innerHTML = previewHtml;
-                    
-                    document.getElementById('workspace-design-content').innerHTML = '';
-                    document.getElementById('workspace-design-content').appendChild(container);
-                })
-                .catch(error => {
-                    console.error('Error loading workspace design synthesis markdown:', error);
-                    document.getElementById('workspace-design-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
-                });
-                
-            // Load markdown content for wireframe annotations
-            fetch('../attached_assets/wireframe_annotations.md')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to load markdown file');
-                    }
-                    return response.text();
-                })
-                .then(markdown => {
-                    // Extract a section (first 200 characters or so for preview)
-                    const previewSection = markdown.substring(0, 200) + '...';
-                    const previewHtml = converter.makeHtml(previewSection);
-                    
-                    // Use a container div with fixed height and overflow control
-                    const container = document.createElement('div');
-                    container.className = 'markdown-preview-container';
-                    container.innerHTML = previewHtml;
-                    
-                    document.getElementById('wireframe-annotations-content').innerHTML = '';
-                    document.getElementById('wireframe-annotations-content').appendChild(container);
-                })
-                .catch(error => {
-                    console.error('Error loading wireframe annotations markdown:', error);
-                    document.getElementById('wireframe-annotations-content').innerHTML = `<div class="alert alert-danger">Error loading content: ${error.message}</div>`;
-                });
+            // Clear any previously loaded content for markdown sections
+            document.querySelectorAll('.markdown-content div').forEach(contentDiv => {
+                contentDiv.innerHTML = '<div class="text-center content-placeholder"><p class="text-muted">Click "View Content" to load</p></div>';
+            });
         });
     </script>
 </body>
