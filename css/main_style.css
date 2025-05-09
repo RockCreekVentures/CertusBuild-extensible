@@ -1,0 +1,275 @@
+/* CertusBuild Main Stylesheet */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light gray background for overall page */
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: #0A2342; /* Navy Blue */
+    color: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #5B8C5A 3px solid; /* Muted Green accent */
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+    margin-top: 10px; /* Adjust for vertical alignment with logo */
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding img {
+    height: 40px; /* Adjust logo size */
+    margin-bottom: -5px; /* Fine-tune vertical alignment */
+}
+
+header nav {
+    margin-top:10px;
+}
+
+header .highlight,
+header .current a {
+    color: #5B8C5A; /* Muted Green for current page or highlights */
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ccc;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background: #0A2342; /* Navy Blue */
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 20px;
+    background: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+    color: #0A2342; /* Navy Blue for headings */
+}
+
+/* Cards for sections */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: calc(45% - 20px); /* Two cards per row, considering gap */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h3 {
+    color: #0A2342;
+    margin-top: 0;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.card a.button {
+    display: inline-block;
+    background: #5B8C5A; /* Muted Green */
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card a.button:hover {
+    background: #4a7549;
+}
+
+/* Research Archive & Pitch Materials Pages */
+.content-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-section li {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.content-section li a {
+    text-decoration: none;
+    color: #0A2342;
+    font-weight: bold;
+}
+
+.content-section li a:hover {
+    color: #5B8C5A;
+}
+
+.content-section li p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    background-color: #0A2342; /* Navy Blue */
+    text-align: center;
+    border-top: #5B8C5A 3px solid;
+}
+
+/* Bootstrap Overrides */
+.btn-success {
+    background-color: #5B8C5A !important;
+    border-color: #5B8C5A !important;
+}
+
+.btn-success:hover {
+    background-color: #4a7549 !important;
+    border-color: #4a7549 !important;
+}
+
+.card {
+    height: 100%;
+}
+
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    border-color: #eee;
+}
+
+/* Document Card Styling */
+.document-card {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.document-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.document-card h4 {
+    color: #0A2342;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.document-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.category-section {
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media(max-width: 768px){
+    header #branding,
+    header nav,
+    header nav ul {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav ul li {
+        padding-bottom: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+}
