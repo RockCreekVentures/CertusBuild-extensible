@@ -1,0 +1,85 @@
+/* Responsive Fixes for CertusBuild */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero p.lead {
+        font-size: 16px;
+    }
+    
+    .hero .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+    
+    header li {
+        float: none;
+        display: block;
+        text-align: center;
+        padding: 5px 0;
+    }
+    
+    header ul {
+        padding-bottom: 10px;
+    }
+}
+
+/* Small devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    .list-group.sticky-top {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .document-card {
+        margin-bottom: 20px;
+    }
+    
+    .vision-item {
+        margin-bottom: 30px;
+    }
+}
+
+/* Medium devices (desktops, 992px and down) */
+@media (max-width: 992px) {
+    .markdown-preview-container {
+        max-height: 400px;
+    }
+}
+
+/* Ensure proper table display on all devices */
+@media (max-width: 1200px) {
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for mobile navigation */
+@media (max-width: 768px) {
+    header #branding {
+        text-align: center;
+        float: none;
+        margin-bottom: 10px;
+    }
+    
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+}

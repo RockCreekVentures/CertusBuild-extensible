@@ -46,6 +46,21 @@ app.use('/', indexRouter);
 app.use('/research', researchRouter);
 app.use('/pitch-materials', pitchMaterialsRouter);
 
+// Create content directories if they don't exist
+const contentDirs = [
+  'public/uploads',
+  'public/content/research',
+  'public/content/pitch_materials'
+];
+
+contentDirs.forEach(dir => {
+  const dirPath = path.join(__dirname, dir);
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log(`Created directory: ${dir}`);
+  }
+});
+
 // Error handling
 app.use((req, res, next) => {
   res.status(404).render('error', {
@@ -56,25 +71,13 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
+  console.error(err.stack);
   const status = err.status || 500;
   res.status(status).render('error', {
     title: 'Error',
     message: err.message,
     error: app.get('env') === 'development' ? err : {}
   });
-});
-
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`CertusBuild AU server running on port ${PORT}`);
-  
-  // Create uploads directory if it doesn't exist
-  const uploadsDir = path.join(__dirname, 'public/uploads');
-  if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-    console.log('Created uploads directory');
-  }
 });
 
 module.exports = app;

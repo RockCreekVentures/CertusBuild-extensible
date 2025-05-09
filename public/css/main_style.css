@@ -1,0 +1,419 @@
+/* CertusBuild Main Stylesheet */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Light gray background for overall page */
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: #0A2342; /* Navy Blue */
+    color: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #5B8C5A 3px solid; /* Muted Green accent */
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+    margin-top: 10px; /* Adjust for vertical alignment with logo */
+}
+
+header #branding {
+    float: left;
+}
+
+header #branding img {
+    height: 40px; /* Adjust logo size */
+    margin-bottom: -5px; /* Fine-tune vertical alignment */
+}
+
+header nav {
+    margin-top:10px;
+}
+
+header .highlight,
+header .current a {
+    color: #5B8C5A; /* Muted Green for current page or highlights */
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #ccc;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0A2342 0%, #16355f 100%); /* Navy Blue gradient */
+    color: #ffffff;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(91, 140, 90, 0.1) 0%, transparent 100%),
+        radial-gradient(circle at 80% 70%, rgba(91, 140, 90, 0.1) 0%, transparent 100%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero p.lead {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Icon Circle */
+.icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.feature-list li {
+    margin-bottom: 8px;
+}
+
+/* Vision Section */
+.vision-item {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.vision-item:hover {
+    transform: translateY(-5px);
+}
+
+.vision-item h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0A2342;
+}
+
+.vision-item p {
+    color: #666;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 40px 20px;
+    background: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+    color: #0A2342; /* Navy Blue for headings */
+}
+
+/* Cards for sections */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #0A2342;
+    margin-top: 0;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    flex-grow: 1;
+}
+
+.card a.button {
+    display: inline-block;
+    background: #5B8C5A; /* Muted Green */
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.card a.button:hover {
+    background: #4a7549;
+    transform: translateY(-2px);
+}
+
+/* Research Archive & Pitch Materials Pages */
+.content-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-section li {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.content-section li a {
+    text-decoration: none;
+    color: #0A2342;
+    font-weight: bold;
+}
+
+.content-section li a:hover {
+    color: #5B8C5A;
+}
+
+.content-section li p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    padding: 30px 0;
+    margin-top: 40px;
+    color: #ffffff;
+    background-color: #0A2342; /* Navy Blue */
+    border-top: #5B8C5A 3px solid;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+/* Bootstrap Overrides */
+.btn-primary {
+    background-color: #0A2342 !important;
+    border-color: #0A2342 !important;
+}
+
+.btn-primary:hover {
+    background-color: #16355f !important;
+    border-color: #16355f !important;
+}
+
+.btn-success {
+    background-color: #5B8C5A !important;
+    border-color: #5B8C5A !important;
+}
+
+.btn-success:hover {
+    background-color: #4a7549 !important;
+    border-color: #4a7549 !important;
+}
+
+.card {
+    height: 100%;
+}
+
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    border-color: #eee;
+}
+
+/* Document Card Styling */
+.document-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.document-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.document-card h4 {
+    color: #0A2342;
+    margin-top: 0;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.document-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    flex-grow: 1;
+}
+
+.document-card .btn {
+    align-self: flex-start;
+}
+
+.category-section {
+    margin-bottom: 30px;
+}
+
+/* Hidden Content */
+.hidden-content {
+    display: none;
+}
+
+/* Markdown Section Styling */
+.markdown-sections .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-sections .card-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media(max-width: 768px){
+    header #branding,
+    header nav,
+    header nav ul {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    header nav ul li {
+        padding-bottom: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p.lead {
+        font-size: 18px;
+    }
+    
+    .icon-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
