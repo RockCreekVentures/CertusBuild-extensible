@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardBody = content.closest('.card-body');
         const card = cardBody.closest('.card');
         const cardHeader = card.querySelector('.card-header');
+        const cardFooter = card.querySelector('.card-footer');
+        
+        // If there's a card footer with links, hide it initially too
+        if (cardFooter && cardBody.querySelector('.markdown-content')) {
+            cardFooter.dataset.initialDisplay = cardFooter.style.display || 'block';
+            cardFooter.style.display = 'none';
+        }
         
         if (cardHeader) {
             // Create toggle button
@@ -21,13 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isVisible = !content.classList.contains('hidden-content');
                 
                 if (isVisible) {
-                    // Hide content
+                    // Hide content and footer
                     content.classList.add('hidden-content');
                     this.innerHTML = '<i class="fas fa-eye"></i> View Content';
+                    if (cardFooter) {
+                        cardFooter.style.display = 'none';
+                    }
                 } else {
-                    // Show content
+                    // Show content and footer
                     content.classList.remove('hidden-content');
                     this.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Content';
+                    if (cardFooter) {
+                        cardFooter.style.display = cardFooter.dataset.initialDisplay;
+                    }
                     
                     // Check if content is already loaded
                     const contentDiv = content.querySelector('div');
