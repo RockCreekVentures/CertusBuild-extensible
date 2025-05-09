@@ -93,6 +93,41 @@
     overflow-y: auto;
 }
 
+/* Markdown preview container to prevent overflow */
+.markdown-preview-container {
+    max-height: 180px;
+    overflow-y: auto;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+/* Special styling for table containers */
+.markdown-preview-container.table-container {
+    max-height: 300px;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* Ensure tables don't overflow their containers */
+.markdown-preview-container table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    display: block;
+}
+
+/* Override the auto-expansion of markdown content */
+#workspace-design-content,
+#wireframe-annotations-content,
+#mvp-recommendations-content,
+#comparative-summary-content {
+    max-height: 220px;
+    overflow: hidden;
+}
+
 /* Make modals more mobile-friendly */
 @media (max-width: 768px) {
     .modal-dialog {

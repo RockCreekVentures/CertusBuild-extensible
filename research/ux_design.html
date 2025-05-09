@@ -472,7 +472,15 @@
                     const tableSection = markdown.match(/\| Feature\/Aspect.*?\n\n/s);
                     if (tableSection) {
                         const tableHtml = converter.makeHtml(tableSection[0]);
-                        document.getElementById('comparative-summary-content').innerHTML = tableHtml;
+                        
+                        // Use a container div with fixed height and overflow control
+                        const container = document.createElement('div');
+                        container.className = 'markdown-preview-container table-container';
+                        container.style.maxHeight = '300px'; // Allow more room for tables
+                        container.innerHTML = tableHtml;
+                        
+                        document.getElementById('comparative-summary-content').innerHTML = '';
+                        document.getElementById('comparative-summary-content').appendChild(container);
                         
                         // Add Bootstrap classes to the table
                         const table = document.querySelector('#comparative-summary-content table');
@@ -501,7 +509,15 @@
                     const recommendationsSection = markdown.match(/## 5\. Recommendations for MVP UX[\s\S]*?(?=##|$)/);
                     if (recommendationsSection) {
                         const recommendationsHtml = converter.makeHtml(recommendationsSection[0]);
-                        document.getElementById('mvp-recommendations-content').innerHTML = recommendationsHtml;
+                        
+                        // Use a container div with fixed height and overflow control
+                        const container = document.createElement('div');
+                        container.className = 'markdown-preview-container';
+                        container.style.maxHeight = '300px'; // Show a bit more for recommendations
+                        container.innerHTML = recommendationsHtml;
+                        
+                        document.getElementById('mvp-recommendations-content').innerHTML = '';
+                        document.getElementById('mvp-recommendations-content').appendChild(container);
                         
                         // Add styling to elements
                         document.querySelectorAll('#mvp-recommendations-content h2, #mvp-recommendations-content h3').forEach(heading => {
@@ -529,10 +545,17 @@
                     return response.text();
                 })
                 .then(markdown => {
-                    // Extract a section (first 500 characters or so for preview)
-                    const previewSection = markdown.substring(0, 500) + '...';
+                    // Extract a section (first 200 characters or so for preview)
+                    const previewSection = markdown.substring(0, 200) + '...';
                     const previewHtml = converter.makeHtml(previewSection);
-                    document.getElementById('workspace-design-content').innerHTML = previewHtml;
+                    
+                    // Use a container div with fixed height and overflow control
+                    const container = document.createElement('div');
+                    container.className = 'markdown-preview-container';
+                    container.innerHTML = previewHtml;
+                    
+                    document.getElementById('workspace-design-content').innerHTML = '';
+                    document.getElementById('workspace-design-content').appendChild(container);
                 })
                 .catch(error => {
                     console.error('Error loading workspace design synthesis markdown:', error);
@@ -548,10 +571,17 @@
                     return response.text();
                 })
                 .then(markdown => {
-                    // Extract a section (first 300 characters or so for preview)
-                    const previewSection = markdown.substring(0, 300) + '...';
+                    // Extract a section (first 200 characters or so for preview)
+                    const previewSection = markdown.substring(0, 200) + '...';
                     const previewHtml = converter.makeHtml(previewSection);
-                    document.getElementById('wireframe-annotations-content').innerHTML = previewHtml;
+                    
+                    // Use a container div with fixed height and overflow control
+                    const container = document.createElement('div');
+                    container.className = 'markdown-preview-container';
+                    container.innerHTML = previewHtml;
+                    
+                    document.getElementById('wireframe-annotations-content').innerHTML = '';
+                    document.getElementById('wireframe-annotations-content').appendChild(container);
                 })
                 .catch(error => {
                     console.error('Error loading wireframe annotations markdown:', error);
