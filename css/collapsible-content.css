@@ -1,0 +1,130 @@
+/* Wikipedia-style collapsible content */
+.collapsible-section {
+    margin-bottom: 35px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.collapsible-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.collapsible-header:hover {
+    background-color: #eaeaea;
+}
+
+.collapsible-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    flex-grow: 1;
+}
+
+.collapsible-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-toggle i {
+    font-size: 0.85rem;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-header.active .collapsible-toggle i {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.collapsible-content.active {
+    max-height: 1000px; /* Large enough to contain content */
+}
+
+.collapsible-body {
+    padding: 20px;
+}
+
+.markdown-preview-container {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 15px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.markdown-preview-container.table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Status indicator */
+.status-indicator {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-left: 12px;
+}
+
+.status-loaded {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-unloaded {
+    background-color: #f5f5f5;
+    color: #757575;
+}
+
+/* Links section at bottom of content */
+.collapsible-footer {
+    border-top: 1px solid #eaeaea;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.collapsible-footer a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.collapsible-footer a:hover {
+    text-decoration: underline;
+}
