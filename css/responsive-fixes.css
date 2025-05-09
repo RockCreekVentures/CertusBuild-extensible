@@ -119,13 +119,21 @@
     display: block;
 }
 
-/* Override the auto-expansion of markdown content */
-#workspace-design-content,
-#wireframe-annotations-content,
-#mvp-recommendations-content,
-#comparative-summary-content {
-    max-height: 220px;
-    overflow: hidden;
+/* Hidden content class to toggle markdown visibility */
+.hidden-content {
+    display: none !important;
+}
+
+/* Make toggle buttons consistent */
+.toggle-content-btn {
+    margin-top: -3px;
+}
+
+/* Card header with toggle button needs to accommodate the button */
+.card-header:has(.toggle-content-btn) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Make modals more mobile-friendly */
