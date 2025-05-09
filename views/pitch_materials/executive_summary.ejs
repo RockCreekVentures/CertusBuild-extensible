@@ -1,0 +1,95 @@
+<%- include('_pitch_template', {
+    activeSection: 'executive-summary',
+    pageTitle: 'Executive Summary Deck',
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This section contains the executive summary deck for CertusBuild, designed for presenting to executive stakeholders.
+        </div>
+        
+        <p class="lead">
+            Our executive summary presents the core value proposition, market opportunity, and business model for CertusBuild in a format suitable for C-suite executives and decision makers.
+        </p>
+        
+        <div class="row mt-4 mb-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Target Audience</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> C-level executives</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Construction firm directors</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Business decision makers</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Potential strategic partners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Key Components</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Problem & solution overview</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Market opportunity</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Competitive advantage</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> Business model</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    markdownFile: '/content/pitch_materials/executive_summary.md',
+    additionalSections: [
+        {
+            title: 'Presentation Format',
+            collapsible: false,
+            content: `
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-file-powerpoint fa-3x mb-3 text-primary"></i>
+                                <h5>PowerPoint Deck</h5>
+                                <p class="mb-0">15 slides, 20-minute presentation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-file-pdf fa-3x mb-3 text-danger"></i>
+                                <h5>PDF Handout</h5>
+                                <p class="mb-0">1-page executive brief</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-video fa-3x mb-3 text-success"></i>
+                                <h5>Video Presentation</h5>
+                                <p class="mb-0">5-minute explainer video</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            actions: [
+                {
+                    text: 'Download PowerPoint',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-download'
+                },
+                {
+                    text: 'Download PDF',
+                    url: '#',
+                    btnClass: 'btn-outline-danger',
+                    icon: 'fas fa-file-pdf'
+                }
+            ]
+        }
+    ]
+}) %>

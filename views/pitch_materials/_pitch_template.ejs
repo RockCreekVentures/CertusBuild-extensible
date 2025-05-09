@@ -1,0 +1,89 @@
+<div class="container main-content">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <!-- Sidebar Navigation -->
+            <div class="list-group sticky-top" style="top: 20px;">
+                <div class="list-group-item list-group-item-dark">
+                    <strong><i class="fas fa-list me-2"></i> Pitch Materials</strong>
+                </div>
+                <a href="/pitch-materials" class="list-group-item list-group-item-action">
+                    <i class="fas fa-home me-2"></i> All Materials
+                </a>
+                <a href="/pitch-materials/executive-summary" class="list-group-item list-group-item-action <%= activeSection === 'executive-summary' ? 'active' : '' %>">
+                    <i class="fas fa-file-powerpoint me-2"></i> Executive Summary
+                </a>
+                <a href="/pitch-materials/technical-user" class="list-group-item list-group-item-action <%= activeSection === 'technical-user' ? 'active' : '' %>">
+                    <i class="fas fa-cogs me-2"></i> Technical/User Workflow
+                </a>
+                <a href="/pitch-materials/investor-pitch" class="list-group-item list-group-item-action <%= activeSection === 'investor-pitch' ? 'active' : '' %>">
+                    <i class="fas fa-chart-line me-2"></i> Investor Pitch
+                </a>
+                <a href="/pitch-materials/financials" class="list-group-item list-group-item-action <%= activeSection === 'financials' ? 'active' : '' %>">
+                    <i class="fas fa-calculator me-2"></i> Financials Module
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <!-- Page Title -->
+            <h1 class="mb-4"><%= pageTitle %></h1>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <%- contentHtml %>
+            </div>
+            
+            <!-- Markdown Display Area -->
+            <% if (markdownFile) { %>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h3 class="mb-0">Document Content</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="markdown-content" data-markdown-file="<%= markdownFile %>">
+                            <!-- Markdown content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            
+            <!-- Additional Sections -->
+            <% if (additionalSections && additionalSections.length > 0) { %>
+                <div class="additional-sections mt-4">
+                    <% additionalSections.forEach(section => { %>
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h3 class="mb-0"><%= section.title %></h3>
+                                <% if (section.collapsible) { %>
+                                    <button class="btn btn-sm btn-outline-secondary toggle-content-btn">
+                                        <i class="fas fa-eye"></i> View Content
+                                    </button>
+                                <% } %>
+                            </div>
+                            <div class="card-body">
+                                <% if (section.collapsible) { %>
+                                    <div class="markdown-content hidden-content">
+                                        <div id="<%= section.id %>" data-markdown-file="<%= section.markdownFile %>"></div>
+                                    </div>
+                                <% } else { %>
+                                    <%- section.content %>
+                                <% } %>
+                            </div>
+                            <% if (section.actions && section.actions.length > 0) { %>
+                                <div class="card-footer bg-white" <%= section.collapsible ? 'style="display: none;"' : '' %>>
+                                    <div class="d-flex justify-content-end">
+                                        <% section.actions.forEach(action => { %>
+                                            <a href="<%= action.url %>" class="btn btn-sm <%= action.btnClass %> ms-2">
+                                                <i class="<%= action.icon %> me-1"></i> <%= action.text %>
+                                            </a>
+                                        <% }); %>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
