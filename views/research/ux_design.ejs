@@ -1,0 +1,74 @@
+<%- include('_research_template', {
+    activeSection: 'ux-design',
+    pageTitle: 'UX Design & Research',
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This section contains user experience research, design concepts, and specifications for the CertusBuild platform.
+        </div>
+        
+        <p class="lead">
+            Our UX research and design process focused on creating an intuitive, efficient interface that addresses the specific needs of construction professionals. The designs below represent our findings and recommended approach.
+        </p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Research Methodology</h5>
+                        <p class="card-text">Our research included interviews with 15+ construction professionals, competitive analysis of 8 existing platforms, and workflow observation sessions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Key UX Findings</h5>
+                        <p class="card-text">Users prioritize efficiency, clear data visualization, and integration capabilities above complex features or visual polish.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    markdownSections: [
+        {
+            title: 'UX Comparison Analysis',
+            id: 'ux-comparison-content',
+            markdownFile: '/content/research/ux_comparison_analysis.md',
+            actions: [
+                {
+                    text: 'View Full Report',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-file-pdf'
+                }
+            ]
+        },
+        {
+            title: 'Workspace Design Concepts',
+            id: 'workspace-design-content',
+            markdownFile: '/content/research/workspace_design_concepts.md',
+            actions: [
+                {
+                    text: 'View Wireframes',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-image'
+                }
+            ]
+        },
+        {
+            title: 'User Journey Maps',
+            id: 'user-journey-content',
+            markdownFile: '/content/research/user_journey_maps.md',
+            actions: [
+                {
+                    text: 'Download Maps',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-download'
+                }
+            ]
+        }
+    ]
+}) %>

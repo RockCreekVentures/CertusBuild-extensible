@@ -1,0 +1,143 @@
+<div class="container main-content">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <!-- Sidebar Navigation -->
+            <div class="list-group sticky-top" style="top: 20px;">
+                <div class="list-group-item list-group-item-dark">
+                    <strong><i class="fas fa-list me-2"></i> Research Navigation</strong>
+                </div>
+                <a href="/research" class="list-group-item list-group-item-action">
+                    <i class="fas fa-home me-2"></i> Research Home
+                </a>
+                <a href="/research/market-analysis" class="list-group-item list-group-item-action <%= activeSection === 'market-analysis' ? 'active' : '' %>">
+                    <i class="fas fa-chart-pie me-2"></i> Market Analysis
+                </a>
+                <a href="/research/technology-landscape" class="list-group-item list-group-item-action <%= activeSection === 'technology-landscape' ? 'active' : '' %>">
+                    <i class="fas fa-microchip me-2"></i> Technology Landscape
+                </a>
+                <a href="/research/ux-design" class="list-group-item list-group-item-action <%= activeSection === 'ux-design' ? 'active' : '' %>">
+                    <i class="fas fa-paint-brush me-2"></i> UX Design
+                </a>
+                <a href="/research/mvp-definition" class="list-group-item list-group-item-action <%= activeSection === 'mvp-definition' ? 'active' : '' %>">
+                    <i class="fas fa-rocket me-2"></i> MVP Definition
+                </a>
+                <a href="/research/misc-assets" class="list-group-item list-group-item-action <%= activeSection === 'misc-assets' ? 'active' : '' %>">
+                    <i class="fas fa-file-alt me-2"></i> Misc Assets
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <!-- Page Title -->
+            <h1 class="mb-4"><%= pageTitle %></h1>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <%- contentHtml %>
+            </div>
+            
+            <!-- Markdown Content Containers -->
+            <% if (markdownSections && markdownSections.length > 0) { %>
+                <div class="markdown-sections mt-4">
+                    <% markdownSections.forEach(section => { %>
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h3 class="mb-0"><%= section.title %></h3>
+                                <button class="btn btn-sm btn-outline-secondary toggle-content-btn">
+                                    <i class="fas fa-eye"></i> View Content
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="markdown-content hidden-content">
+                                    <div id="<%= section.id %>" data-markdown-file="<%= section.markdownFile %>"></div>
+                                </div>
+                            </div>
+                            <% if (section.actions && section.actions.length > 0) { %>
+                                <div class="card-footer bg-white" style="display: none;">
+                                    <div class="d-flex justify-content-end">
+                                        <% section.actions.forEach(action => { %>
+                                            <a href="<%= action.url %>" class="btn btn-sm <%= action.btnClass %> ms-2">
+                                                <i class="<%= action.icon %> me-1"></i> <%= action.text %>
+                                            </a>
+                                        <% }); %>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<!-- Additional scripts specific to this page -->
+<% if (typeof additionalScripts === 'undefined') { %>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add toggle functionality for markdown content
+            document.querySelectorAll('.toggle-content-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cardBody = this.closest('.card-header').nextElementSibling;
+                    const content = cardBody.querySelector('.markdown-content');
+                    const cardFooter = this.closest('.card').querySelector('.card-footer');
+                    
+                    // Toggle visibility
+                    const isVisible = !content.classList.contains('hidden-content');
+                    content.classList.toggle('hidden-content');
+                    
+                    // Update button text
+                    if (isVisible) {
+                        this.innerHTML = '<i class="fas fa-eye"></i> View Content';
+                        if (cardFooter) cardFooter.style.display = 'none';
+                    } else {
+                        this.innerHTML = '<i class="fas fa-eye-slash"></i> Hide Content';
+                        if (cardFooter) cardFooter.style.display = 'block';
+                        
+                        // Load content if not already loaded
+                        const contentDiv = content.querySelector('div');
+                        if (contentDiv && !contentDiv.dataset.loaded) {
+                            // Fetch markdown file
+                            const markdownFile = contentDiv.getAttribute('data-markdown-file');
+                            if (markdownFile) {
+                                fetch(markdownFile)
+                                    .then(response => {
+                                        if (!response.ok) throw new Error('Failed to load markdown');
+                                        return response.text();
+                                    })
+                                    .then(markdown => {
+                                        // Convert markdown to HTML using Showdown
+                                        const converter = new showdown.Converter({
+                                            tables: true,
+                                            strikethrough: true,
+                                            tasklists: true
+                                        });
+                                        converter.setFlavor('github');
+                                        const html = converter.makeHtml(markdown);
+                                        
+                                        // Insert the HTML content
+                                        contentDiv.innerHTML = html;
+                                        contentDiv.dataset.loaded = 'true';
+                                        
+                                        // Apply styling classes
+                                        contentDiv.querySelectorAll('table').forEach(table => {
+                                            table.classList.add('table', 'table-striped', 'table-bordered');
+                                        });
+                                    })
+                                    .catch(error => {
+                                        contentDiv.innerHTML = `
+                                            <div class="alert alert-danger">
+                                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                                Error loading content: ${error.message}
+                                            </div>
+                                        `;
+                                        console.error('Error loading markdown:', error);
+                                    });
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<% } %>
