@@ -1,0 +1,133 @@
+/* UX Design and Workflow Diagram Styles */
+
+/* Icon circles */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+/* Workflow diagram cards */
+.workflow-diagram {
+    max-height: 180px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .workflow-diagram {
+    transform: scale(1.05);
+}
+
+/* Interface screenshots */
+.interface-screenshot {
+    max-height: 160px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover .interface-screenshot {
+    transform: scale(1.05);
+}
+
+/* Wireframe images */
+.wireframe-image {
+    max-height: 200px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .wireframe-image {
+    transform: scale(1.02);
+}
+
+/* Document cards */
+.document-card {
+    padding: 1.25rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    height: 100%;
+    cursor: pointer;
+}
+
+.document-card:hover {
+    border-color: #5B8C5A;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.document-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #0A2342;
+}
+
+.document-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Table styling for comparative analysis */
+#comparative-summary-content table {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+#comparative-summary-content th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+    vertical-align: top;
+    color: #0A2342;
+}
+
+#comparative-summary-content td {
+    vertical-align: top;
+}
+
+#comparative-summary-content tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Modal customization */
+#workflowModal .modal-body {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+#workflowModal img {
+    max-width: 100%;
+    max-height: 80vh;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .workflow-diagram,
+    .interface-screenshot {
+        max-height: 120px;
+    }
+    
+    .icon-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 1em;
+    }
+    
+    #comparative-summary-content table {
+        font-size: 0.8rem;
+    }
+    
+    #comparative-summary-content th,
+    #comparative-summary-content td {
+        padding: 0.3rem;
+    }
+}

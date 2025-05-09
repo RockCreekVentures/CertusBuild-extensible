@@ -3,60 +3,932 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CertusBuild Wireframe</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CertusBuild Interactive Wireframe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A2342;
+            --secondary: #5B8C5A;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        /* Layout Containers */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .top-nav {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-right: 1.5rem;
+        }
+        
+        .module-tabs {
+            display: flex;
+            margin-right: auto;
+        }
+        
+        .module-tab {
+            padding: 0.5rem 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .module-tab:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .module-tab.active {
+            color: white;
+            border-bottom: 3px solid var(--secondary);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .user-controls a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .left-sidebar {
+            width: 250px;
+            background-color: var(--light-gray);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+        }
+        
+        .left-sidebar.collapsed {
+            width: 50px;
+        }
+        
+        .sidebar-header {
+            padding: 1rem;
+            font-weight: bold;
+            color: var(--primary);
+            background-color: var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sidebar-items {
+            padding: 0.5rem 0;
+            overflow-y: auto;
+        }
+        
+        .sidebar-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-item:hover {
+            background-color: var(--medium-gray);
+        }
+        
+        .sidebar-item.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .content-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .content-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .content-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            background-color: var(--light-gray);
+        }
+        
+        .right-panel {
+            width: 300px;
+            background-color: white;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+        }
+        
+        .right-panel.collapsed {
+            width: 0;
+        }
+        
+        .panel-header {
+            padding: 1rem;
+            font-weight: bold;
+            color: var(--primary);
+            background-color: var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-content {
+            padding: 1rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        /* Estimation/Scheduling specific styles */
+        .estimate-grid {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            overflow: auto;
+        }
+        
+        .estimate-header {
+            background-color: var(--medium-gray);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 40px 3fr 1fr 1fr 1fr 1fr 1fr;
+            font-weight: bold;
+        }
+        
+        .estimate-header-cell {
+            padding: 0.75rem;
+            border-right: 1px solid var(--border-color);
+            text-align: left;
+        }
+        
+        .estimate-row {
+            display: grid;
+            grid-template-columns: 40px 3fr 1fr 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .estimate-row.group {
+            background-color: #f0f0f0;
+        }
+        
+        .estimate-cell {
+            padding: 0.75rem;
+            border-right: 1px solid var(--border-color);
+            align-items: center;
+        }
+        
+        .schedule-container {
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
+        
+        .gantt-header {
+            display: flex;
+            height: 40px;
+            background-color: var(--medium-gray);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .task-list {
+            width: 250px;
+            border-right: 1px solid var(--border-color);
+            font-weight: bold;
+            padding: 0.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .timeline {
+            flex: 1;
+            display: flex;
+        }
+        
+        .day {
+            min-width: 40px;
+            text-align: center;
+            padding: 0.5rem 0;
+            border-right: 1px solid var(--border-color);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .gantt-body {
+            display: flex;
+            overflow: auto;
+        }
+        
+        .task-names {
+            width: 250px;
+            border-right: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        
+        .task-name {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .task-name.group {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .gantt-chart {
+            flex: 1;
+            position: relative;
+        }
+        
+        .time-grid {
+            display: flex;
+            height: 100%;
+        }
+        
+        .grid-column {
+            min-width: 40px;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+        }
+        
+        .task-bar {
+            position: absolute;
+            height: 24px;
+            background-color: var(--secondary);
+            border-radius: 4px;
+            margin-top: 8px;
+            z-index: 1;
+            opacity: 0.9;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .task-bar:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .task-bar.critical {
+            background-color: #dc3545;
+        }
+        
+        .task-dependency {
+            position: absolute;
+            border-top: 2px dashed var(--dark-gray);
+            z-index: 0;
+        }
+        
+        /* Properties panel styles */
+        .property-group {
+            margin-bottom: 1rem;
+        }
+        
+        .property-header {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .property-row {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-label {
+            width: 40%;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .property-value {
+            width: 60%;
+            font-weight: 500;
+        }
+        
+        /* Demo controls */
+        .demo-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            z-index: 100;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+        }
+        
+        .annotation:hover {
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <div class="top-nav">
             <div class="logo">
-                <!-- SVG for logo will be handled later, for now, placeholder -->
-                <span class="logo-glyph"></span> <!-- Placeholder for glyph -->
-                <span class="logo-text">CertusBuild</span>
+                <i class="fas fa-building me-2"></i> CertusBuild
             </div>
-        </header>
-        <main>
-            <aside class="sidebar-left">
-                <section class="projects">
-                    <h2>PROJECTS</h2>
-                    <ul>
-                        <li class="active">11 A</li>
-                        <li>B</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>0</li>
-                        <li>9</li>
-                    </ul>
-                </section>
-            </aside>
-            <section class="main-content">
-                <h1>Dashboard</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit: labem consector adipistrotur consector d. stainssc relit, consecter et ipsum ludume dolore consector aliūm, au nonset caaa rpuf et laberis vitaeus sea ait volutpat ac virlemo Joeren.</p>
-                <div class="dashboard-widgets">
-                    <div class="widget">Lorem ipsum</div>
-                    <div class="widget">Lorem ipsum</div>
-                    <div class="widget">Lorem ipsum</div>
-                    <div class="widget">Lorem ipsum</div>
+            
+            <div class="module-tabs">
+                <a href="#" class="module-tab">
+                    <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                </a>
+                <a href="#" class="module-tab active">
+                    <i class="fas fa-calculator me-1"></i> Estimation
+                </a>
+                <a href="#" class="module-tab">
+                    <i class="fas fa-calendar-alt me-1"></i> Scheduling
+                </a>
+                <a href="#" class="module-tab">
+                    <i class="fas fa-file-alt me-1"></i> Documents
+                </a>
+                <a href="#" class="module-tab">
+                    <i class="fas fa-chart-bar me-1"></i> Reports
+                </a>
+            </div>
+            
+            <div class="user-controls">
+                <a href="#" title="Project Selector">
+                    <i class="fas fa-folder me-1"></i>
+                    <span class="d-none d-md-inline">Vertex Office Tower</span>
+                </a>
+                <a href="#" title="Search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="#" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                </a>
+                <a href="#" title="Help">
+                    <i class="fas fa-question-circle"></i>
+                </a>
+                <a href="#" title="User Profile">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Container -->
+        <div class="main-container">
+            <!-- Left Sidebar -->
+            <div class="left-sidebar" id="leftSidebar">
+                <div class="sidebar-header">
+                    <span>Estimation</span>
+                    <button class="btn btn-sm btn-outline-secondary" id="toggleLeftSidebar">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
                 </div>
-            </section>
-            <aside class="sidebar-right">
-                <section class="details">
-                    <h2>DETAILS</h2>
-                    <div class="placeholder-lines">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                
+                <div class="sidebar-items">
+                    <a href="#" class="sidebar-item active">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>Current Estimate</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-history"></i>
+                        <span>Version History</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-database"></i>
+                        <span>Cost Database</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>Takeoff</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Templates</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-file-export"></i>
+                        <span>Export</span>
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="content-header">
+                    <div class="content-title">
+                        Vertex Office Tower - Main Estimate
                     </div>
-                </section>
-                <section class="activity">
-                    <h2>ACTIVITY</h2>
-                    <ul>
-                        <li><span>00:00 AM</span> Lorem ipsum dolor sit amet</li>
-                        <li><span>00:00 AM</span> Lorem ipsum dolor sit amet</li>
-                    </ul>
-                </section>
-            </aside>
-        </main>
+                    
+                    <div class="content-actions">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-print me-1"></i> Print
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-share-alt me-1"></i> Share
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-save me-1"></i> Save
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="main-content" id="mainContent">
+                    <div class="estimate-grid">
+                        <div class="estimate-header">
+                            <div class="estimate-header-cell">#</div>
+                            <div class="estimate-header-cell">Description</div>
+                            <div class="estimate-header-cell">Quantity</div>
+                            <div class="estimate-header-cell">Unit</div>
+                            <div class="estimate-header-cell">Unit Cost</div>
+                            <div class="estimate-header-cell">Total Cost</div>
+                            <div class="estimate-header-cell">Status</div>
+                        </div>
+                        
+                        <div class="estimate-row group">
+                            <div class="estimate-cell">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="estimate-cell">Division 01 - General Requirements</div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell">$245,800.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-success">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">1.1</div>
+                            <div class="estimate-cell">Project Management</div>
+                            <div class="estimate-cell">1</div>
+                            <div class="estimate-cell">LS</div>
+                            <div class="estimate-cell">$150,000.00</div>
+                            <div class="estimate-cell">$150,000.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-success">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">1.2</div>
+                            <div class="estimate-cell">Temporary Facilities</div>
+                            <div class="estimate-cell">12</div>
+                            <div class="estimate-cell">MO</div>
+                            <div class="estimate-cell">$7,500.00</div>
+                            <div class="estimate-cell">$90,000.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-success">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">1.3</div>
+                            <div class="estimate-cell">Construction Waste Management</div>
+                            <div class="estimate-cell">1</div>
+                            <div class="estimate-cell">LS</div>
+                            <div class="estimate-cell">$5,800.00</div>
+                            <div class="estimate-cell">$5,800.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-success">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row group">
+                            <div class="estimate-cell">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="estimate-cell">Division 02 - Existing Conditions</div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell">$182,500.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-warning">In Progress</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">2.1</div>
+                            <div class="estimate-cell">Site Demolition</div>
+                            <div class="estimate-cell">1</div>
+                            <div class="estimate-cell">LS</div>
+                            <div class="estimate-cell">$85,000.00</div>
+                            <div class="estimate-cell">$85,000.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-success">Complete</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">2.2</div>
+                            <div class="estimate-cell">Hazardous Material Abatement</div>
+                            <div class="estimate-cell">1</div>
+                            <div class="estimate-cell">LS</div>
+                            <div class="estimate-cell">$47,500.00</div>
+                            <div class="estimate-cell">$47,500.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-warning">In Progress</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row">
+                            <div class="estimate-cell">2.3</div>
+                            <div class="estimate-cell">Subsurface Investigation</div>
+                            <div class="estimate-cell">1</div>
+                            <div class="estimate-cell">LS</div>
+                            <div class="estimate-cell">$50,000.00</div>
+                            <div class="estimate-cell">$50,000.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-warning">In Progress</span>
+                            </div>
+                        </div>
+                        
+                        <div class="estimate-row group">
+                            <div class="estimate-cell">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <div class="estimate-cell">Division 03 - Concrete</div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell"></div>
+                            <div class="estimate-cell">$1,245,600.00</div>
+                            <div class="estimate-cell">
+                                <span class="badge bg-secondary">Planned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel -->
+            <div class="right-panel" id="rightPanel">
+                <div class="panel-header">
+                    <span>Properties</span>
+                    <button class="btn btn-sm btn-outline-secondary" id="toggleRightPanel">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="panel-content">
+                    <div class="property-group">
+                        <div class="property-header">Item Details</div>
+                        <div class="property-row">
+                            <div class="property-label">Item Code:</div>
+                            <div class="property-value">2.2</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Description:</div>
+                            <div class="property-value">Hazardous Material Abatement</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Quantity:</div>
+                            <div class="property-value">1.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Unit:</div>
+                            <div class="property-value">LS (Lump Sum)</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Unit Cost:</div>
+                            <div class="property-value">$47,500.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Total Cost:</div>
+                            <div class="property-value">$47,500.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Status:</div>
+                            <div class="property-value"><span class="badge bg-warning">In Progress</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <div class="property-header">Cost Details</div>
+                        <div class="property-row">
+                            <div class="property-label">Labor:</div>
+                            <div class="property-value">$32,500.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Materials:</div>
+                            <div class="property-value">$8,750.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Equipment:</div>
+                            <div class="property-value">$6,250.00</div>
+                        </div>
+                        <div class="property-row">
+                            <div class="property-label">Markup:</div>
+                            <div class="property-value">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-group">
+                        <div class="property-header">Related Tasks</div>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Hazmat Survey
+                                <span class="badge bg-success rounded-pill">Complete</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Abatement Work
+                                <span class="badge bg-warning rounded-pill">In Progress</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Clearance Testing
+                                <span class="badge bg-secondary rounded-pill">Planned</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="property-group">
+                        <div class="property-header">Notes</div>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Add notes here" id="notesTextarea" style="height: 100px">Subcontractor has completed 60% of the abatement work. Waiting on clearance testing for completed areas before proceeding with demolition.</textarea>
+                            <label for="notesTextarea">Notes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <!-- Annotations -->
+    <div class="annotation" style="top: 15px; left: 192px;" title="Module Navigation Tabs">1</div>
+    <div class="annotation" style="top: 15px; right: 250px;" title="Project Selector">2</div>
+    <div class="annotation" style="top: 80px; left: 125px;" title="Context-specific Navigation">3</div>
+    <div class="annotation" style="top: 80px; right: 350px;" title="Primary Content Area">4</div>
+    <div class="annotation" style="top: 80px; right: 150px;" title="Context Panel">5</div>
+    <div class="annotation" style="top: 170px; left: 350px;" title="Hierarchical Line Items">6</div>
+    <div class="annotation" style="top: 280px; right: 150px;" title="Item Properties">7</div>
+    <div class="annotation" style="top: 430px; right: 150px;" title="Related Information">8</div>
+    
+    <!-- Demo Controls -->
+    <div class="demo-controls">
+        <div class="btn-group">
+            <button class="btn btn-primary" id="showEstimationView">Estimation View</button>
+            <button class="btn btn-outline-primary" id="showSchedulingView">Scheduling View</button>
+        </div>
+    </div>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar functionality
+            const toggleLeftSidebar = document.getElementById('toggleLeftSidebar');
+            const leftSidebar = document.getElementById('leftSidebar');
+            
+            toggleLeftSidebar.addEventListener('click', function() {
+                leftSidebar.classList.toggle('collapsed');
+                if (leftSidebar.classList.contains('collapsed')) {
+                    toggleLeftSidebar.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                } else {
+                    toggleLeftSidebar.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                }
+            });
+            
+            // Toggle right panel functionality
+            const toggleRightPanel = document.getElementById('toggleRightPanel');
+            const rightPanel = document.getElementById('rightPanel');
+            
+            toggleRightPanel.addEventListener('click', function() {
+                rightPanel.classList.toggle('collapsed');
+                if (rightPanel.classList.contains('collapsed')) {
+                    toggleRightPanel.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                } else {
+                    toggleRightPanel.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                }
+            });
+            
+            // View switching functionality
+            const showEstimationView = document.getElementById('showEstimationView');
+            const showSchedulingView = document.getElementById('showSchedulingView');
+            const mainContent = document.getElementById('mainContent');
+            
+            showSchedulingView.addEventListener('click', function() {
+                showEstimationView.classList.remove('btn-primary');
+                showEstimationView.classList.add('btn-outline-primary');
+                showSchedulingView.classList.remove('btn-outline-primary');
+                showSchedulingView.classList.add('btn-primary');
+                
+                // Create and show the scheduling view
+                mainContent.innerHTML = createSchedulingView();
+                
+                // Update module tabs
+                const moduleTabs = document.querySelectorAll('.module-tab');
+                moduleTabs.forEach(tab => tab.classList.remove('active'));
+                moduleTabs[2].classList.add('active');
+                
+                // Update sidebar
+                document.querySelector('.sidebar-header span').textContent = 'Scheduling';
+                
+                // Reset annotations
+                resetAnnotations();
+                
+                // Add scheduling specific annotations
+                createAnnotation('top: 80px; left: 125px;', 'Schedule Navigation');
+                createAnnotation('top: 170px; left: 125px;', 'Task List');
+                createAnnotation('top: 170px; right: 500px;', 'Gantt Timeline');
+                createAnnotation('top: 220px; right: 350px;', 'Task Dependencies');
+                createAnnotation('top: 280px; right: 150px;', 'Task Details');
+                createAnnotation('top: 380px; right: 150px;', 'Resource Assignment');
+            });
+            
+            showEstimationView.addEventListener('click', function() {
+                showSchedulingView.classList.remove('btn-primary');
+                showSchedulingView.classList.add('btn-outline-primary');
+                showEstimationView.classList.remove('btn-outline-primary');
+                showEstimationView.classList.add('btn-primary');
+                
+                // Reset to original estimation view by reloading page
+                location.reload();
+            });
+            
+            function createSchedulingView() {
+                return `
+                    <div class="schedule-container">
+                        <div class="gantt-header">
+                            <div class="task-list">Task</div>
+                            <div class="timeline">
+                                <div class="day">6/1</div>
+                                <div class="day">6/2</div>
+                                <div class="day">6/3</div>
+                                <div class="day">6/4</div>
+                                <div class="day">6/5</div>
+                                <div class="day">6/8</div>
+                                <div class="day">6/9</div>
+                                <div class="day">6/10</div>
+                                <div class="day">6/11</div>
+                                <div class="day">6/12</div>
+                                <div class="day">6/15</div>
+                                <div class="day">6/16</div>
+                                <div class="day">6/17</div>
+                                <div class="day">6/18</div>
+                                <div class="day">6/19</div>
+                            </div>
+                        </div>
+                        
+                        <div class="gantt-body">
+                            <div class="task-names">
+                                <div class="task-name group">Site Preparation</div>
+                                <div class="task-name">Mobilization</div>
+                                <div class="task-name">Site Clearing</div>
+                                <div class="task-name">Site Demolition</div>
+                                <div class="task-name">Erosion Control</div>
+                                <div class="task-name group">Foundation</div>
+                                <div class="task-name">Excavation</div>
+                                <div class="task-name">Footings</div>
+                                <div class="task-name">Foundation Walls</div>
+                                <div class="task-name">Waterproofing</div>
+                                <div class="task-name">Backfill</div>
+                            </div>
+                            
+                            <div class="gantt-chart">
+                                <div class="time-grid">
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                    <div class="grid-column"></div>
+                                </div>
+                                
+                                <!-- Task bars -->
+                                <div class="task-bar" style="left: 0px; top: 40px; width: 80px;"></div>
+                                <div class="task-bar" style="left: 80px; top: 80px; width: 120px;"></div>
+                                <div class="task-bar critical" style="left: 120px; top: 120px; width: 160px;"></div>
+                                <div class="task-bar" style="left: 160px; top: 160px; width: 80px;"></div>
+                                <div class="task-bar critical" style="left: 280px; top: 240px; width: 120px;"></div>
+                                <div class="task-bar critical" style="left: 400px; top: 280px; width: 160px;"></div>
+                                <div class="task-bar" style="left: 400px; top: 320px; width: 200px;"></div>
+                                <div class="task-bar" style="left: 560px; top: 360px; width: 80px;"></div>
+                                <div class="task-bar" style="left: 560px; top: 400px; width: 80px;"></div>
+                                
+                                <!-- Dependencies -->
+                                <div class="task-dependency" style="left: 80px; top: 52px; width: 12px; height: 40px; border-left: 2px dashed #6c757d;"></div>
+                                <div class="task-dependency" style="left: 200px; top: 92px; width: 0px; height: 40px; border-left: 2px dashed #6c757d;"></div>
+                                <div class="task-dependency" style="left: 280px; top: 172px; width: 12px; height: 80px; border-left: 2px dashed #6c757d;"></div>
+                                <div class="task-dependency" style="left: 520px; top: 292px; width: 12px; height: 80px; border-left: 2px dashed #6c757d;"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            function resetAnnotations() {
+                // Remove existing annotations
+                document.querySelectorAll('.annotation').forEach(a => a.remove());
+            }
+            
+            function createAnnotation(position, title) {
+                const annotation = document.createElement('div');
+                annotation.className = 'annotation';
+                annotation.title = title;
+                annotation.style = position;
+                annotation.textContent = document.querySelectorAll('.annotation').length + 1;
+                document.body.appendChild(annotation);
+            }
+            
+            // Tooltip initialization
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[title]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
 </body>
 </html>

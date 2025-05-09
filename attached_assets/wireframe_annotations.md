@@ -1,46 +1,118 @@
-# Workspace Wireframe Concepts & Annotations
+# CertusBuild Wireframe Annotations
 
-This document describes two initial wireframe concepts for the core workspace of the construction management SaaS platform, based on the research into modern UI paradigms (dashboards, IDEs, creative suites) and the requirement to balance professional aesthetics with intuitive usability.
+## Overview
+These annotations correspond to the initial wireframe concepts for the CertusBuild platform. The wireframes focus on the estimation and scheduling modules, with special attention to creating an intuitive and efficient user experience for construction professionals.
 
-## Concept 1: Modular IDE-Style Layout (`wireframe_concept_1_modular.png`)
+## Wireframe Concept 1: Modular Workspace
 
-![Wireframe Concept 1](/home/ubuntu/wireframe_concept_1_modular.png)
+### General Layout
+1. **Top Navigation Bar**
+   - Project selector dropdown (currently showing "Vertex Office Tower")
+   - Module navigation tabs (Dashboard, Estimation, Scheduling, Documents, Reports)
+   - User profile and settings
+   - Notifications center
+   - Help and search functions
 
-**Rationale:** This concept draws heavily from Integrated Development Environments (IDEs) and some creative software, prioritizing flexibility and information density for power users like estimators, engineers, and project managers who might spend extended periods in the application.
+2. **Left Sidebar**
+   - Context-specific navigation based on current module
+   - Quick access to frequently used functions
+   - Collapsible to maximize working area
 
-**Annotations:**
+3. **Main Content Area**
+   - Primary workspace with module-specific content
+   - Tabbed interface for managing multiple documents/views simultaneously
+   - Responsive design with adjustable panels
 
-1.  **Top Bar:** Standard location for global navigation, application title/logo, user profile/settings, and potentially global search or notifications.
-2.  **Left Panel (Collapsible):** Serves as the primary navigation and project/file browser. Users can navigate between different modules (Dashboard, Projects, Tasks, Estimating, Scheduling, Reports, Settings, etc.) and browse project-specific files or data structures (e.g., BIM models, cost databases, schedules). Collapsibility maximizes the main content area.
-3.  **Main Content Area (Center):** The primary workspace. Its content changes based on the selected module/task. In this example, it shows a dashboard view with summary widgets, but it could display a detailed estimate, a Gantt chart, a BIM viewer, or document editing tools. This area is designed to be the main focus.
-4.  **Right Panel (Collapsible):** Context-sensitive panel providing details, properties, or actions related to the item selected in the main content area. For example, selecting a task in a schedule might show its details, dependencies, and assigned resources here. Selecting an element in a BIM model could show its properties. Collapsibility allows users to hide it when not needed.
-5.  **Bottom Panel (Collapsible/Tabbed):** Area for logs, console output, notifications, background task status, or potentially communication/chat features. Similar to IDEs, this provides persistent access to system feedback or secondary information streams without cluttering the main view. Could be tabbed for different types of information.
+4. **Right Context Panel**
+   - Properties and details for selected items
+   - Related information and quick actions
+   - Collapsible to maximize working area
 
-**UX Considerations:**
-*   **Flexibility:** Users could potentially resize or even rearrange panels (though this adds complexity).
-*   **Focus:** Keeps the main task central, with navigation and details accessible but tuckable.
-*   **Scalability:** Suitable for complex workflows involving multiple data sources or views.
-*   **Learning Curve:** Might feel familiar to users of technical software but could be slightly intimidating initially for less technical users.
+### Estimation Module Specifics
 
-## Concept 2: Dashboard-Centric Layout (`wireframe_concept_2_dashboard.png`)
+5. **Estimation Grid**
+   - Hierarchical line item structure with collapsible sections
+   - Inline editing capabilities for efficient data entry
+   - Color-coded status indicators
+   - Column customization options
 
-![Wireframe Concept 2](/home/ubuntu/wireframe_concept_2_dashboard.png)
+6. **Takeoff Integration**
+   - Split view showing plans alongside estimate items
+   - Visual indicators linking measured areas to line items
+   - Measurement tools with automatic quantity calculation
 
-**Rationale:** This concept leans more towards modern web dashboards, prioritizing at-a-glance information and key metrics. It might be more suitable as a default landing page or for roles like executives or finance staff who need high-level overviews.
+7. **Cost Database Panel**
+   - Searchable cost item database
+   - Drag-and-drop functionality to add items to estimate
+   - Recent and favorite items for quick access
 
-**Annotations:**
+8. **Summary Panel**
+   - Real-time totals and calculations
+   - Markup and contingency controls
+   - Visual indicators for budget status
 
-1.  **Top Bar:** Similar to Concept 1, for global navigation, branding, user controls.
-2.  **Left Panel (Collapsible):** Simplified navigation, potentially focusing on core modules or projects. Less emphasis on deep file structures compared to Concept 1.
-3.  **Main Content Area (Center):** Dominated by configurable widgets displaying KPIs, charts, task lists, recent activity, etc. Provides a customizable overview of project status or user-specific information.
-4.  **Right Panel (Collapsible):** Similar context-sensitive details panel as in Concept 1, providing more information about selected items (e.g., details of a task clicked in the Task List widget).
-5.  **Bottom Panel:** Omitted or integrated differently (e.g., notifications might appear transiently or be accessed via an icon in the top bar) to maximize dashboard space and reduce visual complexity.
+### Scheduling Module Specifics
 
-**UX Considerations:**
-*   **Clarity:** Excellent for quick status checks and identifying key metrics.
-*   **Customization:** Widgets could be added, removed, or rearranged by the user.
-*   **Approachability:** Generally feels more familiar and less complex than the IDE layout for a wider range of users.
-*   **Task Depth:** Might require navigating away from the dashboard or opening modals/new views for detailed tasks (like complex estimating or scheduling), potentially leading to more context switching for power users compared to Concept 1.
+9. **Gantt Chart View**
+   - Interactive timeline with drag-and-drop task management
+   - Clear visualization of dependencies and critical path
+   - Custom color coding for task categories and status
+   - Zoom controls for timeline scale
 
----
-*Next steps involve exploring visual themes (color palettes, typography, iconography) for these structures.*
+10. **Resource Assignment Panel**
+    - Visual resource allocation overview
+    - Drag-and-drop assignment of resources to tasks
+    - Resource conflict detection
+    - Capacity visualization
+
+11. **Task Details Form**
+    - Streamlined input form for task creation and editing
+    - Integration with estimation line items
+    - Duration calculation assistance
+    - Dependency selector with visual feedback
+
+12. **Calendar View Toggle**
+    - Alternative calendar visualization of the schedule
+    - Day/Week/Month view options
+    - Resource-based or task-based viewing modes
+
+## Design Considerations
+
+### Visual Hierarchy
+- Strong typographic hierarchy to distinguish between levels of information
+- Consistent color system aligned with CertusBuild brand guidelines
+- Clear separation between functional areas using subtle borders and background colors
+- Visual emphasis on primary actions and important data
+
+### Interaction Design
+- Minimal clicks required for common actions
+- Consistent interaction patterns across modules
+- Intuitive drag-and-drop operations where appropriate
+- Contextual tools appearing when needed
+
+### Integration Points
+- Clear visual connections between related estimate items and schedule tasks
+- Seamless transitions between different modules
+- Consistent terminology and naming conventions
+- Unified data model preventing redundant entry
+
+### Responsiveness
+- Adaptable layout supporting different screen sizes
+- Collapsible panels to maximize working area
+- Touch-friendly controls for tablet usage
+- Priority information remains visible at all screen sizes
+
+## Next Steps
+
+Based on this initial wireframe concept, we recommend:
+
+1. **Usability Testing** with target users to validate key interaction models
+2. **Component Detailing** to refine individual UI elements and controls
+3. **Interactive Prototyping** to test workflow sequences
+4. **Visual Design Application** to apply the full CertusBuild visual identity
+
+Future wireframe iterations will incorporate user feedback and explore alternative approaches to key interactions, particularly around:
+- Takeoff-to-estimate workflow
+- Schedule dependency management
+- Resource allocation visualization
+- Mobile/tablet adaptations
