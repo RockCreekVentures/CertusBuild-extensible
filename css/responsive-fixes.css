@@ -119,16 +119,37 @@
     display: block;
 }
 
-/* Card body with markdown content should be completely hidden when collapsed */
-.card-body:has(.markdown-content.hidden-content) {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    border: none !important;
-    display: block !important;
-    visibility: hidden !important;
-    max-height: 0 !important;
+/* More generous spacing for all cards and sections */
+.card {
+    margin-bottom: 2rem !important;
+}
+
+.card-header {
+    padding: 1rem 1.25rem !important;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+section {
+    margin-bottom: 3rem !important;
+    padding-bottom: 1.5rem !important;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+/* Proper spacing between sections */
+section + section {
+    margin-top: 3rem;
+}
+
+/* Individual styling for markdown cards */
+.markdown-card {
+    margin-bottom: 2.5rem !important;
 }
 
 /* Hidden content class to toggle markdown visibility */
