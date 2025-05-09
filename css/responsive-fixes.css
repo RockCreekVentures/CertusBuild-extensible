@@ -40,7 +40,7 @@
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    max-height: 240px;
+    max-height: 220px;
     transition: transform 0.3s ease;
 }
 
@@ -55,6 +55,42 @@
 .interface-screenshot:hover,
 .workflow-diagram:hover {
     transform: scale(1.02);
+}
+
+/* Fix for wireframe images */
+.wireframe-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+}
+
+/* Logo showcase styling */
+.logo-showcase {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-showcase:hover {
+    transform: scale(1.05);
+}
+
+/* Ensure consistent card height in sections */
+.row > [class^="col-"] > .workflow-diagram-card {
+    height: calc(100% - 10px);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content container for markdown content in cards */
+.workflow-diagram-card .markdown-content {
+    height: 100%;
+    max-height: 220px;
+    overflow-y: auto;
 }
 
 /* Make modals more mobile-friendly */
