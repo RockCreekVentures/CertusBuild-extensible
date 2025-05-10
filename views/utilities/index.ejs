@@ -1,0 +1,193 @@
+<div class="container main-content">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="text-center mb-4">CertusBuild Utilities</h1>
+            <p class="lead text-center mb-5">Access site utilities including file browser and useful links.</p>
+
+            <!-- Utilities Tabs -->
+            <ul class="nav nav-tabs mb-4" id="utilityTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="files-tab" data-bs-toggle="tab" data-bs-target="#files" type="button" role="tab">
+                        <i class="fas fa-folder me-2"></i> File Browser
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="links-tab" data-bs-toggle="tab" data-bs-target="#links" type="button" role="tab">
+                        <i class="fas fa-link me-2"></i> Useful Links
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="utilityTabsContent">
+                <!-- File Browser Tab -->
+                <div class="tab-pane fade show active" id="files" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0">
+                                <i class="fas fa-folder-open me-2"></i> File Browser
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="file-browser">
+                                <% 
+                                // Recursive function to render file tree
+                                function renderFileTree(items, level = 0) { 
+                                    if (!items || items.length === 0) return '';
+                                    
+                                    let html = '<ul class="file-tree-list" style="padding-left: ' + (level === 0 ? '0' : '1.5rem') + ';">';
+                                    
+                                    items.forEach(item => {
+                                        const iconClass = getFileIconClass(item);
+                                        const isDir = item.type === 'directory';
+                                        
+                                        html += '<li class="file-tree-item">';
+                                        
+                                        if (isDir) {
+                                            html += '<div class="file-tree-folder">';
+                                            html += '<i class="fas ' + iconClass + ' me-2 text-warning"></i>';
+                                            html += '<span class="file-tree-label">' + item.name + '</span>';
+                                            html += '</div>';
+                                            html += renderFileTree(item.children, level + 1);
+                                        } else {
+                                            const fileLink = isViewableInBrowser(item.name) ? 
+                                                '/utilities/file/' + item.path : 
+                                                '/utilities/file/' + item.path;
+                                            const linkTarget = isViewableInBrowser(item.name) ? '_blank' : '_self';
+                                            
+                                            html += '<a href="' + fileLink + '" target="' + linkTarget + '" class="file-tree-file">';
+                                            html += '<i class="fas ' + iconClass + ' me-2 text-primary"></i>';
+                                            html += '<span class="file-tree-label">' + item.name + '</span>';
+                                            html += '</a>';
+                                        }
+                                        
+                                        html += '</li>';
+                                    });
+                                    
+                                    html += '</ul>';
+                                    return html;
+                                }
+                                %>
+                                
+                                <div class="file-tree-container">
+                                    <%- renderFileTree(fileTree) %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Links Tab -->
+                <div class="tab-pane fade" id="links" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0">
+                                <i class="fas fa-link me-2"></i> Useful Links
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <% if (links && links.length > 0) { %>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% links.forEach(link => { %>
+                                                <tr>
+                                                    <td>
+                                                        <i class="fas fa-external-link-alt me-2 text-primary"></i>
+                                                        <%= link.name %>
+                                                    </td>
+                                                    <td><%= link.description %></td>
+                                                    <td>
+                                                        <a href="<%= link.url %>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                            Open Link
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            <% }); %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <% } else { %>
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    No links available.
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .file-tree-list {
+        list-style: none;
+        margin: 0;
+    }
+    
+    .file-tree-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .file-tree-folder {
+        cursor: pointer;
+        padding: 0.25rem 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .file-tree-file {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 0.25rem 0;
+    }
+    
+    .file-tree-file:hover {
+        color: #0A2342;
+        text-decoration: underline;
+    }
+    
+    .file-tree-container {
+        max-height: 600px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        padding: 1rem;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle folder expansion
+        document.querySelectorAll('.file-tree-folder').forEach(folder => {
+            folder.addEventListener('click', function() {
+                const list = this.nextElementSibling;
+                if (list && list.classList.contains('file-tree-list')) {
+                    const isHidden = list.style.display === 'none';
+                    list.style.display = isHidden ? 'block' : 'none';
+                    
+                    // Update folder icon
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-folder', !isHidden);
+                        icon.classList.toggle('fa-folder-open', isHidden);
+                    }
+                }
+            });
+            
+            // Trigger once to collapse all folders initially
+            folder.click();
+        });
+    });
+</script>
