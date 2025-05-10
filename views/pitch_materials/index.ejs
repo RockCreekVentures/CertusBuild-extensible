@@ -4,7 +4,9 @@
             <h1 class="text-center mb-4">CertusBuild Pitch Materials</h1>
             <p class="lead text-center mb-5">Access tailored pitch decks and supporting documents designed for various audiences, including investors, industry executives, and technical teams.</p>
 
-            <div class="row g-4">
+            <!-- Core Pitch Materials -->
+            <h2 class="mb-3">Core Pitch Materials</h2>
+            <div class="row g-4 mb-5">
                 <!-- Executive Summary Card -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
@@ -61,6 +63,121 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Recent Additions -->
+            <% if (typeof pitchContent !== 'undefined' && pitchContent.length > 0) { %>
+                <h2 class="mb-3">Recent Additions</h2>
+
+                <!-- Latest 3 Pitch Materials -->
+                <% 
+                // Filter out core topics that we already have static pages for
+                const coreTopics = ['executive-summary', 'technical-user', 'investor-pitch', 'financials'];
+                const additionalContent = pitchContent.filter(item => !coreTopics.includes(item.slug));
+                const recentContent = additionalContent.slice(0, 3); // Get the 3 most recent items
+                
+                // Map appropriate icons based on filename/content
+                const getIconForContent = (content) => {
+                    const slug = content.slug.toLowerCase();
+                    if (slug.includes('executive') || slug.includes('summary')) return 'fas fa-file-powerpoint';
+                    if (slug.includes('tech') || slug.includes('workflow')) return 'fas fa-cogs';
+                    if (slug.includes('investor') || slug.includes('pitch')) return 'fas fa-chart-line';
+                    if (slug.includes('finance') || slug.includes('financial')) return 'fas fa-calculator';
+                    if (slug.includes('market')) return 'fas fa-chart-pie';
+                    if (slug.includes('case') || slug.includes('study')) return 'fas fa-briefcase';
+                    if (slug.includes('slide') || slug.includes('deck')) return 'fas fa-desktop';
+                    return 'fas fa-file-alt';
+                };
+                %>
+                
+                <% if (recentContent.length === 0) { %>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        No additional pitch materials found. New content will appear here automatically when added to the content directory.
+                    </div>
+                <% } else { %>
+                    <div class="row g-4 mb-5">
+                        <% recentContent.forEach(content => { %>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-header bg-light">
+                                        <span class="badge bg-primary float-end">
+                                            <i class="fas fa-calendar-alt me-1"></i>
+                                            <%= content.createdDate.toLocaleDateString() %>
+                                        </span>
+                                        <h5 class="mb-0">New Material</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            <i class="<%= getIconForContent(content) %> me-2 text-primary"></i>
+                                            <%= content.title %>
+                                        </h3>
+                                        <p class="card-text"><%= content.description %></p>
+                                    </div>
+                                    <div class="card-footer bg-white">
+                                        <a href="/pitch-materials/<%= content.slug %>" class="btn btn-outline-primary">
+                                            View Content
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } %>
+
+                <!-- All Additional Materials -->
+                <% if (additionalContent.length > 0) { %>
+                    <h2 class="mb-3">All Pitch Materials</h2>
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h3 class="mb-0">Complete Materials Library</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Added</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% additionalContent.forEach(content => { %>
+                                            <tr>
+                                                <td>
+                                                    <i class="<%= getIconForContent(content) %> me-2 text-primary"></i>
+                                                    <%= content.title %>
+                                                </td>
+                                                <td>
+                                                    <% 
+                                                    let type = "Document";
+                                                    const slug = content.slug.toLowerCase();
+                                                    if (slug.includes('slide') || slug.includes('deck') || slug.includes('presentation')) {
+                                                        type = "Presentation";
+                                                    } else if (slug.includes('case') || slug.includes('study')) {
+                                                        type = "Case Study";
+                                                    } else if (slug.includes('finance') || slug.includes('financial')) {
+                                                        type = "Financial";
+                                                    }
+                                                    %>
+                                                    <%= type %>
+                                                </td>
+                                                <td><%= content.createdDate.toLocaleDateString() %></td>
+                                                <td>
+                                                    <a href="/pitch-materials/<%= content.slug %>" class="btn btn-sm btn-outline-primary">
+                                                        View
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
         </div>
     </div>
 </div>

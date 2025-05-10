@@ -1,0 +1,53 @@
+<%- include('_pitch_template', {
+    activeSection: activeSection,
+    pageTitle: content.title,
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This content was automatically discovered from the pitch materials directory.
+        </div>
+        
+        <p class="lead">
+            ${content.description}
+        </p>
+        
+        <div class="content-metadata mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100 bg-light">
+                        <div class="card-body p-3">
+                            <h5 class="card-title">Document Details</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Category:</strong> ${content.category}</li>
+                                <li><strong>Added:</strong> ${content.createdDate.toLocaleDateString()}</li>
+                                <li><strong>File:</strong> ${content.relativePath}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Document Content',
+            collapsible: false,
+            html: content.htmlContent,
+            actions: [
+                {
+                    text: 'View Raw Markdown',
+                    url: '#',
+                    btnClass: 'btn-outline-secondary',
+                    icon: 'fas fa-code'
+                },
+                {
+                    text: 'Print Document',
+                    url: 'javascript:window.print()',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-print'
+                }
+            ]
+        }
+    ]
+}) %>
