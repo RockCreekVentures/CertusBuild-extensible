@@ -127,7 +127,7 @@ router.get('/', (req, res) => {
 });
 
 // File view/download route
-router.get('/file/:filepath(*)', (req, res) => {
+router.get('/file/:filepath', (req, res) => {
   const filePath = path.join(process.cwd(), req.params.filepath);
   
   // Check if file exists

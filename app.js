@@ -40,11 +40,13 @@ const upload = multer({ storage: storage });
 const indexRouter = require('./routes/index');
 const researchRouter = require('./routes/research');
 const pitchMaterialsRouter = require('./routes/pitch_materials');
+const utilitiesRouter = require('./routes/utilities');
 
 // Map routes
 app.use('/', indexRouter);
 app.use('/research', researchRouter);
 app.use('/pitch-materials', pitchMaterialsRouter);
+app.use('/utilities', utilitiesRouter);
 
 // Create content directories if they don't exist
 const contentDirs = [
