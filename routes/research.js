@@ -7,20 +7,47 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs-extra');
+const contentManager = require('../utils/content-manager');
 
 // Research index page
 router.get('/', (req, res) => {
+  // Get all research content
+  const researchContent = contentManager.getContentByCategory('public/content', 'research');
+  
   res.render('research/index', {
     title: 'Research Archive - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    researchContent
   });
 });
+
+// Dynamic route for research content by slug
+router.get('/:slug', (req, res, next) => {
+  const slug = req.params.slug;
+  const content = contentManager.getContentBySlug('public/content', 'research', slug);
+  
+  if (!content) {
+    // If the slug doesn't match any content, try the static routes or 404
+    return next();
+  }
+  
+  // Render the content page
+  res.render('research/content', {
+    title: `${content.title} - CertusBuild`,
+    activeLink: 'research',
+    activeSection: slug,
+    content
+  });
+});
+
+// Static routes for predefined sections
 
 // Market Analysis page
 router.get('/market-analysis', (req, res) => {
   res.render('research/market_analysis', {
     title: 'Market & Competitor Analysis - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    activeSection: 'market-analysis'
   });
 });
 
@@ -28,7 +55,8 @@ router.get('/market-analysis', (req, res) => {
 router.get('/ux-design', (req, res) => {
   res.render('research/ux_design', {
     title: 'UX Design & Research - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    activeSection: 'ux-design'
   });
 });
 
@@ -36,7 +64,8 @@ router.get('/ux-design', (req, res) => {
 router.get('/mvp-definition', (req, res) => {
   res.render('research/mvp_definition', {
     title: 'MVP Definition & Research - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    activeSection: 'mvp-definition'
   });
 });
 
@@ -44,7 +73,8 @@ router.get('/mvp-definition', (req, res) => {
 router.get('/technology-landscape', (req, res) => {
   res.render('research/technology_landscape', {
     title: 'Technology Landscape - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    activeSection: 'technology-landscape'
   });
 });
 
@@ -52,7 +82,8 @@ router.get('/technology-landscape', (req, res) => {
 router.get('/misc-assets', (req, res) => {
   res.render('research/misc_assets', {
     title: 'Miscellaneous Assets - CertusBuild',
-    activeLink: 'research'
+    activeLink: 'research',
+    activeSection: 'misc-assets'
   });
 });
 

@@ -4,7 +4,9 @@
             <h1 class="text-center mb-4">CertusBuild Research Archive</h1>
             <p class="lead text-center mb-5">Explore the comprehensive research that underpins the CertusBuild platform development, from market analysis to user experience design.</p>
 
-            <div class="row g-4">
+            <!-- Static Core Research Topics -->
+            <h2 class="mb-3">Core Research Topics</h2>
+            <div class="row g-4 mb-5">
                 <!-- Market Analysis Card -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
@@ -75,6 +77,63 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Dynamically Discovered Content -->
+            <% if (typeof researchContent !== 'undefined' && researchContent.length > 0) { %>
+                <h2 class="mb-3">Additional Research Materials</h2>
+                <div class="row g-4">
+                    <% 
+                    // Filter out core topics that we already have static pages for
+                    const coreTopics = ['market-analysis', 'technology-landscape', 'ux-design', 'mvp-definition', 'misc-assets'];
+                    const additionalContent = researchContent.filter(item => !coreTopics.includes(item.slug));
+                    
+                    // Map appropriate icons based on filename/content
+                    const getIconForContent = (content) => {
+                        const slug = content.slug.toLowerCase();
+                        if (slug.includes('market') || slug.includes('competitor')) return 'fas fa-chart-pie';
+                        if (slug.includes('tech')) return 'fas fa-microchip';
+                        if (slug.includes('ux') || slug.includes('design')) return 'fas fa-paint-brush';
+                        if (slug.includes('mvp') || slug.includes('product')) return 'fas fa-rocket';
+                        if (slug.includes('finance') || slug.includes('economic')) return 'fas fa-dollar-sign';
+                        if (slug.includes('user') || slug.includes('customer')) return 'fas fa-users';
+                        if (slug.includes('data')) return 'fas fa-database';
+                        if (slug.includes('workflow')) return 'fas fa-sitemap';
+                        return 'fas fa-file-alt';
+                    };
+                    %>
+                    
+                    <% if (additionalContent.length === 0) { %>
+                        <div class="col-12">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                No additional research materials found. New content will appear here automatically when added to the content directory.
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <% additionalContent.forEach(content => { %>
+                            <div class="col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h3 class="card-title">
+                                            <i class="<%= getIconForContent(content) %> me-2 text-primary"></i>
+                                            <%= content.title %>
+                                        </h3>
+                                        <p class="card-text"><%= content.description %></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a href="/research/<%= content.slug %>" class="btn btn-outline-primary">
+                                                View Content
+                                            </a>
+                                            <small class="text-muted">
+                                                Added: <%= content.createdDate.toLocaleDateString() %>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% } %>
+                </div>
+            <% } %>
         </div>
     </div>
 </div>

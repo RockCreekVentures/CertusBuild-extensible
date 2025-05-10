@@ -1,0 +1,40 @@
+<%- include('_research_template', {
+    activeSection: activeSection,
+    pageTitle: content.title,
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This content was automatically detected from the research archive.
+        </div>
+        
+        <p class="lead">
+            ${content.description}
+        </p>
+        
+        <div class="content-metadata mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100 bg-light">
+                        <div class="card-body p-3">
+                            <h5 class="card-title">Content Details</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>Category:</strong> ${content.category}</li>
+                                <li><strong>Added:</strong> ${content.createdDate.toLocaleDateString()}</li>
+                                <li><strong>File:</strong> ${content.relativePath}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    markdownSections: [
+        {
+            title: 'Document Content',
+            id: 'dynamic-content',
+            markdownFile: null,
+            html: content.htmlContent,
+            actions: []
+        }
+    ]
+}) %>
