@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  certusbuild-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: certusbuild/planning-app:latest
+    container_name: certusbuild-planning
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      # These environment variables should be set in a .env file or through environment
+      # - SESSION_SECRET=your_secret_key
+      # - AUTH_CLIENT_ID=certusbuild_planning
+      # - AUTH_CLIENT_SECRET=your_client_secret
+      # - AUTH_ISSUER=https://auth.rockcreekventures.com/application/o/certusbuild_planning/
+      # - AUTH_CALLBACK_URL=https://planning.certusbuild.com/auth/callback
+      # - AUTH_SCOPE=openid profile email
+      # - BASE_URL=https://planning.certusbuild.com
+    volumes:
+      - certusbuild_data:/app/public/content
+      - certusbuild_uploads:/app/public/uploads
+    networks:
+      - certusbuild-network
+
+  # Cloudflare Tunnel service
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./cloudflare/config.yml:/etc/cloudflared/config.yml:ro
+      # You'll need to provide credentials.json file with Cloudflare credentials
+      - ./cloudflare/credentials.json:/etc/cloudflared/credentials.json:ro
+    environment:
+      - CLOUDFLARE_TUNNEL_ID=${CLOUDFLARE_TUNNEL_ID}
+    networks:
+      - certusbuild-network
+    depends_on:
+      - certusbuild-app
+
+networks:
+  certusbuild-network:
+    driver: bridge
+
+volumes:
+  certusbuild_data:
+  certusbuild_uploads:
