@@ -8,7 +8,7 @@
         </div>
         
         <p class="lead">
-            ${content.description}
+            ${content.description || 'Research document from the CertusBuild archives'}
         </p>
         
         <div class="content-metadata mb-4">
@@ -18,23 +18,54 @@
                         <div class="card-body p-3">
                             <h5 class="card-title">Content Details</h5>
                             <ul class="list-unstyled mb-0">
-                                <li><strong>Category:</strong> ${content.category}</li>
-                                <li><strong>Added:</strong> ${content.createdDate.toLocaleDateString()}</li>
-                                <li><strong>File:</strong> ${content.relativePath}</li>
+                                <li><strong>Category:</strong> ${content.category || 'Research'}</li>
+                                <li><strong>Added:</strong> ${content.createdDate ? content.createdDate.toLocaleDateString() : 'Unknown date'}</li>
+                                <li><strong>File:</strong> ${content.relativePath || content.filename}</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 bg-light">
+                        <div class="card-body p-3">
+                            <h5 class="card-title">Actions</h5>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <a href="/utilities/file/${content.relativePath || 'public/content/research/' + content.filename}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-file-alt me-1"></i> View Raw File
+                                </a>
+                                <a href="/research" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Research
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     `,
-    markdownSections: [
+    markdownFile: null,
+    additionalSections: [
         {
             title: 'Document Content',
-            id: 'dynamic-content',
-            markdownFile: null,
-            html: content.htmlContent,
-            actions: []
+            collapsible: false,
+            content: content.htmlContent || `<div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                No content available for this document. Please check the raw file.
+            </div>`,
+            actions: [
+                {
+                    text: 'View All Research',
+                    url: '/research/library',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-folder-open'
+                },
+                {
+                    text: 'Recent Research',
+                    url: '/research/recent-research',
+                    btnClass: 'btn-outline-info',
+                    icon: 'fas fa-clock'
+                }
+            ]
         }
     ]
 }) %>

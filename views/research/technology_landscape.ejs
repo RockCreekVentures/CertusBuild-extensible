@@ -1,122 +1,126 @@
-<%- include('../partials/page_header', { title: 'Technology Landscape', subtitle: 'Analysis of emerging technologies in construction management' }) %>
-
-<div class="container main-content">
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <div class="card shadow mb-4">
-        <div class="card-header bg-light">
-          <h4 class="m-0 font-weight-bold">Construction Technology Landscape</h4>
+<%- include('_research_template', {
+    activeSection: 'technology-landscape',
+    pageTitle: 'Technology Landscape',
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This section explores the current and emerging technology landscape in the construction industry, with a focus on technologies that can be leveraged by CertusBuild.
         </div>
-        <div class="card-body">
-          <p class="lead">This section explores the current and emerging technology landscape in the construction industry, with a focus on technologies that can be leveraged by CertusBuild.</p>
-          
-          <div class="row mt-4">
+        
+        <p class="lead">
+            Our technology research provides insights into current trends, emerging technologies, and integration opportunities for the CertusBuild platform.
+        </p>
+        
+        <div class="row mt-4 mb-4">
             <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Current Technology Trends</h5>
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Current Technology Trends</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Analysis of current technology trends in construction management software and their impact on the industry.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Trends Analysis</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Analysis of current technology trends in construction management software and their impact on the industry.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Trends Analysis</a>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Emerging Technologies</h5>
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Emerging Technologies</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Exploration of emerging technologies that will shape the future of construction management software.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Emerging Tech</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Exploration of emerging technologies that will shape the future of construction management software.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Emerging Tech</a>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-          
-          <div class="row mt-3">
             <div class="col-md-12">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Research Synthesis & Recommendations</h5>
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Research Synthesis & Recommendations</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Comprehensive synthesis of technology research and strategic recommendations for CertusBuild platform development.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Synthesis</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Comprehensive synthesis of technology research and strategic recommendations for CertusBuild platform development.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Synthesis</a>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-
-      <div class="card shadow mb-4">
-        <div class="card-header bg-light">
-          <h4 class="m-0 font-weight-bold">Technology Integration Opportunities</h4>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">AI & Machine Learning</h5>
+    `,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Technology Integration Opportunities',
+            collapsible: false,
+            content: `
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">AI & Machine Learning</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Opportunities for AI and machine learning integration in construction estimation and planning.</p>
+                                <ul class="mt-2">
+                                    <li>Predictive analytics for project timelines</li>
+                                    <li>Cost estimation improvements</li>
+                                    <li>Risk assessment automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Data Visualization</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Advanced data visualization techniques for construction project management.</p>
+                                <ul class="mt-2">
+                                    <li>Interactive Gantt charts</li>
+                                    <li>Resource utilization dashboards</li>
+                                    <li>Progress tracking visualizations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Integration APIs</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Analysis of integration opportunities with existing construction software tools.</p>
+                                <ul class="mt-2">
+                                    <li>BIM software integration</li>
+                                    <li>Accounting system connectivity</li>
+                                    <li>Document management systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Opportunities for AI and machine learning integration in construction estimation and planning.</p>
-                  <ul class="mt-2">
-                    <li>Predictive analytics for project timelines</li>
-                    <li>Cost estimation improvements</li>
-                    <li>Risk assessment automation</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">Data Visualization</h5>
-                </div>
-                <div class="card-body">
-                  <p>Advanced data visualization techniques for construction project management.</p>
-                  <ul class="mt-2">
-                    <li>Interactive Gantt charts</li>
-                    <li>Resource utilization dashboards</li>
-                    <li>Progress tracking visualizations</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">Integration APIs</h5>
-                </div>
-                <div class="card-body">
-                  <p>Analysis of integration opportunities with existing construction software tools.</p>
-                  <ul class="mt-2">
-                    <li>BIM software integration</li>
-                    <li>Accounting system connectivity</li>
-                    <li>Document management systems</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mb-5">
-        <a href="/research" class="btn btn-primary btn-lg">
-          <i class="fas fa-arrow-left me-2"></i> Back to Research Archive
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+            `,
+            actions: [
+                {
+                    text: 'Download Tech Research',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-file-download'
+                },
+                {
+                    text: 'Technology Roadmap',
+                    url: '#',
+                    btnClass: 'btn-outline-success',
+                    icon: 'fas fa-road'
+                }
+            ]
+        }
+    ]
+}) %>
