@@ -1,15 +1,1 @@
-<%
-const showdown = require('showdown');
-const converter = new showdown.Converter({
-  tables: true,
-  strikethrough: true,
-  tasklists: true,
-  ghCodeBlocks: true,
-  emoji: true
-});
-converter.setFlavor('github');
-
-const html = converter.makeHtml(markdown);
-%>
-
-<%- html %>
+<%- markdownHtml %>
