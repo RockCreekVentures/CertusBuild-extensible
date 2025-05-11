@@ -1,91 +1,105 @@
-<%- include('_pitch_template', {
-    activeSection: 'recent-additions',
-    pageTitle: 'Recent Additions',
-    contentHtml: `
-        <div class="alert alert-info mb-4">
-            <i class="fas fa-info-circle me-2"></i>
-            This section displays the most recently added or updated pitch materials for the CertusBuild platform.
-        </div>
-        
-        <p class="lead">
-            Stay up-to-date with our latest pitch deck materials, financial projections, and presentation resources.
-        </p>
-        
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card mb-4">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Recently Added Documents</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-group">
-                            <% if (pitchContent && pitchContent.length > 0) { %>
-                                <% pitchContent.forEach(item => { %>
-                                    <a href="/utilities/file/public/content/pitch_materials/<%= item.filename %>" class="list-group-item list-group-item-action">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h5 class="mb-1"><%= item.title %></h5>
-                                            <small class="text-muted"><%= new Date(item.date).toLocaleDateString() %></small>
-                                        </div>
-                                        <p class="mb-1"><%= item.description || 'No description available' %></p>
-                                        <small class="text-muted">
-                                            <i class="fas fa-tag me-1"></i> <%= item.category || 'Uncategorized' %>
-                                        </small>
-                                    </a>
-                                <% }); %>
-                            <% } else { %>
-                                <div class="alert alert-warning mb-0">
-                                    <i class="fas fa-exclamation-triangle me-2"></i>
-                                    No recent pitch materials found.
-                                </div>
-                            <% } %>
-                        </div>
+<% 
+// Create the content HTML without using backticks in the top-level template
+let contentHtmlString = `
+    <div class="alert alert-info mb-4">
+        <i class="fas fa-info-circle me-2"></i>
+        This section displays the most recently added or updated pitch materials for the CertusBuild platform.
+    </div>
+    
+    <p class="lead">
+        Stay up-to-date with our latest pitch deck materials, financial projections, and presentation resources.
+    </p>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Recently Added Documents</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">`;
+
+// Add conditional content for the pitch materials
+if (pitchContent && pitchContent.length > 0) {
+    pitchContent.forEach(item => {
+        contentHtmlString += `
+            <a href="/utilities/file/public/content/pitch_materials/${item.filename}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${item.title}</h5>
+                    <small class="text-muted">${new Date(item.date).toLocaleDateString()}</small>
+                </div>
+                <p class="mb-1">${item.description || 'No description available'}</p>
+                <small class="text-muted">
+                    <i class="fas fa-tag me-1"></i> ${item.category || 'Uncategorized'}
+                </small>
+            </a>`;
+    });
+} else {
+    contentHtmlString += `
+        <div class="alert alert-warning mb-0">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            No recent pitch materials found.
+        </div>`;
+}
+
+contentHtmlString += `
                     </div>
                 </div>
             </div>
         </div>
-    `,
+    </div>
+`;
+
+// Create the additional section content
+let additionalSectionContent = `
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Upcoming Documents</h5>
+                </div>
+                <div class="card-body">
+                    <p>The following documents are currently in progress and will be added soon:</p>
+                    <ul>
+                        <li>Market Segmentation Analysis</li>
+                        <li>Competitor Pricing Comparison</li>
+                        <li>Implementation Timeline</li>
+                        <li>ROI Calculator for Clients</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Document Request</h5>
+                </div>
+                <div class="card-body">
+                    <p>Need a specific document or presentation material?</p>
+                    <p>Contact the documentation team with your requirements for:</p>
+                    <ul>
+                        <li>Custom presentation decks</li>
+                        <li>Industry-specific use cases</li>
+                        <li>Technical implementation guides</li>
+                        <li>Client-facing materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+// Define the complete template data object
+const templateData = {
+    activeSection: 'recent-additions',
+    pageTitle: 'Recent Additions',
+    contentHtml: contentHtmlString,
     markdownFile: null,
     additionalSections: [
         {
             title: 'Document Updates',
             collapsible: false,
-            content: `
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header bg-info text-white">
-                                <h5 class="mb-0">Upcoming Documents</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>The following documents are currently in progress and will be added soon:</p>
-                                <ul>
-                                    <li>Market Segmentation Analysis</li>
-                                    <li>Competitor Pricing Comparison</li>
-                                    <li>Implementation Timeline</li>
-                                    <li>ROI Calculator for Clients</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header bg-info text-white">
-                                <h5 class="mb-0">Document Request</h5>
-                            </div>
-                            <div class="card-body">
-                                <p>Need a specific document or presentation material?</p>
-                                <p>Contact the documentation team with your requirements for:</p>
-                                <ul>
-                                    <li>Custom presentation decks</li>
-                                    <li>Industry-specific use cases</li>
-                                    <li>Technical implementation guides</li>
-                                    <li>Client-facing materials</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `,
+            content: additionalSectionContent,
             actions: [
                 {
                     text: 'View All Documents',
@@ -102,4 +116,7 @@
             ]
         }
     ]
-}) %>
+};
+%>
+
+<%- include('_pitch_template', templateData) %>
