@@ -1,0 +1,135 @@
+<% 
+// Create the content HTML for the Recent Research page
+let contentHtmlString = `
+    <div class="alert alert-info mb-4">
+        <i class="fas fa-info-circle me-2"></i>
+        This section displays the most recently added or updated research materials for the CertusBuild platform.
+    </div>
+    
+    <p class="lead">
+        Stay up-to-date with our latest market analysis, technology evaluations, UX design research, and product planning documents.
+    </p>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Recently Added Research</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">`;
+
+// Add conditional content for the research materials
+if (researchContent && researchContent.length > 0) {
+    researchContent.forEach(item => {
+        // Format the date correctly
+        let dateString = '';
+        try {
+            const itemDate = new Date(item.date);
+            if (!isNaN(itemDate.getTime())) {
+                dateString = itemDate.toLocaleDateString();
+            } else {
+                dateString = 'Recently added';
+            }
+        } catch (e) {
+            dateString = 'Recently added';
+        }
+        
+        contentHtmlString += `
+            <a href="/utilities/file/public/content/research/${item.filename}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${item.title}</h5>
+                    <small class="text-muted">${dateString}</small>
+                </div>
+                <p class="mb-1">${item.description || 'No description available'}</p>
+                <small class="text-muted">
+                    <i class="fas fa-tag me-1"></i> ${item.category || 'Uncategorized'}
+                </small>
+            </a>`;
+    });
+} else {
+    contentHtmlString += `
+        <div class="alert alert-warning mb-0">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            No recent research materials found.
+        </div>`;
+}
+
+contentHtmlString += `
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+// Create the additional section content
+let additionalSectionContent = `
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Upcoming Research</h5>
+                </div>
+                <div class="card-body">
+                    <p>The following research topics are currently in progress and will be added soon:</p>
+                    <ul>
+                        <li>Construction AI/ML Applications</li>
+                        <li>Mobile-First UX for Construction</li>
+                        <li>Cloud Integration Strategies</li>
+                        <li>ROI Analysis Framework</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Research Request</h5>
+                </div>
+                <div class="card-body">
+                    <p>Need specific research on a construction technology topic?</p>
+                    <p>Contact the research team with your requirements for:</p>
+                    <ul>
+                        <li>Competitive analysis</li>
+                        <li>Market sizing & segmentation</li>
+                        <li>Technology evaluations</li>
+                        <li>Customer needs assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+// Define the complete template data object
+const templateData = {
+    activeSection: 'recent-research',
+    pageTitle: 'Recent Research',
+    contentHtml: contentHtmlString,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Research Updates',
+            collapsible: false,
+            content: additionalSectionContent,
+            actions: [
+                {
+                    text: 'View All Research',
+                    url: '/research/library',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-folder-open'
+                },
+                {
+                    text: 'Request Research',
+                    url: '#',
+                    btnClass: 'btn-outline-success',
+                    icon: 'fas fa-file-medical'
+                }
+            ]
+        }
+    ]
+};
+%>
+
+<%- include('_research_template', templateData) %>

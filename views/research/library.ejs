@@ -1,0 +1,286 @@
+<%
+// Base content section with search and categories structure
+let contentHtmlString = `
+    <div class="alert alert-info mb-4">
+        <i class="fas fa-info-circle me-2"></i>
+        This section contains all available research materials for the CertusBuild platform, organized by category.
+    </div>
+    
+    <p class="lead">
+        Browse our complete collection of market analysis, technology evaluations, UX design research, and product planning documents.
+    </p>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                    <h5 class="mb-0">Research Library</h5>
+                    <div>
+                        <button class="btn btn-sm btn-light" id="grid-view-btn" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="btn btn-sm btn-light active" id="list-view-btn" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Search bar -->
+                    <div class="mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text" id="document-search" class="form-control" placeholder="Search research documents...">
+                        </div>
+                    </div>
+                    
+                    <!-- Categories -->
+                    <div class="accordion" id="researchMaterialsAccordion">`;
+
+// Define category mappings                            
+const categoryIcons = {
+    'Market Research': 'fa-chart-pie',
+    'Technology': 'fa-microchip',
+    'UX Design': 'fa-paint-brush',
+    'Product Planning': 'fa-rocket',
+    'Financial Analysis': 'fa-dollar-sign',
+    'Other': 'fa-file-alt'
+};
+
+const categoryColors = {
+    'Market Research': 'success',
+    'Technology': 'primary',
+    'UX Design': 'info',
+    'Product Planning': 'warning',
+    'Financial Analysis': 'danger',
+    'Other': 'secondary'
+};
+
+// Create research categories
+const researchCategories = {
+    'Market Research': [],
+    'Technology': [],
+    'UX Design': [],
+    'Product Planning': [],
+    'Financial Analysis': [],
+    'Other': []
+};
+
+// Categorize research items
+if (researchContent && researchContent.length > 0) {
+    researchContent.forEach(item => {
+        let category = 'Other';
+        const title = item.title.toLowerCase();
+        const slug = (item.slug || '').toLowerCase();
+        
+        if (title.includes('market') || title.includes('competitor') || slug.includes('market') || slug.includes('competitor')) {
+            category = 'Market Research';
+        } else if (title.includes('tech') || slug.includes('tech')) {
+            category = 'Technology';
+        } else if (title.includes('ux') || title.includes('user') || title.includes('design') || 
+                slug.includes('ux') || slug.includes('user') || slug.includes('design')) {
+            category = 'UX Design';
+        } else if (title.includes('mvp') || title.includes('product') || slug.includes('mvp') || slug.includes('product')) {
+            category = 'Product Planning';
+        } else if (title.includes('finance') || title.includes('economic') || 
+                slug.includes('finance') || slug.includes('economic')) {
+            category = 'Financial Analysis';
+        }
+        
+        researchCategories[category].push(item);
+    });
+}
+
+// Loop through categories and build accordion items
+Object.entries(researchCategories).forEach(([category, files], index) => {
+    if (files.length > 0) {
+        contentHtmlString += `
+        <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="heading${category.replace(/\s+/g, '')}">
+                <button class="accordion-button ${index > 0 ? 'collapsed' : ''}" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapse${category.replace(/\s+/g, '')}" 
+                        aria-expanded="${index === 0 ? 'true' : 'false'}" 
+                        aria-controls="collapse${category.replace(/\s+/g, '')}">
+                    <i class="fas ${categoryIcons[category]} me-2 text-${categoryColors[category]}"></i>
+                    ${category} <span class="badge bg-${categoryColors[category]} ms-2">${files.length}</span>
+                </button>
+            </h2>
+            <div id="collapse${category.replace(/\s+/g, '')}" 
+                 class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" 
+                 aria-labelledby="heading${category.replace(/\s+/g, '')}" 
+                 data-bs-parent="#researchMaterialsAccordion">
+                <div class="accordion-body p-0">
+                    <div class="list-group list-group-flush">`;
+                    
+        // Add files for this category
+        files.forEach(file => {
+            // Format the date correctly
+            let dateString = '';
+            try {
+                const fileDate = new Date(file.date);
+                if (!isNaN(fileDate.getTime())) {
+                    dateString = fileDate.toLocaleDateString();
+                } else {
+                    dateString = 'Recently added';
+                }
+            } catch (e) {
+                dateString = 'Recently added';
+            }
+            
+            contentHtmlString += `
+            <a href="/utilities/file/public/content/research/${file.filename}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">${file.title}</h5>
+                    <small class="text-muted">${dateString}</small>
+                </div>
+                <p class="mb-1">${file.description || 'No description available'}</p>
+                <small>
+                    <span class="badge bg-${categoryColors[category]}">${category}</span>`;
+                    
+            // Add tags if available
+            if (file.tags && file.tags.length > 0) {
+                file.tags.forEach(tag => {
+                    contentHtmlString += `
+                    <span class="badge bg-light text-dark">${tag}</span>`;
+                });
+            }
+            
+            contentHtmlString += `
+                </small>
+            </a>`;
+        });
+        
+        contentHtmlString += `
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    }
+});
+
+// If no research content available, show message
+if (Object.values(researchCategories).every(files => files.length === 0)) {
+    contentHtmlString += `
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            No research documents have been added yet. New content will appear here automatically when added.
+        </div>
+    `;
+}
+
+// Close the main structure
+contentHtmlString += `
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+// Define additional section content
+let additionalSectionContent = `
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 bg-light">
+                <div class="card-body text-center">
+                    <i class="fas fa-download fa-3x mb-3 text-primary"></i>
+                    <h5>Download All</h5>
+                    <p class="mb-0">Get all research materials as a ZIP archive</p>
+                    <a href="#" class="btn btn-sm btn-primary mt-3">Download Package</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 bg-light">
+                <div class="card-body text-center">
+                    <i class="fas fa-cloud fa-3x mb-3 text-info"></i>
+                    <h5>Cloud Access</h5>
+                    <p class="mb-0">Access shared folder with all research</p>
+                    <a href="#" class="btn btn-sm btn-info mt-3">Open Cloud Folder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 bg-light">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x mb-3 text-success"></i>
+                    <h5>Request Research</h5>
+                    <p class="mb-0">Ask for specific research on a topic</p>
+                    <a href="#" class="btn btn-sm btn-success mt-3">Submit Request</a>
+                </div>
+            </div>
+        </div>
+    </div>`;
+
+// Create the template data object
+const templateData = {
+    activeSection: 'library',
+    pageTitle: 'Research Library',
+    contentHtml: contentHtmlString,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Research Resources',
+            collapsible: false,
+            content: additionalSectionContent,
+            actions: null
+        }
+    ]
+};
+%>
+
+<%- include('_research_template', templateData) %>
+
+<script>
+  // Simple client-side search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('document-search');
+    if (searchInput) {
+      searchInput.addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        const listItems = document.querySelectorAll('.list-group-item');
+        
+        listItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide accordion sections based on whether they have visible items
+        document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+          const visibleItems = accordionItem.querySelectorAll('.list-group-item[style="display: none;"]');
+          const allItems = accordionItem.querySelectorAll('.list-group-item');
+          
+          if (visibleItems.length === allItems.length) {
+            accordionItem.style.display = 'none';
+          } else {
+            accordionItem.style.display = '';
+          }
+        });
+      });
+    }
+    
+    // View toggle functionality (can be expanded later)
+    const gridViewBtn = document.getElementById('grid-view-btn');
+    const listViewBtn = document.getElementById('list-view-btn');
+    
+    if (gridViewBtn && listViewBtn) {
+      gridViewBtn.addEventListener('click', function() {
+        this.classList.add('active');
+        listViewBtn.classList.remove('active');
+        // Implementation for grid view would go here
+      });
+      
+      listViewBtn.addEventListener('click', function() {
+        this.classList.add('active');
+        gridViewBtn.classList.remove('active');
+        // Implementation for list view would go here
+      });
+    }
+  });
+</script>

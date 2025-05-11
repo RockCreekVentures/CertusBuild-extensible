@@ -1,129 +1,133 @@
-<%- include('../partials/page_header', { title: 'Market & Competitor Analysis', subtitle: 'Comprehensive research on construction software market and competitors' }) %>
-
-<div class="container main-content">
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <div class="card shadow mb-4">
-        <div class="card-header bg-light">
-          <h4 class="m-0 font-weight-bold">Market Analysis Overview</h4>
+<%- include('_research_template', {
+    activeSection: 'market-analysis',
+    pageTitle: 'Market & Competitor Analysis',
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This section contains comprehensive analysis of the construction technology market and key competitors. It includes market size estimates, growth trends, and detailed competitor evaluations.
         </div>
-        <div class="card-body">
-          <p class="lead">This section contains comprehensive analysis of the construction technology market and key competitors. It includes market size estimates, growth trends, and detailed competitor evaluations.</p>
-          
-          <div class="row mt-4">
+        
+        <p class="lead">
+            Our market analysis provides insights into the construction software landscape, competitive positioning, and opportunities for differentiation.
+        </p>
+        
+        <div class="row mt-4 mb-4">
             <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Market Segmentation</h5>
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Market Segmentation</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Analysis of construction technology market segments, including target customer profiles, market size, and growth potential.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Market Segmentation</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Analysis of construction technology market segments, including target customer profiles, market size, and growth potential.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Market Segmentation</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Competitor Analysis</h5>
-                </div>
-                <div class="card-body">
-                  <p>Detailed profiles and feature comparison of leading competitors in the construction management software market.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Competitor Overview</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Pricing Model Analysis</h5>
-                </div>
-                <div class="card-body">
-                  <p>Comprehensive review of pricing models used by competitors and recommendations for CertusBuild pricing strategy.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Pricing Analysis</a>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="col-md-6">
-              <div class="card mb-3">
-                <div class="card-header bg-primary text-white">
-                  <h5 class="mb-0">Gap Analysis</h5>
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Competitor Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Detailed profiles and feature comparison of leading competitors in the construction management software market.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Competitor Overview</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Analysis of gaps in current market offerings and opportunities for CertusBuild to differentiate.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Gap Analysis</a>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Pricing Model Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Comprehensive review of pricing models used by competitors and recommendations for CertusBuild pricing strategy.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-primary">View Pricing Analysis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Gap Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Analysis of gaps in current market offerings and opportunities for CertusBuild to differentiate.</p>
+                        <div class="text-center mt-3">
+                            <a href="/utilities/file/public/content/research/user_journey_maps.md" class="btn btn-outline-primary">View Gap Analysis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="card shadow mb-4">
-        <div class="card-header bg-light">
-          <h4 class="m-0 font-weight-bold">Key Competitor Deep Dives</h4>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">Procore</h5>
+    `,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Key Competitor Deep Dives',
+            collapsible: false,
+            content: `
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Procore</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Analysis of Procore's features, workflow, and market positioning.</p>
+                                <div class="text-center mt-3">
+                                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-info btn-sm">View Analysis</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Autodesk Construction Cloud</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Analysis of Autodesk's construction platform, features, and market strategy.</p>
+                                <div class="text-center mt-3">
+                                    <a href="/utilities/file/research_archive/autodesk_cc_research.md" class="btn btn-outline-info btn-sm">View Analysis</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">BuilderTrend</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Analysis of BuilderTrend's features, target market, and competitive advantages.</p>
+                                <div class="text-center mt-3">
+                                    <a href="/utilities/file/research_archive/buildertrend_research.md" class="btn btn-outline-info btn-sm">View Analysis</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <p>Analysis of Procore's features, workflow, and market positioning.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/public/content/research/workspace_design_concepts.md" class="btn btn-outline-info btn-sm">View Analysis</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">Autodesk Construction Cloud</h5>
-                </div>
-                <div class="card-body">
-                  <p>Analysis of Autodesk's construction platform, features, and market strategy.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/research_archive/autodesk_cc_research.md" class="btn btn-outline-info btn-sm">View Analysis</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-3">
-                <div class="card-header bg-info text-white">
-                  <h5 class="mb-0">BuilderTrend</h5>
-                </div>
-                <div class="card-body">
-                  <p>Analysis of BuilderTrend's features, target market, and competitive advantages.</p>
-                  <div class="text-center mt-3">
-                    <a href="/utilities/file/research_archive/buildertrend_research.md" class="btn btn-outline-info btn-sm">View Analysis</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mb-5">
-        <a href="/research" class="btn btn-primary btn-lg">
-          <i class="fas fa-arrow-left me-2"></i> Back to Research Archive
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+            `,
+            actions: [
+                {
+                    text: 'View Competition Matrix',
+                    url: '#',
+                    btnClass: 'btn-outline-primary',
+                    icon: 'fas fa-table'
+                },
+                {
+                    text: 'Download Market Analysis',
+                    url: '#',
+                    btnClass: 'btn-outline-success',
+                    icon: 'fas fa-file-download'
+                }
+            ]
+        }
+    ]
+}) %>

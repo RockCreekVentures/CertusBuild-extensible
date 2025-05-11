@@ -42,6 +42,34 @@ router.get('/:slug', (req, res, next) => {
 
 // Static routes for predefined sections
 
+// Recent Research page
+router.get('/recent-research', (req, res) => {
+  // Get all research content sorted by date
+  const researchContent = contentManager.getContentByCategory('public/content', 'research')
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5); // Get only the 5 most recent items
+  
+  res.render('research/recent_research', {
+    title: 'Recent Research - CertusBuild',
+    activeLink: 'research',
+    activeSection: 'recent-research',
+    researchContent
+  });
+});
+
+// Research Library page
+router.get('/library', (req, res) => {
+  // Get all research organized by category
+  const researchContent = contentManager.getContentByCategory('public/content', 'research');
+  
+  res.render('research/library', {
+    title: 'Research Library - CertusBuild',
+    activeLink: 'research',
+    activeSection: 'library',
+    researchContent
+  });
+});
+
 // Market Analysis page
 router.get('/market-analysis', (req, res) => {
   res.render('research/market_analysis', {
