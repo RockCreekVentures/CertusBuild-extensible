@@ -443,8 +443,37 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="document.getElementById('uploadForm').submit();">Upload File</button>
+                <button type="button" class="btn btn-primary" id="submitUploadBtn">Upload File</button>
             </div>
+
+<script>
+    // Add form validation for file upload
+    document.addEventListener('DOMContentLoaded', function() {
+        const submitUploadBtn = document.getElementById('submitUploadBtn');
+        const uploadForm = document.getElementById('uploadForm');
+        const contentTypeSelect = document.getElementById('contentType');
+        const fileUploadInput = document.getElementById('fileUpload');
+        
+        if (submitUploadBtn && uploadForm) {
+            submitUploadBtn.addEventListener('click', function() {
+                // Check if content type is selected
+                if (!contentTypeSelect.value) {
+                    alert('Please select a content type');
+                    return;
+                }
+                
+                // Check if file is selected
+                if (!fileUploadInput.value) {
+                    alert('Please select a file to upload');
+                    return;
+                }
+                
+                // Submit the form if validation passes
+                uploadForm.submit();
+            });
+        }
+    });
+</script>
         </div>
     </div>
 </div>

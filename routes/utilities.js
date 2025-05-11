@@ -272,6 +272,12 @@ router.get('/file/public/content/pitch_materials/:filename', (req, res) => {
   serveFile(req, res, filePath);
 });
 
+// File view/download route for announcements content
+router.get('/file/public/content/announcements/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'public/content/announcements', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
 // File view/download route for pitch materials
 router.get('/file/pitch_materials/:filename', (req, res) => {
   const filePath = path.join(process.cwd(), 'pitch_materials', req.params.filename);
@@ -293,18 +299,23 @@ router.get('/file/:filepath', (req, res) => {
 // Configure storage for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Get the destination based on content type
-    const contentType = req.body.contentType;
-    if (!contentType) {
-      return cb(new Error('Content type is required'));
+    try {
+      // Get the destination based on content type
+      const contentType = req.body.contentType;
+      
+      // Default to research if no content type is provided (shouldn't happen with client-side validation)
+      const folderName = contentType || 'research';
+      
+      const uploadPath = path.join(process.cwd(), 'public', 'content', folderName);
+      
+      // Ensure the directory exists
+      fs.ensureDirSync(uploadPath);
+      
+      cb(null, uploadPath);
+    } catch (error) {
+      console.error('Error determining upload destination:', error);
+      cb(error);
     }
-    
-    const uploadPath = path.join(process.cwd(), 'public', 'content', contentType);
-    
-    // Ensure the directory exists
-    fs.ensureDirSync(uploadPath);
-    
-    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     // Use the original file name
