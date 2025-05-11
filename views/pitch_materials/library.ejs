@@ -80,11 +80,24 @@ Object.entries(categories).forEach(([category, files], index) => {
                     
         // Add files for this category
         files.forEach(file => {
+            // Format the date correctly
+            let dateString = '';
+            try {
+                const fileDate = new Date(file.date);
+                if (!isNaN(fileDate.getTime())) {
+                    dateString = fileDate.toLocaleDateString();
+                } else {
+                    dateString = 'Recently added';
+                }
+            } catch (e) {
+                dateString = 'Recently added';
+            }
+            
             contentHtmlString += `
             <a href="/utilities/file/public/content/pitch_materials/${file.filename}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${file.title}</h5>
-                    <small class="text-muted">${new Date(file.date).toLocaleDateString()}</small>
+                    <small class="text-muted">${dateString}</small>
                 </div>
                 <p class="mb-1">${file.description || 'No description available'}</p>
                 <small>

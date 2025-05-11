@@ -126,7 +126,20 @@
                                             <h5 class="mb-1"><%= item.title %></h5>
                                             <small class="text-muted">
                                                 <i class="fas fa-calendar-alt me-1"></i>
-                                                <%= new Date(item.date).toLocaleDateString() %>
+                                                <% 
+                                                let dateString = '';
+                                                try {
+                                                    const itemDate = new Date(item.date);
+                                                    if (!isNaN(itemDate.getTime())) {
+                                                        dateString = itemDate.toLocaleDateString();
+                                                    } else {
+                                                        dateString = 'Recently added';
+                                                    }
+                                                } catch (e) {
+                                                    dateString = 'Recently added';
+                                                }
+                                                %>
+                                                <%= dateString %>
                                             </small>
                                         </div>
                                         <p class="mb-1"><%= item.description || 'No description available' %></p>

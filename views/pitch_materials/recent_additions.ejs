@@ -22,11 +22,24 @@ let contentHtmlString = `
 // Add conditional content for the pitch materials
 if (pitchContent && pitchContent.length > 0) {
     pitchContent.forEach(item => {
+        // Format the date correctly
+        let dateString = '';
+        try {
+            const itemDate = new Date(item.date);
+            if (!isNaN(itemDate.getTime())) {
+                dateString = itemDate.toLocaleDateString();
+            } else {
+                dateString = 'Recently added';
+            }
+        } catch (e) {
+            dateString = 'Recently added';
+        }
+        
         contentHtmlString += `
             <a href="/utilities/file/public/content/pitch_materials/${item.filename}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">${item.title}</h5>
-                    <small class="text-muted">${new Date(item.date).toLocaleDateString()}</small>
+                    <small class="text-muted">${dateString}</small>
                 </div>
                 <p class="mb-1">${item.description || 'No description available'}</p>
                 <small class="text-muted">

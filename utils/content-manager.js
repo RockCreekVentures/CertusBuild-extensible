@@ -101,7 +101,10 @@ const scanContentDirectories = (baseDir) => {
       contentItems.push({
         ...metadata,
         relativePath: path.relative(process.cwd(), filePath).replace(/\\/g, '/'),
-        url: `/${category}/${metadata.slug}`
+        url: `/${category}/${metadata.slug}`,
+        filename: file,
+        date: metadata.createdDate,
+        category: category
       });
     });
   });
