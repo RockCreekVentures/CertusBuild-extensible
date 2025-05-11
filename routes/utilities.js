@@ -106,25 +106,74 @@ const isViewableInBrowser = (filename) => {
 
 // Utilities index page
 router.get('/', (req, res) => {
-  // Get file tree starting from root
-  const fileTree = getFileTree(path.join(process.cwd()));
+  // Get file tree starting only from /public/content folder
+  const contentPath = path.join(process.cwd(), 'public', 'content');
+  const fileTree = getFileTree(contentPath, 'public/content');
   
-  // Placeholder for links directory (you'll need to implement a database or file-based system)
-  const links = [
-    { name: 'CertusBuild GitHub Repository', url: 'https://github.com/certusbuild/platform', description: 'Main code repository for the CertusBuild platform' },
-    { name: 'Project Documentation', url: 'https://docs.certusbuild.com', description: 'Official documentation for developers and users' },
-    { name: 'Design Assets Figma', url: 'https://figma.com/file/certusbuild-design-system', description: 'Figma design assets and components' },
-    { name: 'Project Management', url: 'https://trello.com/certusbuild', description: 'Trello board for project management and tasks' }
-  ];
+  // Get announcements content
+  const announcementsPath = path.join(contentPath, 'announcements', 'announcements.md');
+  let announcementsContent = '';
   
-  res.render('utilities/index', {
-    title: 'Utilities - CertusBuild',
-    activeLink: 'utilities',
-    fileTree,
-    getFileIconClass,
-    isViewableInBrowser,
-    links
-  });
+  try {
+    if (fs.existsSync(announcementsPath)) {
+      announcementsContent = fs.readFileSync(announcementsPath, 'utf8');
+      
+      // Convert to HTML for display
+      const converter = new showdown.Converter({
+        tables: true,
+        strikethrough: true,
+        tasklists: true,
+        ghCodeBlocks: true,
+        emoji: true
+      });
+      converter.setFlavor('github');
+      const announcementsHtml = converter.makeHtml(announcementsContent);
+      
+      // Placeholder for links directory (you'll need to implement a database or file-based system)
+      const links = [
+        { name: 'CertusBuild GitHub Repository', url: 'https://github.com/certusbuild/platform', description: 'Main code repository for the CertusBuild platform' },
+        { name: 'Project Documentation', url: 'https://docs.certusbuild.com', description: 'Official documentation for developers and users' },
+        { name: 'Design Assets Figma', url: 'https://figma.com/file/certusbuild-design-system', description: 'Figma design assets and components' },
+        { name: 'Project Management', url: 'https://trello.com/certusbuild', description: 'Trello board for project management and tasks' }
+      ];
+      
+      res.render('utilities/index', {
+        title: 'Utilities - CertusBuild',
+        activeLink: 'utilities',
+        fileTree,
+        getFileIconClass,
+        isViewableInBrowser,
+        links,
+        announcementsContent,
+        announcementsHtml
+      });
+    } else {
+      // Handle case where announcements file doesn't exist
+      console.error('Announcements file not found:', announcementsPath);
+      res.render('utilities/index', {
+        title: 'Utilities - CertusBuild',
+        activeLink: 'utilities',
+        fileTree,
+        getFileIconClass,
+        isViewableInBrowser,
+        links: [],
+        announcementsContent: '# Announcements\n\nNo announcements available.',
+        announcementsHtml: '<h1>Announcements</h1><p>No announcements available.</p>'
+      });
+    }
+  } catch (error) {
+    console.error('Error reading announcements file:', error);
+    res.render('utilities/index', {
+      title: 'Utilities - CertusBuild',
+      activeLink: 'utilities',
+      fileTree,
+      getFileIconClass,
+      isViewableInBrowser,
+      links: [],
+      announcementsContent: '# Announcements\n\nError loading announcements.',
+      announcementsHtml: '<h1>Announcements</h1><p>Error loading announcements.</p>'
+    });
+  }
 });
 
 // Helper function to serve files
@@ -238,6 +287,26 @@ router.get('/file/attached_assets/:filename', (req, res) => {
 router.get('/file/:filepath', (req, res) => {
   const filePath = path.join(process.cwd(), req.params.filepath);
   serveFile(req, res, filePath);
+});
+
+// Update Announcements Route
+router.post('/update-announcements', (req, res) => {
+  const { content } = req.body;
+  const announcementsPath = path.join(process.cwd(), 'public', 'content', 'announcements', 'announcements.md');
+  
+  try {
+    // Ensure the directories exist
+    fs.ensureDirSync(path.dirname(announcementsPath));
+    
+    // Write the updated content to the file
+    fs.writeFileSync(announcementsPath, content, 'utf8');
+    
+    // Redirect back to utilities with success message
+    res.redirect('/utilities?success=Announcements updated successfully!');
+  } catch (error) {
+    console.error('Error updating announcements file:', error);
+    res.redirect('/utilities?error=Failed to update announcements. Please try again.');
+  }
 });
 
 // Links management page

@@ -4,11 +4,32 @@
             <h1 class="text-center mb-4">CertusBuild Utilities</h1>
             <p class="lead text-center mb-5">Access site utilities including file browser and useful links.</p>
 
+            <!-- Alert Messages -->
+            <% if (typeof query !== 'undefined' && query.success) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <%= query.success %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>
+            <% if (typeof query !== 'undefined' && query.error) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i>
+                    <%= query.error %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>
+
             <!-- Utilities Tabs -->
             <ul class="nav nav-tabs mb-4" id="utilityTabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="files-tab" data-bs-toggle="tab" data-bs-target="#files" type="button" role="tab">
-                        <i class="fas fa-folder me-2"></i> File Browser
+                        <i class="fas fa-folder me-2"></i> Content File Browser
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="announcements-tab" data-bs-toggle="tab" data-bs-target="#announcements" type="button" role="tab">
+                        <i class="fas fa-bullhorn me-2"></i> Announcements
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -23,12 +44,20 @@
                 <!-- File Browser Tab -->
                 <div class="tab-pane fade show active" id="files" role="tabpanel">
                     <div class="card">
-                        <div class="card-header bg-light">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center">
                             <h3 class="mb-0">
-                                <i class="fas fa-folder-open me-2"></i> File Browser
+                                <i class="fas fa-folder-open me-2"></i> Content File Browser
                             </h3>
+                            <button class="btn btn-sm btn-outline-success" id="uploadButton" type="button" disabled>
+                                <i class="fas fa-upload me-1"></i> Upload File
+                            </button>
                         </div>
                         <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Browse and manage content files for Pitch Materials, Research, and Announcements. Click on a file to view or edit its contents.
+                            </div>
+                            
                             <div class="file-browser">
                                 <% 
                                 // Recursive function to render file tree
@@ -72,6 +101,57 @@
                                 <div class="file-tree-container">
                                     <%- renderFileTree(fileTree) %>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Announcements Tab -->
+                <div class="tab-pane fade" id="announcements" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                            <h3 class="mb-0">
+                                <i class="fas fa-bullhorn me-2"></i> Announcements
+                            </h3>
+                            <button class="btn btn-sm btn-outline-primary" id="editAnnouncementsBtn">
+                                <i class="fas fa-edit me-1"></i> Edit Announcements
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <!-- View Mode -->
+                            <div id="announcementsViewMode">
+                                <div class="alert alert-info mb-4">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    This section displays the current announcements that will be shown on the home page.
+                                </div>
+                                
+                                <div class="markdown-content mb-4">
+                                    <%- announcementsHtml %>
+                                </div>
+                            </div>
+                            
+                            <!-- Edit Mode -->
+                            <div id="announcementsEditMode" style="display: none;">
+                                <div class="alert alert-warning mb-4">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    You are editing the announcements. Use markdown syntax to format the content.
+                                </div>
+                                
+                                <form action="/utilities/update-announcements" method="POST">
+                                    <div class="mb-3">
+                                        <label for="announcementsEditor" class="form-label">Announcements Content (Markdown)</label>
+                                        <textarea id="announcementsEditor" name="content" class="form-control font-monospace" rows="15" style="resize: vertical;"><%= announcementsContent %></textarea>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <button type="button" class="btn btn-secondary" id="cancelEditBtn">
+                                            <i class="fas fa-times me-1"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-save me-1"></i> Save Changes
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -189,5 +269,51 @@
             // Trigger once to collapse all folders initially
             folder.click();
         });
+        
+        // Announcements Editor Functionality
+        const editAnnouncementsBtn = document.getElementById('editAnnouncementsBtn');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const announcementsViewMode = document.getElementById('announcementsViewMode');
+        const announcementsEditMode = document.getElementById('announcementsEditMode');
+        
+        if (editAnnouncementsBtn && cancelEditBtn && announcementsViewMode && announcementsEditMode) {
+            // Toggle to edit mode
+            editAnnouncementsBtn.addEventListener('click', function() {
+                announcementsViewMode.style.display = 'none';
+                announcementsEditMode.style.display = 'block';
+                editAnnouncementsBtn.style.display = 'none';
+            });
+            
+            // Cancel editing and return to view mode
+            cancelEditBtn.addEventListener('click', function() {
+                announcementsViewMode.style.display = 'block';
+                announcementsEditMode.style.display = 'none';
+                editAnnouncementsBtn.style.display = 'inline-block';
+            });
+        }
+        
+        // Make URL parameters accessible to EJS
+        window.query = {};
+        const urlParams = new URLSearchParams(window.location.search);
+        for (const [key, value] of urlParams.entries()) {
+            window.query[key] = value;
+        }
+        
+        // Open relevant tab based on URL parameters
+        if (window.query.tab) {
+            const tabId = window.query.tab + '-tab';
+            const tab = document.getElementById(tabId);
+            if (tab) {
+                tab.click();
+            }
+        }
+        
+        // Automatically open announcements tab after update
+        if (window.query.success && window.query.success.includes('Announcements')) {
+            const announcementsTab = document.getElementById('announcements-tab');
+            if (announcementsTab) {
+                announcementsTab.click();
+            }
+        }
     });
 </script>
