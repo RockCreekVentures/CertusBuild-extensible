@@ -9,6 +9,11 @@ const path = require('path');
 const fs = require('fs-extra');
 const logger = require('morgan');
 const multer = require('multer');
+const session = require('express-session');
+const passport = require('passport');
+
+// Load environment variables
+require('dotenv').config();
 
 // Initialize Express app
 const app = express();
@@ -24,6 +29,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Setup session management
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'dev_session_secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+}));
+
+// Setup authentication
+const { requireAuth } = require('./utils/auth-config')(app);
 
 // Set up storage for file uploads
 const storage = multer.diskStorage({
@@ -63,11 +82,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Map routes
-app.use('/', indexRouter);
-app.use('/research', researchRouter);
-app.use('/pitch-materials', pitchMaterialsRouter);
-app.use('/utilities', utilitiesRouter);
+// Define public routes (no authentication required)
+app.use('/auth', (req, res, next) => next()); // Skip authentication for auth routes
+
+// Protected routes (require authentication)
+app.use('/', requireAuth, indexRouter);
+app.use('/research', requireAuth, researchRouter);
+app.use('/pitch-materials', requireAuth, pitchMaterialsRouter);
+app.use('/utilities', requireAuth, utilitiesRouter);
 
 // Create content directories if they don't exist
 const contentDirs = [
