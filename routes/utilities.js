@@ -7,6 +7,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs-extra');
+const showdown = require('showdown');
 
 // Function to get file tree recursively
 const getFileTree = (dir, basePath = '') => {
@@ -153,12 +154,23 @@ const serveFile = (req, res, filePath) => {
       
       // For markdown files, render with markdown
       if (ext === '.md') {
+        const converter = new showdown.Converter({
+          tables: true,
+          strikethrough: true,
+          tasklists: true,
+          ghCodeBlocks: true,
+          emoji: true
+        });
+        converter.setFlavor('github');
+        const markdownHtml = converter.makeHtml(content);
+        
         return res.render('utilities/markdown-viewer', {
           title: path.basename(filePath) + ' - CertusBuild',
           activeLink: 'utilities',
           filename: path.basename(filePath),
           filepath: filePath,
-          content
+          content,
+          markdownHtml
         });
       }
       

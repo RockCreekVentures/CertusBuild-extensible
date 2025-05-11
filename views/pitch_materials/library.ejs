@@ -1,0 +1,196 @@
+<%- include('_pitch_template', {
+    activeSection: 'library',
+    pageTitle: 'Pitch Materials Library',
+    contentHtml: `
+        <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            This section contains all available pitch materials for the CertusBuild platform, organized by category.
+        </div>
+        
+        <p class="lead">
+            Browse our complete collection of presentation materials, financial models, pitch decks, and supporting documents.
+        </p>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+                        <h5 class="mb-0">Documents Library</h5>
+                        <div>
+                            <button class="btn btn-sm btn-light" id="grid-view-btn" title="Grid View">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="btn btn-sm btn-light active" id="list-view-btn" title="List View">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Search bar -->
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <input type="text" id="document-search" class="form-control" placeholder="Search documents...">
+                            </div>
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="accordion" id="pitchMaterialsAccordion">
+                            <% 
+                            const categoryIcons = {
+                                'Executive': 'fa-file-powerpoint',
+                                'Technical': 'fa-cogs',
+                                'Investor': 'fa-chart-line',
+                                'Financial': 'fa-calculator',
+                                'Other': 'fa-file-alt'
+                            };
+                            
+                            const categoryColors = {
+                                'Executive': 'success',
+                                'Technical': 'primary',
+                                'Investor': 'warning',
+                                'Financial': 'info',
+                                'Other': 'secondary'
+                            };
+                            
+                            Object.entries(categories).forEach(([category, files], index) => {
+                                if (files.length > 0) {
+                            %>
+                                <div class="accordion-item mb-3">
+                                    <h2 class="accordion-header" id="heading<%= category %>">
+                                        <button class="accordion-button <%= index > 0 ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%= category %>" aria-expanded="<%= index === 0 ? 'true' : 'false' %>" aria-controls="collapse<%= category %>">
+                                            <i class="fas <%= categoryIcons[category] %> me-2 text-<%= categoryColors[category] %>"></i>
+                                            <%= category %> Documents <span class="badge bg-<%= categoryColors[category] %> ms-2"><%= files.length %></span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse<%= category %>" class="accordion-collapse collapse <%= index === 0 ? 'show' : '' %>" aria-labelledby="heading<%= category %>" data-bs-parent="#pitchMaterialsAccordion">
+                                        <div class="accordion-body p-0">
+                                            <div class="list-group list-group-flush">
+                                                <% files.forEach(file => { %>
+                                                    <a href="/utilities/file/public/content/pitch_materials/<%= file.filename %>" class="list-group-item list-group-item-action">
+                                                        <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1"><%= file.title %></h5>
+                                                            <small class="text-muted"><%= new Date(file.date).toLocaleDateString() %></small>
+                                                        </div>
+                                                        <p class="mb-1"><%= file.description || 'No description available' %></p>
+                                                        <small>
+                                                            <span class="badge bg-<%= categoryColors[category] %>"><%= category %></span>
+                                                            <% if (file.tags && file.tags.length > 0) { %>
+                                                                <% file.tags.forEach(tag => { %>
+                                                                    <span class="badge bg-light text-dark"><%= tag %></span>
+                                                                <% }); %>
+                                                            <% } %>
+                                                        </small>
+                                                    </a>
+                                                <% }); %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% 
+                                }
+                            }); 
+                            %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+    markdownFile: null,
+    additionalSections: [
+        {
+            title: 'Getting Materials',
+            collapsible: false,
+            content: `
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-download fa-3x mb-3 text-primary"></i>
+                                <h5>Download All</h5>
+                                <p class="mb-0">Get all pitch materials as a ZIP archive</p>
+                                <a href="#" class="btn btn-sm btn-primary mt-3">Download Package</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cloud fa-3x mb-3 text-info"></i>
+                                <h5>Cloud Access</h5>
+                                <p class="mb-0">Access shared folder with all materials</p>
+                                <a href="#" class="btn btn-sm btn-info mt-3">Open Cloud Folder</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 bg-light">
+                            <div class="card-body text-center">
+                                <i class="fas fa-users fa-3x mb-3 text-success"></i>
+                                <h5>Request Custom</h5>
+                                <p class="mb-0">Ask for tailored materials for specific needs</p>
+                                <a href="#" class="btn btn-sm btn-success mt-3">Submit Request</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            actions: null
+        }
+    ]
+}) %>
+
+<script>
+  // Simple client-side search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('document-search');
+    if (searchInput) {
+      searchInput.addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        const listItems = document.querySelectorAll('.list-group-item');
+        
+        listItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide accordion sections based on whether they have visible items
+        document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+          const visibleItems = accordionItem.querySelectorAll('.list-group-item[style="display: none;"]');
+          const allItems = accordionItem.querySelectorAll('.list-group-item');
+          
+          if (visibleItems.length === allItems.length) {
+            accordionItem.style.display = 'none';
+          } else {
+            accordionItem.style.display = '';
+          }
+        });
+      });
+    }
+    
+    // View toggle functionality (can be expanded later)
+    const gridViewBtn = document.getElementById('grid-view-btn');
+    const listViewBtn = document.getElementById('list-view-btn');
+    
+    if (gridViewBtn && listViewBtn) {
+      gridViewBtn.addEventListener('click', function() {
+        this.classList.add('active');
+        listViewBtn.classList.remove('active');
+        // Implementation for grid view would go here
+      });
+      
+      listViewBtn.addEventListener('click', function() {
+        this.classList.add('active');
+        gridViewBtn.classList.remove('active');
+        // Implementation for list view would go here
+      });
+    }
+  });
+</script>

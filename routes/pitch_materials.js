@@ -42,6 +42,57 @@ router.get('/:slug', (req, res, next) => {
 
 // Static routes for predefined sections
 
+// Recent Additions page
+router.get('/recent-additions', (req, res) => {
+  // Get all pitch materials content sorted by date
+  const pitchContent = contentManager.getContentByCategory('public/content', 'pitch_materials')
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 5); // Get only the 5 most recent items
+  
+  res.render('pitch_materials/recent_additions', {
+    title: 'Recent Additions - CertusBuild',
+    activeLink: 'pitch_materials',
+    activeSection: 'recent-additions',
+    pitchContent
+  });
+});
+
+// Pitch Materials Library page
+router.get('/library', (req, res) => {
+  // Get all pitch materials organized by category
+  const allPitchFiles = contentManager.getContentByCategory('public/content', 'pitch_materials');
+  
+  // Organize by category
+  const categories = {
+    'Executive': [],
+    'Technical': [],
+    'Investor': [],
+    'Financial': [],
+    'Other': []
+  };
+  
+  allPitchFiles.forEach(file => {
+    if (file.title.toLowerCase().includes('executive')) {
+      categories.Executive.push(file);
+    } else if (file.title.toLowerCase().includes('technical') || file.title.toLowerCase().includes('user')) {
+      categories.Technical.push(file);
+    } else if (file.title.toLowerCase().includes('investor')) {
+      categories.Investor.push(file);
+    } else if (file.title.toLowerCase().includes('financial')) {
+      categories.Financial.push(file);
+    } else {
+      categories.Other.push(file);
+    }
+  });
+  
+  res.render('pitch_materials/library', {
+    title: 'Pitch Materials Library - CertusBuild',
+    activeLink: 'pitch_materials',
+    activeSection: 'library',
+    categories
+  });
+});
+
 // Executive Summary Deck page
 router.get('/executive-summary', (req, res) => {
   res.render('pitch_materials/executive_summary', {
