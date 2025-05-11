@@ -8,6 +8,7 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs-extra');
 const showdown = require('showdown');
+const multer = require('multer');
 
 // Function to get file tree recursively
 const getFileTree = (dir, basePath = '') => {
@@ -287,6 +288,83 @@ router.get('/file/attached_assets/:filename', (req, res) => {
 router.get('/file/:filepath', (req, res) => {
   const filePath = path.join(process.cwd(), req.params.filepath);
   serveFile(req, res, filePath);
+});
+
+// Configure storage for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // Get the destination based on content type
+    const contentType = req.body.contentType;
+    if (!contentType) {
+      return cb(new Error('Content type is required'));
+    }
+    
+    const uploadPath = path.join(process.cwd(), 'public', 'content', contentType);
+    
+    // Ensure the directory exists
+    fs.ensureDirSync(uploadPath);
+    
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    // Use the original file name
+    cb(null, file.originalname);
+  }
+});
+
+// File filter for allowed file types
+const fileFilter = (req, file, cb) => {
+  // Define allowed file types
+  const allowedFileTypes = [
+    '.md', '.jpg', '.jpeg', '.png', '.gif', '.svg', '.pdf', 
+    '.docx', '.xlsx', '.pptx', '.txt'
+  ];
+  
+  const ext = path.extname(file.originalname).toLowerCase();
+  if (allowedFileTypes.includes(ext)) {
+    cb(null, true);
+  } else {
+    cb(new Error('Invalid file type. Only markdown, images, and documents are allowed.'));
+  }
+};
+
+// Initialize multer upload
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+  limits: {
+    fileSize: 10 * 1024 * 1024 // 10MB limit
+  }
+});
+
+// File Upload Route
+router.post('/upload', upload.single('fileUpload'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.redirect('/utilities?error=No file was uploaded. Please try again.');
+    }
+    
+    const contentType = req.body.contentType;
+    const fileDescription = req.body.fileDescription || '';
+    
+    // If it's a markdown file and has a description, we could add metadata
+    if (path.extname(req.file.originalname).toLowerCase() === '.md' && fileDescription) {
+      const filePath = req.file.path;
+      const content = fs.readFileSync(filePath, 'utf8');
+      
+      // Add description as metadata if not already present
+      if (!content.includes('description:')) {
+        const newContent = `---\ndescription: "${fileDescription}"\ndate: "${new Date().toISOString()}"\n---\n\n${content}`;
+        fs.writeFileSync(filePath, newContent, 'utf8');
+      }
+    }
+    
+    // Redirect back to utilities with success message
+    res.redirect(`/utilities?success=File uploaded successfully to ${contentType}!&tab=files`);
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    res.redirect('/utilities?error=Failed to upload file. ' + error.message);
+  }
 });
 
 // Update Announcements Route
