@@ -42,6 +42,27 @@ const researchRouter = require('./routes/research');
 const pitchMaterialsRouter = require('./routes/pitch_materials');
 const utilitiesRouter = require('./routes/utilities');
 
+// Middleware to ensure activeLink is always set
+app.use((req, res, next) => {
+  // Default activeLink to null
+  res.locals.activeLink = null;
+  
+  // Set activeLink based on the URL path
+  if (req.path === '/') {
+    res.locals.activeLink = 'home';
+  } else if (req.path.startsWith('/research')) {
+    res.locals.activeLink = 'research';
+  } else if (req.path.startsWith('/pitch-materials')) {
+    res.locals.activeLink = 'pitch_materials';
+  } else if (req.path.startsWith('/utilities')) {
+    res.locals.activeLink = 'utilities';
+  } else if (req.path.startsWith('/about')) {
+    res.locals.activeLink = 'about';
+  }
+  
+  next();
+});
+
 // Map routes
 app.use('/', indexRouter);
 app.use('/research', researchRouter);
@@ -68,7 +89,8 @@ app.use((req, res, next) => {
   res.status(404).render('error', {
     title: 'Page Not Found',
     message: 'The page you are looking for does not exist.',
-    error: { status: 404 }
+    error: { status: 404 },
+    activeLink: null
   });
 });
 
@@ -78,7 +100,8 @@ app.use((err, req, res, next) => {
   res.status(status).render('error', {
     title: 'Error',
     message: err.message,
-    error: app.get('env') === 'development' ? err : {}
+    error: app.get('env') === 'development' ? err : {},
+    activeLink: null
   });
 });
 
