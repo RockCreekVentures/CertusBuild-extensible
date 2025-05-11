@@ -126,16 +126,15 @@ router.get('/', (req, res) => {
   });
 });
 
-// File view/download route
-router.get('/file/:filepath', (req, res) => {
-  const filePath = path.join(process.cwd(), req.params.filepath);
-  
+// Helper function to serve files
+const serveFile = (req, res, filePath) => {
   // Check if file exists
   if (!fs.existsSync(filePath)) {
     return res.status(404).render('error', {
       title: 'File Not Found',
-      message: `The file "${req.params.filepath}" does not exist.`,
-      error: { status: 404 }
+      message: `The file does not exist.`,
+      error: { status: 404 },
+      activeLink: 'utilities'
     });
   }
   
@@ -158,7 +157,7 @@ router.get('/file/:filepath', (req, res) => {
           title: path.basename(filePath) + ' - CertusBuild',
           activeLink: 'utilities',
           filename: path.basename(filePath),
-          filepath: req.params.filepath,
+          filepath: filePath,
           content
         });
       }
@@ -169,7 +168,7 @@ router.get('/file/:filepath', (req, res) => {
           title: path.basename(filePath) + ' - CertusBuild',
           activeLink: 'utilities',
           filename: path.basename(filePath),
-          filepath: req.params.filepath,
+          filepath: filePath,
           content,
           language: ext.substring(1) // remove the dot
         });
@@ -180,17 +179,53 @@ router.get('/file/:filepath', (req, res) => {
         title: path.basename(filePath) + ' - CertusBuild',
         activeLink: 'utilities',
         filename: path.basename(filePath),
-        filepath: req.params.filepath,
+        filepath: filePath,
         content
       });
     }
     
-    // For media and PDF files, redirect to the file itself
-    res.redirect('/' + req.params.filepath);
+    // For media and PDF files, serve the file directly
+    return res.sendFile(filePath);
   } else {
     // Force download for non-viewable files
     res.download(filePath);
   }
+};
+
+// File view/download route for research archive
+router.get('/file/research_archive/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'research_archive', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
+// File view/download route for research content
+router.get('/file/public/content/research/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'public/content/research', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
+// File view/download route for pitch materials content
+router.get('/file/public/content/pitch_materials/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'public/content/pitch_materials', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
+// File view/download route for pitch materials
+router.get('/file/pitch_materials/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'pitch_materials', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
+// File view/download route for attached assets
+router.get('/file/attached_assets/:filename', (req, res) => {
+  const filePath = path.join(process.cwd(), 'attached_assets', req.params.filename);
+  serveFile(req, res, filePath);
+});
+
+// General file viewing route (fallback)
+router.get('/file/:filepath', (req, res) => {
+  const filePath = path.join(process.cwd(), req.params.filepath);
+  serveFile(req, res, filePath);
 });
 
 // Links management page
