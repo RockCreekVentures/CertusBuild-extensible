@@ -14,10 +14,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "CertusBuild AU App"
+args = "CertusBuild AU App - Dev"
 
 [[workflows.workflow]]
-name = "CertusBuild AU App"
+name = "CertusBuild AU App - Dev"
 author = "agent"
 
 [[workflows.workflow.tasks]]

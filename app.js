@@ -30,8 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Setup session management
-app.use(session({
+// Session management
+const sessionConfig = {
   secret: process.env.SESSION_SECRET || 'dev_session_secret',
   resave: false,
   saveUninitialized: false,
@@ -39,7 +39,30 @@ app.use(session({
     secure: process.env.NODE_ENV === 'production',
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
-}));
+};
+
+// Use Redis for session storage in production
+if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
+  const RedisStore = require('connect-redis').default;
+  const { createClient } = require('redis');
+  
+  // Initialize Redis client
+  const redisClient = createClient({
+    url: process.env.REDIS_URL,
+    legacyMode: false,
+  });
+  
+  // Connect to Redis and handle connection errors
+  redisClient.connect().catch(console.error);
+  
+  // Use Redis for session storage
+  sessionConfig.store = new RedisStore({ client: redisClient });
+  console.log('Using Redis for session storage');
+} else {
+  console.log('Using in-memory session storage - not recommended for production');
+}
+
+app.use(session(sessionConfig));
 
 // Setup authentication
 const { requireAuth } = require('./utils/auth-config')(app);
