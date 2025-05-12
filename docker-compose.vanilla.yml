@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  certusbuild-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: certusbuild/planning-app:latest
+    container_name: certusbuild-planning
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - REDIS_URL=redis://redis:6379
+      # These environment variables should be set in a .env file or through environment
+      # - SESSION_SECRET=your_secret_key
+      # - AUTH_CLIENT_ID=certusbuild_planning
+      # - AUTH_CLIENT_SECRET=your_client_secret
+      # - AUTH_ISSUER=https://auth.rockcreekventures.com/application/o/certusbuild_planning/
+      # - AUTH_CALLBACK_URL=https://planning.certusbuild.com/auth/callback
+      # - AUTH_SCOPE=openid profile email
+      # - BASE_URL=https://planning.certusbuild.com
+    volumes:
+      - certusbuild_data:/app/public/content
+      - certusbuild_uploads:/app/public/uploads
+    depends_on:
+      - redis
+    networks:
+      - certusbuild-network
+      
+  # Redis for session storage
+  redis:
+    image: redis:alpine
+    container_name: certusbuild-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - certusbuild-network
+    command: redis-server --appendonly yes
+
+networks:
+  certusbuild-network:
+    driver: bridge
+
+volumes:
+  certusbuild_data:
+  certusbuild_uploads:
+  redis_data:
