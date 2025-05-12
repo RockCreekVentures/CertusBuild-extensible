@@ -4,3 +4,5 @@ node_modules
 .replit
 certs/*
 nginx/logs/*
+*.pem
+*.log
