@@ -5,7 +5,6 @@
  */
 
 const passport = require('passport');
-const OAuth2Strategy = require('passport-oauth2').Strategy;
 const ensureLogin = require('connect-ensure-login');
 
 // Load environment variables
@@ -13,24 +12,36 @@ require('dotenv').config();
 
 // Function to configure authentication
 module.exports = function setupAuth(app) {
-  // Configure passport
-  passport.serializeUser((user, done) => {
-    done(null, user);
-  });
-
-  passport.deserializeUser((user, done) => {
-    done(null, user);
-  });
-
-  // Initialize Passport
-  app.use(passport.initialize());
-  app.use(passport.session());
-  
-  // Check if auth bypass is enabled for development
+  // Check if auth bypass is enabled for development or testing
   const authBypassEnabled = process.env.AUTH_BYPASS_ENABLED === 'true';
   
   if (!authBypassEnabled) {
     // Production authentication with Authentik
+    // Only load OAuth2Strategy when actually using it
+    const OAuth2Strategy = require('passport-oauth2').Strategy;
+    
+    // Configure passport
+    passport.serializeUser((user, done) => {
+      done(null, user);
+    });
+
+    passport.deserializeUser((user, done) => {
+      done(null, user);
+    });
+
+    // Initialize Passport
+    app.use(passport.initialize());
+    app.use(passport.session());
+    
+    // Make sure we have all required environment variables
+    const requiredVars = ['AUTH_CLIENT_ID', 'AUTH_CLIENT_SECRET', 'AUTH_ISSUER', 'AUTH_CALLBACK_URL'];
+    const missingVars = requiredVars.filter(varName => !process.env[varName]);
+    
+    if (missingVars.length > 0) {
+      console.error(`Missing required environment variables: ${missingVars.join(', ')}`);
+      console.error('Authentication will not function properly without these variables.');
+      process.exit(1); // Exit the process to prevent starting with misconfigured auth
+    }
     
     // Extract user profile from Authentik's userinfo endpoint
     const getUserProfile = async (accessToken) => {
@@ -59,7 +70,7 @@ module.exports = function setupAuth(app) {
       clientID: process.env.AUTH_CLIENT_ID,
       clientSecret: process.env.AUTH_CLIENT_SECRET,
       callbackURL: process.env.AUTH_CALLBACK_URL,
-      scope: ['openid', 'profile', 'email']
+      scope: process.env.AUTH_SCOPE?.split(' ') || ['openid', 'profile', 'email']
     }, async (accessToken, refreshToken, params, profile, done) => {
       try {
         // Fetch the user profile from userinfo endpoint
