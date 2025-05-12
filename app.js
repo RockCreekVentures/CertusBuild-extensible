@@ -43,21 +43,45 @@ const sessionConfig = {
 
 // Use Redis for session storage in production
 if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
-  const RedisStore = require('connect-redis').default;
-  const { createClient } = require('redis');
-  
-  // Initialize Redis client
-  const redisClient = createClient({
-    url: process.env.REDIS_URL,
-    legacyMode: false,
-  });
-  
-  // Connect to Redis and handle connection errors
-  redisClient.connect().catch(console.error);
-  
-  // Use Redis for session storage
-  sessionConfig.store = new RedisStore({ client: redisClient });
-  console.log('Using Redis for session storage');
+  try {
+    // Different versions of connect-redis have different import methods
+    let RedisStore;
+    const connectRedis = require('connect-redis');
+    
+    // Handle different module formats
+    if (typeof connectRedis === 'function') {
+      // Older versions of connect-redis
+      RedisStore = connectRedis(session);
+    } else if (connectRedis.default) {
+      // Newer versions with default export
+      RedisStore = connectRedis.default;
+    } else {
+      // Some versions expose the constructor directly
+      RedisStore = connectRedis;
+    }
+    
+    const { createClient } = require('redis');
+    
+    // Initialize Redis client
+    const redisClient = createClient({
+      url: process.env.REDIS_URL,
+      legacyMode: false,
+    });
+    
+    // Connect to Redis and handle connection errors
+    redisClient.connect().catch(console.error);
+    
+    // Use Redis for session storage (with proper constructor instantiation)
+    sessionConfig.store = new RedisStore({ 
+      client: redisClient,
+      prefix: 'certusbuild:sess:' 
+    });
+    
+    console.log('Using Redis for session storage');
+  } catch (error) {
+    console.error('Failed to initialize Redis session store:', error);
+    console.log('Falling back to in-memory session storage (not recommended for production)');
+  }
 } else {
   console.log('Using in-memory session storage - not recommended for production');
 }
