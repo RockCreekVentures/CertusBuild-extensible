@@ -2,3 +2,5 @@
 .cloudflared
 node_modules
 .replit
+certs/*
+
