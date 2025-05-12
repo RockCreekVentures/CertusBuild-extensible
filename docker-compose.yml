@@ -13,6 +13,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
+      - REDIS_URL=redis://redis:6379
       # These environment variables should be set in a .env file or through environment
       # - SESSION_SECRET=your_secret_key
       # - AUTH_CLIENT_ID=certusbuild_planning
@@ -24,8 +25,21 @@ services:
     volumes:
       - certusbuild_data:/app/public/content
       - certusbuild_uploads:/app/public/uploads
+    depends_on:
+      - redis
     networks:
       - certusbuild-network
+      
+  # Redis for session storage
+  redis:
+    image: redis:alpine
+    container_name: certusbuild-redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - certusbuild-network
+    command: redis-server --appendonly yes
 
 networks:
   certusbuild-network:
@@ -34,3 +48,4 @@ networks:
 volumes:
   certusbuild_data:
   certusbuild_uploads:
+  redis_data:

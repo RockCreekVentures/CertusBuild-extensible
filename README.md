@@ -94,6 +94,18 @@ This option uses Cloudflare Tunnel for secure access.
    docker-compose -f docker-compose.cloudflare.yml up -d
    ```
 
+### Redis Session Storage
+
+Both deployment options use Redis for session storage in production environments. This ensures:
+
+- Session data persists across application restarts
+- Enhanced security for user sessions
+- Better performance under high load
+
+No additional configuration is needed as Redis is set up automatically in the Docker Compose files.
+
+For local development, the application defaults to in-memory session storage.
+
 ## Development
 
 To run the application locally:
@@ -103,10 +115,30 @@ To run the application locally:
    npm install
    ```
 
-2. Start the development server:
-   ```bash
-   npm run dev
+2. Create a `.env` file with development configuration:
    ```
+   NODE_ENV=development
+   PORT=5000
+   SESSION_SECRET=dev_session_secret
+   AUTH_BYPASS_ENABLED=true
+   ```
+
+3. Start the development server:
+   ```bash
+   nodemon start.js
+   ```
+
+### Development Authentication Bypass
+
+For local development, the application includes an authentication bypass mode that allows you to test without connecting to the Authentik server. This is enabled by setting `AUTH_BYPASS_ENABLED=true` in your `.env` file.
+
+When authentication bypass is enabled:
+- No external authentication server is required
+- A mock development user is automatically created
+- All protected routes are accessible without authentication
+- The login/logout functionality still works but uses local session storage
+
+This makes it easy to develop and test the application locally without setting up the full Authentik integration.
 
 ## File Structure
 
