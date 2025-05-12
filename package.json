@@ -25,6 +25,7 @@
     "nodemon": "^3.1.10",
     "passport": "^0.7.0",
     "passport-oauth2": "^1.8.0",
+    "redis": "^3.1.2",
     "showdown": "^2.1.0"
   }
 }

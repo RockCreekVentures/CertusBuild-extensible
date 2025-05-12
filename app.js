@@ -44,23 +44,24 @@ const sessionConfig = {
 // Use Redis for session storage in production
 if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
   try {
-    // Using connect-redis v6.1.3 which has a CommonJS compatible interface
+    // Using connect-redis v6.1.3 with redis v3.1.2 (compatible versions)
     const redis = require('redis');
     const RedisStore = require('connect-redis')(session);
     
-    // Create a new client
-    let redisClient;
+    // Parse Redis URL for configuration
+    let redisOptions = {};
     
-    // Redis 4.x uses createClient without callback
-    redisClient = redis.createClient({
-      url: process.env.REDIS_URL,
-      legacyMode: true // Important for connect-redis v6.x
-    });
+    // If using a full Redis URL (redis://user:pass@host:port)
+    if (process.env.REDIS_URL.startsWith('redis://')) {
+      redisOptions.url = process.env.REDIS_URL;
+    } else {
+      // Default to localhost if not a full URL
+      redisOptions.host = process.env.REDIS_URL || 'redis';
+      redisOptions.port = 6379;
+    }
     
-    // Connect to the client - must be done for Redis >= 4.x
-    redisClient.connect().catch((err) => {
-      console.error('Redis connection error:', err);
-    });
+    // Create Redis client with redis v3.1.2 compatible syntax
+    const redisClient = redis.createClient(redisOptions);
     
     // Handle Redis client events
     redisClient.on('error', (err) => {
