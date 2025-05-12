@@ -1,0 +1,4 @@
+.env
+.cloudflared
+node_modules
+.replit
