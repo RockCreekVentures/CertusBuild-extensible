@@ -1,0 +1,40 @@
+Using Redis for session storage
+CertusBuild AU server running on port 5000
+Visit http://localhost:5000 to view the application
+Connected to Redis server
+/app/node_modules/@redis/client/dist/lib/RESP/encoder.js:17
+            throw new TypeError(`"arguments[${i}]" must be of type "string | Buffer", got ${typeof arg} in>
+                  ^
+
+TypeError: "arguments[1]" must be of type "string | Buffer", got object instead.
+    at encodeCommand (/app/node_modules/@redis/client/dist/lib/RESP/encoder.js:17:19)
+    at RedisCommandsQueue.commandsToWrite (/app/node_modules/@redis/client/dist/lib/client/commands-queue.>
+    at commandsToWrite.next (<anonymous>)
+    at RedisSocket.write (/app/node_modules/@redis/client/dist/lib/client/socket.js:210:20)
+    at #write (/app/node_modules/@redis/client/dist/lib/client/index.js:506:22)
+    at Immediate.<anonymous> (/app/node_modules/@redis/client/dist/lib/client/index.js:513:24)
+    at process.processImmediate (node:internal/timers:483:21)
+
+Node.js v20.19.1
+Using Redis for session storage
+CertusBuild AU server running on port 5000
+Visit http://localhost:5000 to view the application
+Connected to Redis server
+GET /auth/login 302 12.040 ms - 0
+/app/node_modules/@redis/client/dist/lib/RESP/encoder.js:17
+            throw new TypeError(`"arguments[${i}]" must be of type "string | Buffer", got ${typeof arg} in>
+                  ^
+TypeError: "arguments[1]" must be of type "string | Buffer", got object instead.
+    at encodeCommand (/app/node_modules/@redis/client/dist/lib/RESP/encoder.js:17:19)
+    at RedisCommandsQueue.commandsToWrite (/app/node_modules/@redis/client/dist/lib/client/commands-queue.>
+    at commandsToWrite.next (<anonymous>)
+    at RedisSocket.write (/app/node_modules/@redis/client/dist/lib/client/socket.js:210:20)
+    at #write (/app/node_modules/@redis/client/dist/lib/client/index.js:506:22)
+    at Immediate.<anonymous> (/app/node_modules/@redis/client/dist/lib/client/index.js:513:24)
+    at process.processImmediate (node:internal/timers:483:21)
+
+Node.js v20.19.1
+Using Redis for session storage
+CertusBuild AU server running on port 5000
+Visit http://localhost:5000 to view the application
+Connected to Redis server
