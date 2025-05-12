@@ -44,38 +44,41 @@ const sessionConfig = {
 // Use Redis for session storage in production
 if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
   try {
-    // Different versions of connect-redis have different import methods
-    let RedisStore;
-    const connectRedis = require('connect-redis');
+    // Using connect-redis v6.1.3 which has a CommonJS compatible interface
+    const redis = require('redis');
+    const RedisStore = require('connect-redis')(session);
     
-    // Handle different module formats
-    if (typeof connectRedis === 'function') {
-      // Older versions of connect-redis
-      RedisStore = connectRedis(session);
-    } else if (connectRedis.default) {
-      // Newer versions with default export
-      RedisStore = connectRedis.default;
-    } else {
-      // Some versions expose the constructor directly
-      RedisStore = connectRedis;
-    }
+    // Create a new client
+    let redisClient;
     
-    const { createClient } = require('redis');
-    
-    // Initialize Redis client
-    const redisClient = createClient({
+    // Redis 4.x uses createClient without callback
+    redisClient = redis.createClient({
       url: process.env.REDIS_URL,
-      legacyMode: false,
+      legacyMode: true // Important for connect-redis v6.x
     });
     
-    // Connect to Redis and handle connection errors
-    redisClient.connect().catch(console.error);
+    // Connect to the client - must be done for Redis >= 4.x
+    redisClient.connect().catch((err) => {
+      console.error('Redis connection error:', err);
+    });
     
-    // Use Redis for session storage (with proper constructor instantiation)
-    sessionConfig.store = new RedisStore({ 
+    // Handle Redis client events
+    redisClient.on('error', (err) => {
+      console.error('Redis client error:', err);
+    });
+    
+    redisClient.on('connect', () => {
+      console.log('Connected to Redis server');
+    });
+    
+    // Create a Redis store with the client
+    const store = new RedisStore({ 
       client: redisClient,
-      prefix: 'certusbuild:sess:' 
+      prefix: 'certusbuild:sess:'
     });
+    
+    // Assign the store to the session config
+    sessionConfig.store = store;
     
     console.log('Using Redis for session storage');
   } catch (error) {
