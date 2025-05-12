@@ -41,50 +41,47 @@ const sessionConfig = {
   }
 };
 
-// Use Redis for session storage in production
-if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
+// Check if authentication bypass is enabled, if so, skip Redis setup
+if (process.env.AUTH_BYPASS_ENABLED === 'true') {
+  console.log('Authentication bypass is enabled - using in-memory session storage');
+} 
+// Use Redis for session storage in production when authentication is required
+else if (process.env.NODE_ENV === 'production' && process.env.REDIS_URL) {
   try {
-    // Using connect-redis v6.1.3 with redis v3.1.2 (compatible versions)
-    const redis = require('redis');
+    // Simple approach with connect-redis 6.x and redis 3.x
     const RedisStore = require('connect-redis')(session);
     
-    // Parse Redis URL for configuration
-    let redisOptions = {};
+    // Create a Redis client with minimal configuration
+    const redis = require('redis');
     
-    // If using a full Redis URL (redis://user:pass@host:port)
-    if (process.env.REDIS_URL.startsWith('redis://')) {
-      redisOptions.url = process.env.REDIS_URL;
-    } else {
-      // Default to localhost if not a full URL
-      redisOptions.host = process.env.REDIS_URL || 'redis';
-      redisOptions.port = 6379;
+    // Extract host and port from REDIS_URL if provided
+    let redisHost = 'redis';
+    let redisPort = 6379;
+    
+    // Simple parsing of Redis URL
+    if (process.env.REDIS_URL && process.env.REDIS_URL.includes('://')) {
+      const url = new URL(process.env.REDIS_URL);
+      redisHost = url.hostname;
+      redisPort = url.port || 6379;
     }
     
-    // Create Redis client with redis v3.1.2 compatible syntax
-    const redisClient = redis.createClient(redisOptions);
+    // Create standard redis client (redis v3.x style)
+    const redisClient = redis.createClient({
+      host: redisHost,
+      port: redisPort
+    });
     
-    // Handle Redis client events
+    // Basic error handling
     redisClient.on('error', (err) => {
-      console.error('Redis client error:', err);
+      console.error('Redis connection error:', err);
     });
     
-    redisClient.on('connect', () => {
-      console.log('Connected to Redis server');
-    });
-    
-    // Create a Redis store with the client
-    const store = new RedisStore({ 
-      client: redisClient,
-      prefix: 'certusbuild:sess:'
-    });
-    
-    // Assign the store to the session config
-    sessionConfig.store = store;
-    
-    console.log('Using Redis for session storage');
+    // Configure session store
+    sessionConfig.store = new RedisStore({client: redisClient});
+    console.log(`Using Redis for session storage (${redisHost}:${redisPort})`);
   } catch (error) {
-    console.error('Failed to initialize Redis session store:', error);
-    console.log('Falling back to in-memory session storage (not recommended for production)');
+    console.error('Redis session store initialization failed:', error.message);
+    console.log('Falling back to in-memory session storage');
   }
 } else {
   console.log('Using in-memory session storage - not recommended for production');

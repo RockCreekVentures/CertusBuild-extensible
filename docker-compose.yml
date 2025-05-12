@@ -6,18 +6,13 @@ services:
     image: certusbuild/planning-app:latest
     container_name: cb-app
     restart: unless-stopped
+    env_file:
+      - .env.production
     environment:
-      - NODE_ENV=production
-      - PORT=5000
+      # Override certain values from env file if needed
       - REDIS_URL=redis://redis:6379
-      # These environment variables should be set in a .env file or through environment
-      - SESSION_SECRET=${SESSION_SECRET}
-      - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
-      - AUTH_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
-      - AUTH_ISSUER=${AUTH_ISSUER}
-      - AUTH_CALLBACK_URL=${AUTH_CALLBACK_URL}
-      - AUTH_SCOPE=${AUTH_SCOPE}
-      - BASE_URL=${BASE_URL}
+      # Enable authentication bypass for testing
+      - AUTH_BYPASS_ENABLED=true
     volumes:
       - certusbuild_data:/app/public/content
       - certusbuild_uploads:/app/public/uploads
