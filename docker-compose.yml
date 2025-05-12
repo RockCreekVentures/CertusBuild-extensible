@@ -54,7 +54,7 @@ services:
     volumes:
       - ./nginx/certusbuild.conf:/etc/nginx/conf.d/certusbuild.conf
       - ./nginx/logs:/var/log/nginx
-      - /root/certs/planning.certusbuild:/etc/letsencrypt/live/planning.certusbuild.com:ro
+      - ./certs:/certs:ro
 #      - ./certbot/www:/var/www/certbot
     networks:
       - cb-net
