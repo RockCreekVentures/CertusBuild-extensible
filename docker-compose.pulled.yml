@@ -9,17 +9,19 @@ services:
     env_file:
       - .env.production
     environment:
+      # Enable authentication bypass - set to false (default) for production; set to true for testing
+      - AUTH_BYPASS_ENABLED=${AUTH_BYPASS_EBABLED:-false}
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=${PORT:-18000}
       # Override certain values from env file if needed
       - REDIS_URL=redis://redis:6379
-      # Enable authentication bypass for testing
-      - AUTH_BYPASS_ENABLED=${AUTH_BYPASS_ENABLED}
-      - PORT=18000
-      - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
-      - AUTH_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
-      - AUTH_ISSUER=${AUTH_ISSUER}
-      - AUTH_CALLBACK_URL=${AUTH_CALLBACK_URL}
-      - AUTH_SCOPE=openid profile email
-
+#      - SESSION_SECRET=${SESSION_SECRET}
+#      - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
+#      - AUTH_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
+#      - AUTH_ISSUER=${AUTH_ISSUER}
+#      - AUTH_CALLBACK_URL=${AUTH_CALLBACK_URL}
+#      - AUTH_SCOPE=${AUTH_SCOPE}
+#      - BASE_URL=${BASE_URL}
     volumes:
       - certusbuild_data:/app/public/content
       - certusbuild_uploads:/app/public/uploads

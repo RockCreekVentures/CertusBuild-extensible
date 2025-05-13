@@ -14,12 +14,6 @@ services:
       # Enable authentication bypass for testing
       - AUTH_BYPASS_ENABLED=${AUTH_BYPASS_ENABLED}
       - PORT=18000
-      - AUTH_CLIENT_ID=${AUTH_CLIENT_ID}
-      - AUTH_CLIENT_SECRET=${AUTH_CLIENT_SECRET}
-      - AUTH_ISSUER=${AUTH_ISSUER}
-      - AUTH_CALLBACK_URL=${AUTH_CALLBACK_URL}
-      - AUTH_SCOPE=openid profile email
-
     volumes:
       - certusbuild_data:/app/public/content
       - certusbuild_uploads:/app/public/uploads

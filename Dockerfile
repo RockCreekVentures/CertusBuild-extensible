@@ -15,7 +15,7 @@ COPY . .
 
 # Set default environment variables
 ENV NODE_ENV=production \
-    PORT=5000
+    PORT=18000
 
 # Create content directories if they don't exist
 RUN mkdir -p /app/public/content/research \
@@ -24,7 +24,7 @@ RUN mkdir -p /app/public/content/research \
     /app/public/uploads
 
 # Expose the port
-EXPOSE 5000
+EXPOSE 18000
 
 # Start the app with proper signal handling for graceful shutdown
 CMD ["node", "start.js"]
