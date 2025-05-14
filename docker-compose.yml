@@ -19,14 +19,15 @@ services:
       - AUTH_ISSUER=${AUTH_ISSUER}
       - AUTH_CALLBACK_URL=${AUTH_CALLBACK_URL}
       - AUTH_SCOPE=openid profile email
-
+    ports:
+      - 18000:18000
     volumes:
-      - certusbuild_data:/app/public/content
-      - certusbuild_uploads:/app/public/uploads
+      - certusbuild_data1:/app/public/content
+      - certusbuild_uploads1:/app/public/uploads
     depends_on:
       - redis
     networks:
-      cb-net:
+      npm:
         aliases:
           - certusbuild-planning
           - cb-planning
@@ -37,9 +38,9 @@ services:
     container_name: cb-redis
     restart: unless-stopped
     volumes:
-      - redis_data:/data
+      - redis_data1:/data
     networks:
-      cb-net:
+      npm:
         aliases:
           - redis
           - memdb
@@ -59,7 +60,10 @@ services:
       - ./certs:/certs:ro
 #      - ./certbot/www:/var/www/certbot
     networks:
-      - cb-net
+      npm:
+        aliases:
+          - nginx
+          - webserve
     depends_on:
       - cb-app
 
@@ -73,10 +77,13 @@ services:
 #    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
 networks:
-  cb-net:
-    driver: bridge
+  npm:
+    external: true
 
 volumes:
-  certusbuild_data:
-  certusbuild_uploads:
-  redis_data:
+  certusbuild_data1:
+    external: true
+  certusbuild_uploads1:
+    external: true
+  redis_data1:
+    external: true

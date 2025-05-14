@@ -1,4 +1,4 @@
-.env
+.env*
 .cloudflared
 node_modules
 .replit
