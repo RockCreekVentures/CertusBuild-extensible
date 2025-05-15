@@ -1,0 +1,8 @@
+body style=background: rgb(156,172,187);
+container main-content rgb(171,171,171);
+section mt-5 p-5 rounded bg-light
+div card h-100 shadow-sm style=background: rgb(188,188,188);
+div list-group-item rgb(161,182,191)
+col-md-6 mb-4 rgb(171,171,171)
+document-card 
+card mt-4

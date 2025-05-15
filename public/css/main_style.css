@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f8f9fa; /* Light gray background for overall page */
+    background-color: rgb(156,172,187);
     color: #333;
 }
 
@@ -14,6 +14,7 @@ body {
     margin: auto;
     overflow: hidden;
     padding: 0 20px;
+    background-color: rgb(171,171,171);
 }
 
 /* Header */
@@ -73,7 +74,7 @@ header a:hover {
 /* Hero Section */
 .hero, .page-header {
     background: linear-gradient(135deg, #0A2342 0%, #16355f 100%); /* Navy Blue gradient */
-    color: #ffffff;
+    color: #afcfdf;
     padding: 80px 0;
     text-align: center;
     position: relative;
@@ -191,7 +192,7 @@ header a:hover {
 }
 
 .card {
-    background: #fff;
+    background: #adffdf; /* Light Gray */
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 20px;
@@ -313,6 +314,7 @@ footer p {
     border-left: none;
     border-right: none;
     border-color: #eee;
+    background-color: rgb(161,182,191);
 }
 
 /* Document Card Styling */
@@ -321,7 +323,7 @@ footer p {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
-    background-color: #f9f9f9;
+    background-color: #b9b9b9;
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
