@@ -6,3 +6,4 @@ certs/*
 nginx/logs/*
 *.pem
 *.log
+.trunk/*
