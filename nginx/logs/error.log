@@ -482,3 +482,79 @@
 2025/05/14 18:57:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
 2025/05/14 18:57:25 [notice] 1#1: start worker processes
 2025/05/14 18:57:25 [notice] 1#1: start worker process 30
+2025/05/14 20:55:13 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/05/14 20:55:13 [notice] 30#30: gracefully shutting down
+2025/05/14 20:55:13 [notice] 30#30: exiting
+2025/05/14 20:55:13 [notice] 30#30: exit
+2025/05/14 20:55:13 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/05/14 20:55:13 [notice] 1#1: worker process 30 exited with code 0
+2025/05/14 20:55:13 [notice] 1#1: exit
+2025/05/14 20:55:15 [notice] 1#1: using the "epoll" event method
+2025/05/14 20:55:15 [notice] 1#1: nginx/1.28.0
+2025/05/14 20:55:15 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/05/14 20:55:15 [notice] 1#1: OS: Linux 6.8.8-2-pve
+2025/05/14 20:55:15 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/05/14 20:55:15 [notice] 1#1: start worker processes
+2025/05/14 20:55:15 [notice] 1#1: start worker process 22
+2025/05/14 20:56:01 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/05/14 20:56:01 [notice] 22#22: gracefully shutting down
+2025/05/14 20:56:01 [notice] 22#22: exiting
+2025/05/14 20:56:01 [notice] 22#22: exit
+2025/05/14 20:56:01 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/05/14 20:56:01 [notice] 1#1: worker process 22 exited with code 0
+2025/05/14 20:56:01 [notice] 1#1: exit
+2025/05/14 20:56:02 [notice] 1#1: using the "epoll" event method
+2025/05/14 20:56:02 [notice] 1#1: nginx/1.28.0
+2025/05/14 20:56:02 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/05/14 20:56:02 [notice] 1#1: OS: Linux 6.8.8-2-pve
+2025/05/14 20:56:02 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/05/14 20:56:02 [notice] 1#1: start worker processes
+2025/05/14 20:56:02 [notice] 1#1: start worker process 22
+2025/05/14 20:56:06 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/05/14 20:56:06 [notice] 22#22: gracefully shutting down
+2025/05/14 20:56:06 [notice] 22#22: exiting
+2025/05/14 20:56:06 [notice] 22#22: exit
+2025/05/14 20:56:06 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/05/14 20:56:06 [notice] 1#1: worker process 22 exited with code 0
+2025/05/14 20:56:06 [notice] 1#1: exit
+2025/05/14 20:56:31 [notice] 1#1: using the "epoll" event method
+2025/05/14 20:56:31 [notice] 1#1: nginx/1.28.0
+2025/05/14 20:56:31 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/05/14 20:56:31 [notice] 1#1: OS: Linux 6.8.8-2-pve
+2025/05/14 20:56:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/05/14 20:56:31 [notice] 1#1: start worker processes
+2025/05/14 20:56:31 [notice] 1#1: start worker process 31
+2025/05/14 20:57:49 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/05/14 20:57:49 [notice] 31#31: gracefully shutting down
+2025/05/14 20:57:49 [notice] 31#31: exiting
+2025/05/14 20:57:49 [notice] 31#31: exit
+2025/05/14 20:57:49 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/05/14 20:57:49 [notice] 1#1: worker process 31 exited with code 0
+2025/05/14 20:57:49 [notice] 1#1: exit
+2025/05/14 20:58:15 [notice] 1#1: using the "epoll" event method
+2025/05/14 20:58:15 [notice] 1#1: nginx/1.28.0
+2025/05/14 20:58:15 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/05/14 20:58:15 [notice] 1#1: OS: Linux 6.8.8-2-pve
+2025/05/14 20:58:15 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/05/14 20:58:15 [notice] 1#1: start worker processes
+2025/05/14 20:58:15 [notice] 1#1: start worker process 31
+2025/05/14 21:58:20 [error] 31#31: *1 connect() failed (113: Host is unreachable) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET /auth/callback HTTP/1.1", upstream: "http://172.18.0.4:18000/auth/callback", host: "planning.certusbuild.com"
+2025/05/14 21:58:20 [error] 31#31: *3 connect() failed (113: Host is unreachable) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET /auth/callback HTTP/1.1", upstream: "http://172.18.0.4:18000/auth/callback", host: "planning.certusbuild.com"
+2025/05/14 21:59:11 [error] 31#31: *5 connect() failed (113: Host is unreachable) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET /auth/callback HTTP/1.1", upstream: "http://172.18.0.4:18000/auth/callback", host: "planning.certusbuild.com"
+2025/05/14 23:29:54 [error] 31#31: *7 connect() failed (113: Host is unreachable) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET / HTTP/1.1", upstream: "http://172.18.0.4:18000/", host: "planning.certusbuild.com"
+2025/05/14 23:29:54 [error] 31#31: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET / HTTP/1.1", upstream: "http://172.18.0.4:18000/", host: "planning.certusbuild.com"
+2025/05/14 23:29:54 [error] 31#31: *11 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.2, server: planning.certusbuild.com, request: "GET /auth/login HTTP/1.1", upstream: "http://172.18.0.4:18000/auth/login", host: "planning.certusbuild.com", referrer: "https://planning.certusbuild.com/"
+2025/05/14 23:35:18 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/05/14 23:35:18 [notice] 31#31: gracefully shutting down
+2025/05/14 23:35:18 [notice] 31#31: exiting
+2025/05/14 23:35:18 [notice] 31#31: exit
+2025/05/14 23:35:18 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/05/14 23:35:18 [notice] 1#1: worker process 31 exited with code 0
+2025/05/14 23:35:18 [notice] 1#1: exit
+2025/05/14 23:36:49 [notice] 1#1: using the "epoll" event method
+2025/05/14 23:36:49 [notice] 1#1: nginx/1.28.0
+2025/05/14 23:36:49 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/05/14 23:36:49 [notice] 1#1: OS: Linux 6.8.8-2-pve
+2025/05/14 23:36:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/05/14 23:36:49 [notice] 1#1: start worker processes
+2025/05/14 23:36:49 [notice] 1#1: start worker process 30

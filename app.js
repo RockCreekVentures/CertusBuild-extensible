@@ -18,6 +18,7 @@ require('dotenv').config();
 // Initialize Express app
 const app = express();
 
+
 // Configure view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +30,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Tell Express to trust the first hop of a reverse proxy
+app.set('trust proxy', 1);
+
+// Configure view engine
+// ... (rest of your existing code)
+
 
 // Session management
 const sessionConfig = {
